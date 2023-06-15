@@ -1,0 +1,22 @@
+{
+    "get_started":"Get Started",
+    "skip":"Skip",
+    "enter_mobile_number":"Enter your mobile\nnumber to get otp",
+    "phone_no":"Phone Number",
+    "get_otp":"Get OTP",
+    "or_signin":"Or signing with...",
+    "use_dinereel_business":"Use Dinereel Business",
+    "accept":"By creating an account, you accept our",
+    "terms_and_condition":"Terms and condition",
+    "you_read_our":" you read our ",
+    "privacy_policy":"Privacy Policy.",
+    "verify_otp":"Verify OTP",
+    "verify_code":"We have sent a verification code to\n+91xxxxxx4644",
+    "pin_incorrect":"Pin is incorrect",
+    "resend_otp":"Resend OTP",
+    "get_ready_to_explore":"Get Ready To Explore\nFood with Reels",
+    "scan_qr":"Scan Menu QR",
+    "hi_dinereeler":"Hi Dinereeler,",
+    "+91 xxxxx-xxxxx":"+91 xxxxx-xxxxx"
+
+}

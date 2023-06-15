@@ -1,6 +1,6 @@
-import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:dinereel/src/constants/colors.dart';
+import 'package:dinereel/src/themes/colors.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -54,13 +54,16 @@ class _HomePageState extends State<HomePage> {
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: Row(
                   children: [
-                    const Column(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Hi Dinereeler,',
-                            style: TextStyle(
+                        Text('hi_dinereeler'.tr(),
+                            style: const TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.w700)),
-                        Text('+91 xxxxx-xxxxx')
+                        Text(
+                          '+91 xxxxx-xxxxx'.tr(),
+                          style: Theme.of(context).textTheme.displaySmall,
+                        )
                       ],
                     ),
                     const Spacer(),
@@ -75,21 +78,6 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               const SizedBox(height: 130),
-              // Center(
-              //   child: Container(
-              //     padding: const EdgeInsets.all(5),
-              //     decoration: BoxDecoration(
-              //       gradient: const LinearGradient(colors: [
-              //         AppColors.prinaryGradientLight,
-              //         AppColors.prinaryGradientDeep,
-              //         Color.fromARGB(255, 203, 122, 24),
-              //         Color.fromARGB(255, 145, 88, 18),
-              //       ]),
-              //       borderRadius: BorderRadius.circular(300),
-              //     ),
-              //     child: Image.asset('assets/images/home_bg.png'),
-              //   ),
-              // ),
               CarouselSlider(
                 items: [
                   GestureDetector(
@@ -106,7 +94,7 @@ class _HomePageState extends State<HomePage> {
                           ]),
                           borderRadius: BorderRadius.circular(300),
                         ),
-                        child: Image.asset('assets/images/home_bg.png'),
+                        child: Image.asset('assets/auth/images/home_bg.png'),
                       ),
                     ),
                   ),
@@ -124,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                           ]),
                           borderRadius: BorderRadius.circular(300),
                         ),
-                        child: Image.asset('assets/images/home_bg.png'),
+                        child: Image.asset('assets/auth/images/home_bg.png'),
                       ),
                     ),
                   ),
@@ -142,7 +130,7 @@ class _HomePageState extends State<HomePage> {
                           ]),
                           borderRadius: BorderRadius.circular(300),
                         ),
-                        child: Image.asset('assets/images/home_bg.png'),
+                        child: Image.asset('assets/auth/images/home_bg.png'),
                       ),
                     ),
                   ),
@@ -160,7 +148,7 @@ class _HomePageState extends State<HomePage> {
                           ]),
                           borderRadius: BorderRadius.circular(300),
                         ),
-                        child: Image.asset('assets/images/home_bg.png'),
+                        child: Image.asset('assets/auth/images/home_bg.png'),
                       ),
                     ),
                   )

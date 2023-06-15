@@ -1,9 +1,10 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
-import '../../../constants/colors.dart';
+import '../../../themes/colors.dart';
 import '../../../routing/routing_function.dart';
 import '../../auth/screens/home_page.dart';
 
@@ -59,9 +60,12 @@ class _QrScanPageState extends State<QrScanPage> {
                 ),
               ),
               const SizedBox(height: 50),
-              const Center(
-                  child: Text('Scan Menu QR',
-                      style: TextStyle(fontSize: 28, color: AppColors.white))),
+              Center(
+                  child: Text('scan_qr'.tr(),
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleLarge!
+                          .copyWith(color: AppColors.white))),
               const SizedBox(height: 52),
               Center(
                 child: SizedBox(

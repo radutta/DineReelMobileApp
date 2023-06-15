@@ -1,11 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-import '../constants/colors.dart';
+import 'colors.dart';
 
 class AppTheme {
   static final ThemeData theme = ThemeData(
-    primaryColor: AppColors.prinaryGradientDeep,
-    textSelectionTheme: const TextSelectionThemeData(
-        cursorColor: AppColors.prinaryGradientDeep),
-  );
+      primaryColor: AppColors.prinaryGradientDeep,
+      textSelectionTheme: const TextSelectionThemeData(
+          cursorColor: AppColors.prinaryGradientDeep),
+      fontFamily: GoogleFonts.poppins().fontFamily,
+      textTheme: TextTheme(
+        displaySmall: TextStyle(
+            fontSize: 14,
+            fontFamily: GoogleFonts.poppins().fontFamily,
+            fontWeight: FontWeight.w400,
+            color: AppColors.black),
+        bodySmall: TextStyle(
+            fontSize: 14, fontFamily: GoogleFonts.poppins().fontFamily),
+        bodyMedium: TextStyle(
+            fontSize: 16,
+            fontFamily: GoogleFonts.poppins().fontFamily,
+            fontWeight: FontWeight.w700),
+        titleMedium: TextStyle(
+            fontSize: 20,
+            fontFamily: GoogleFonts.poppins().fontFamily,
+            fontWeight: FontWeight.bold),
+        titleLarge: TextStyle(
+          fontSize: 28,
+          fontFamily: GoogleFonts.poppins().fontFamily,
+          fontWeight: FontWeight.w600,
+        ),
+      ));
 }

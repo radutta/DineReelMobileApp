@@ -1,8 +1,9 @@
 import 'dart:async';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../../../constants/colors.dart';
+import '../../../themes/colors.dart';
 import '../../menu/screens/qr_scan_page.dart';
 
 class LoginSuccessPage extends StatefulWidget {
@@ -35,7 +36,7 @@ class _LoginSuccessPageState extends State<LoginSuccessPage> {
               curve: Curves.linear,
               tween: Tween<Offset>(
                   begin: const Offset(500, 0), end: const Offset(110, 72)),
-              child: Image.asset('assets/images/cartoon.png'),
+              child: Image.asset('assets/auth/images/cartoon.png'),
               builder: (context, offset, child) {
                 return Transform.translate(offset: offset, child: child);
               },
@@ -45,7 +46,7 @@ class _LoginSuccessPageState extends State<LoginSuccessPage> {
               curve: Curves.linear,
               tween: Tween<Offset>(
                   begin: const Offset(-100, 0), end: const Offset(5, 72)),
-              child: Image.asset('assets/images/burger.png'),
+              child: Image.asset('assets/auth/images/burger.png'),
               builder: (context, offset, child) {
                 return Transform.translate(offset: offset, child: child);
               },
@@ -55,7 +56,7 @@ class _LoginSuccessPageState extends State<LoginSuccessPage> {
               curve: Curves.linear,
               tween: Tween<Offset>(
                   begin: const Offset(-20, 548), end: const Offset(0, 348)),
-              child: Image.asset('assets/images/fries.png'),
+              child: Image.asset('assets/auth/images/fries.png'),
               builder: (context, offset, child) {
                 return Transform.translate(offset: offset, child: child);
               },
@@ -65,21 +66,18 @@ class _LoginSuccessPageState extends State<LoginSuccessPage> {
               curve: Curves.linear,
               tween: Tween<Offset>(
                   begin: const Offset(500, 650), end: const Offset(210, 450)),
-              child: Image.asset('assets/images/donut.png'),
+              child: Image.asset('assets/auth/images/donut.png'),
               builder: (context, offset, child) {
                 return Transform.translate(offset: offset, child: child);
               },
             ),
-            const Align(
+            Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: EdgeInsets.only(bottom: 70),
-                child: Text('Get Ready To Explore\nFood with Reels',
+                padding: const EdgeInsets.only(bottom: 70),
+                child: Text('get_ready_to_explore'.tr(),
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 28,
-                        color: AppColors.black,
-                        fontWeight: FontWeight.w600)),
+                    style: Theme.of(context).textTheme.titleLarge),
               ),
             ),
           ],

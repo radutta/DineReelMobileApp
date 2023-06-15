@@ -6152,7 +6152,7 @@
                     }
                 },
                 {
-                    "source": "/Users/malay/Documents/dinereel/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/Users/malay/Documents/DineReelMobileApp/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
@@ -6395,25 +6395,6 @@
                     }
                 },
                 {
-                    "source": "/Users/malay/Documents/dinereel/android/app/src/main/res/values/styles.xml",
-                    "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "173,818",
-                        "endLines": "7,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "476,982"
-                    },
-                    "to": {
-                        "startLines": "1464,1468",
-                        "startColumns": "4,4",
-                        "startOffsets": "95491,95672",
-                        "endLines": "1467,1470",
-                        "endColumns": "12,12",
-                        "endOffsets": "95667,95836"
-                    }
-                },
-                {
                     "source": "/Users/malay/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/res/values/values.xml",
                     "from": {
                         "startLines": "2,7,8,9,10,11,19,23,34,51",
@@ -6498,6 +6479,25 @@
                         "startOffsets": "19299,22492",
                         "endColumns": "67,166",
                         "endOffsets": "19362,22654"
+                    }
+                },
+                {
+                    "source": "/Users/malay/Documents/DineReelMobileApp/android/app/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "173,818",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "476,982"
+                    },
+                    "to": {
+                        "startLines": "1464,1468",
+                        "startColumns": "4,4",
+                        "startOffsets": "95491,95672",
+                        "endLines": "1467,1470",
+                        "endColumns": "12,12",
+                        "endOffsets": "95667,95836"
                     }
                 },
                 {
