@@ -124,6 +124,7 @@ class LoginPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: IntlPhoneField(
+                      initialCountryCode: 'IN',
                       style: Theme.of(context).textTheme.displaySmall,
                       decoration: InputDecoration(
                         counterText: "",
