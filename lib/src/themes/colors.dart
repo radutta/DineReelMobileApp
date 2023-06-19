@@ -18,4 +18,5 @@ class AppColors {
   static const black = Colors.black;
   static const pinbgColor = Color(0XFFEFF3FF);
   static const scanbgColor = Color(0xFF1E1E1E);
+  static const primaryappbarColor = Colors.amber;
 }
