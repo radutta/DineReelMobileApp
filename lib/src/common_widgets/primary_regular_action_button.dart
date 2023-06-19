@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants/colors.dart';
+import '../themes/colors.dart';
 
 class PrimaryRegularActionButton extends StatelessWidget {
   const PrimaryRegularActionButton(
@@ -35,7 +35,7 @@ class PrimaryRegularActionButton extends StatelessWidget {
             const Spacer(),
             Text(
               text,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
             const Spacer(),
           ],
