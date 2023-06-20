@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:io';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -21,9 +20,6 @@ class _QrScanPageState extends State<QrScanPage> {
   QRViewController? controller;
   @override
   void initState() {
-    Timer(const Duration(seconds: 3), () {
-      Navigator.of(context).push(Routes().createRoute(const HomePage()));
-    });
     super.initState();
   }
 
@@ -52,7 +48,8 @@ class _QrScanPageState extends State<QrScanPage> {
               const SizedBox(height: 50),
               GestureDetector(
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.of(context)
+                      .push(Routes().createRoute(const Home()));
                 },
                 child: const Icon(
                   Icons.arrow_back,

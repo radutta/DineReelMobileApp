@@ -117,3 +117,62 @@ class BottomNavigationBarWidget extends StatelessWidget {
     );
   }
 }
+
+class HomeBottomNavigationBar extends StatelessWidget {
+  const HomeBottomNavigationBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        const SizedBox(width: 60),
+        GestureDetector(
+            onTap: () {
+              context.read<NavigationcontrollerCubit>().changescreen(0);
+            },
+            child: SizedBox(
+              width: 60,
+              child: Column(mainAxisSize: MainAxisSize.min, children: [
+                context.watch<NavigationcontrollerCubit>().state == 0
+                    ? SvgPicture.asset('assets/auth/images/home_active.svg')
+                    : SvgPicture.asset('assets/auth/images/home.svg'),
+                Text(
+                  'Home',
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        fontWeight: FontWeight.w700,
+                        color:
+                            context.read<NavigationcontrollerCubit>().state == 0
+                                ? AppColors.prinaryGradientDeep
+                                : AppColors.black,
+                      ),
+                )
+              ]),
+            )),
+        const Spacer(),
+        GestureDetector(
+            onTap: () {
+              context.read<NavigationcontrollerCubit>().changescreen(1);
+            },
+            child: SizedBox(
+              width: 60,
+              child: Column(mainAxisSize: MainAxisSize.min, children: [
+                context.watch<NavigationcontrollerCubit>().state == 1
+                    ? SvgPicture.asset('assets/auth/images/blog_active.svg')
+                    : SvgPicture.asset('assets/auth/images/blog.svg'),
+                Text(
+                  'Blog',
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        fontWeight: FontWeight.w700,
+                        color:
+                            context.read<NavigationcontrollerCubit>().state == 1
+                                ? AppColors.prinaryGradientDeep
+                                : AppColors.black,
+                      ),
+                )
+              ]),
+            )),
+        const SizedBox(width: 60),
+      ],
+    );
+  }
+}
