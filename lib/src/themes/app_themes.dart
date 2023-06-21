@@ -21,6 +21,7 @@ class AppTheme {
             fontSize: 16,
             fontFamily: GoogleFonts.poppins().fontFamily,
             fontWeight: FontWeight.w700),
+            
         titleMedium: TextStyle(
             fontSize: 20,
             fontFamily: GoogleFonts.poppins().fontFamily,
