@@ -1,3 +1,4 @@
+import 'package:dinereel/src/features/menu/widgets/menu_card.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -13,13 +14,7 @@ class ItemPreviewSlider extends StatefulWidget {
 class _ItemPreviewSliderState extends State<ItemPreviewSlider> {
   late PageController pagecontroller;
   bool iconColor = false;
-  final List<String> images = [
-    'https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=600',
-    'https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=600',
-    'https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=600',
-    'https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600',
-    'https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?auto=compress&cs=tinysrgb&w=600'
-  ];
+
   @override
   void initState() {
     pagecontroller = PageController();
@@ -41,14 +36,14 @@ class _ItemPreviewSliderState extends State<ItemPreviewSlider> {
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
           child: PageView.builder(
               controller: pagecontroller,
-              itemCount: images.length,
+              itemCount: imagesItem.length,
               itemBuilder: (context, index) {
                 return ClipRRect(
                     borderRadius: const BorderRadius.only(
                         bottomLeft: Radius.circular(30),
                         bottomRight: Radius.circular(30)),
                     child: Image.network(
-                      images[index],
+                      imagesItem[index],
                       fit: BoxFit.cover,
                     ));
               }),
@@ -60,7 +55,7 @@ class _ItemPreviewSliderState extends State<ItemPreviewSlider> {
             padding: const EdgeInsets.only(bottom: 22),
             child: SmoothPageIndicator(
                 controller: pagecontroller,
-                count: images.length,
+                count: imagesItem.length,
                 onDotClicked: (index) => pagecontroller.animateToPage(
                       index,
                       duration: const Duration(milliseconds: 500),

@@ -5,6 +5,14 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../routing/routing_function.dart';
 import '../../../themes/colors.dart';
 
+final List<String> imagesItem = [
+  'https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=600',
+  'https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=600',
+  'https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=600',
+  'https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600',
+  'https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?auto=compress&cs=tinysrgb&w=600'
+];
+
 class MenuCardWidget extends StatefulWidget {
   const MenuCardWidget({super.key});
 
@@ -15,13 +23,7 @@ class MenuCardWidget extends StatefulWidget {
 class _MenuCardWidgetState extends State<MenuCardWidget> {
   late PageController pagecontroller;
   bool iconColor = false;
-  final List<String> images = [
-    'https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=600',
-    'https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=600',
-    'https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=600',
-    'https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600',
-    'https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?auto=compress&cs=tinysrgb&w=600'
-  ];
+
   @override
   void initState() {
     pagecontroller = PageController();
@@ -48,7 +50,7 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
           children: [
             PageView.builder(
                 controller: pagecontroller,
-                itemCount: images.length,
+                itemCount: imagesItem.length,
                 itemBuilder: (context, index) {
                   return ClipRRect(
                       borderRadius: BorderRadius.circular(10),
@@ -60,7 +62,7 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                           //       )
                           //     :
                           Image.network(
-                        images[index],
+                        imagesItem[index],
                         fit: BoxFit.cover,
                       ));
                 }),
@@ -110,7 +112,7 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                 padding: const EdgeInsets.only(top: 22),
                 child: SmoothPageIndicator(
                     controller: pagecontroller,
-                    count: images.length,
+                    count: imagesItem.length,
                     onDotClicked: (index) => pagecontroller.animateToPage(
                           index,
                           duration: const Duration(milliseconds: 500),
