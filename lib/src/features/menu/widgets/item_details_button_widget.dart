@@ -22,8 +22,8 @@ class _ItemDetailsButtonWidgetState extends State<ItemDetailsButtonWidget> {
         BoxShadow(
             offset: Offset(0, 0),
             blurRadius: 10,
-            spreadRadius: 10,
-            color: Colors.grey)
+            spreadRadius: 0,
+            color: AppColors.grey)
       ]),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
