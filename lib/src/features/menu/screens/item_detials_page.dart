@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../themes/colors.dart';
+import '../widgets/item_details_button_widget.dart';
 import '../widgets/item_preview_slider.dart';
 
 class ItemDetailsPage extends StatefulWidget {
@@ -77,6 +78,7 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
           )
         ],
       ),
+      bottomSheet: ItemDetailsButtonWidget(),
     );
   }
 }

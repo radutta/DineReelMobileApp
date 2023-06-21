@@ -16,6 +16,7 @@ class AppColors {
   static const secondaryLightFont = Color(0XFF808080);
   static const white = Colors.white;
   static const black = Colors.black;
+  static const grey = Colors.grey;
   static const pinbgColor = Color(0XFFEFF3FF);
   static const scanbgColor = Color(0xFF1E1E1E);
   static const primaryappbarColor = Colors.amber;
