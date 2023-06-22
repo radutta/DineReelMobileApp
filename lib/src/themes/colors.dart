@@ -20,4 +20,6 @@ class AppColors {
   static const pinbgColor = Color(0XFFEFF3FF);
   static const scanbgColor = Color(0xFF1E1E1E);
   static const primaryappbarColor = Color(0XFFFFBB0C);
+  static const usercardGradientLight = Color(0XFFFFBB0C);
+  static const usercardGradienrDeep = Color(0XFFFFA000);
 }

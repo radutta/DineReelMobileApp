@@ -8,6 +8,7 @@ import '../../../common_widgets/bottom_navigation_bar.dart';
 import '../../../cubit/cubit/navigationcontroller_cubit.dart';
 import '../../../themes/colors.dart';
 // import '../../auth/screens/home_page.dart';
+import '../../user/screens/user_profile_page.dart';
 import '../widgets/banner_widget.dart';
 import '../widgets/highlightlist_widget.dart';
 import '../widgets/menu_card.dart';
@@ -25,7 +26,7 @@ class _MenuHomeState extends State<MenuHome> {
     const MenuPage(),
     const BlogPage(),
     const WishlistPage(),
-    const AdminPage()
+    const UserProfilePage()
   ];
   @override
   Widget build(BuildContext context) {
