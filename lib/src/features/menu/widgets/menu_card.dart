@@ -1,4 +1,5 @@
 import 'package:dinereel/src/features/menu/screens/item_detials_page.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -100,9 +101,9 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                   AppColors.prinaryGradientLight,
                   Colors.transparent.withOpacity(.2)
                 ])),
-                child: const Text(
-                  "New",
-                  style: TextStyle(color: AppColors.black),
+                child: Text(
+                  "new".tr(),
+                  style: const TextStyle(color: AppColors.black),
                 ),
               ),
             ),
@@ -186,7 +187,7 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                             ]),
                             color: AppColors.prinaryGradientLight),
                         child: Text(
-                          'ADD',
+                          'add'.tr(),
                           style: Theme.of(context).textTheme.bodyMedium,
                         ),
                       )

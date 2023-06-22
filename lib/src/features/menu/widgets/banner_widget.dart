@@ -17,9 +17,18 @@ class BannerWidget extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 14),
-          child: Text(
-            'offer'.tr(),
-            style: Theme.of(context).textTheme.titleMedium,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'offer'.tr(),
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              Text(
+                'view_all'.tr(),
+                style: Theme.of(context).textTheme.bodySmall,
+              )
+            ],
           ),
         ),
         const SizedBox(height: 30),
