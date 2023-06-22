@@ -5,6 +5,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../routing/routing_function.dart';
 import '../../../themes/colors.dart';
+import 'item_details_bottom_sheet.dart';
 
 final List<String> imagesItem = [
   'https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -15,8 +16,9 @@ final List<String> imagesItem = [
 ];
 
 class MenuCardWidget extends StatefulWidget {
-  const MenuCardWidget({super.key});
+  const MenuCardWidget({super.key, required this.index});
 
+  final int index;
   @override
   State<MenuCardWidget> createState() => _MenuCardWidgetState();
 }
@@ -41,8 +43,20 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context)
-            .push(Routes().createRoute(const ItemDetailsPage()));
+        widget.index == 0
+            ? showModalBottomSheet(
+                isScrollControlled: true,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.vertical(
+                    top: Radius.circular(25.0),
+                  ),
+                ),
+                context: context,
+                builder: (context) {
+                  return const ItemDetailsBottomSheet();
+                })
+            : Navigator.of(context)
+                .push(Routes().createRoute(const ItemDetailsPage()));
       },
       child: Container(
         height: 400,
