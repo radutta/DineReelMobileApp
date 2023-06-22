@@ -14,15 +14,11 @@ class ItemDetailsBottomSheet extends StatelessWidget {
       children: [
         const SizedBox(height: 20),
         SizedBox(
-          height: 365,
-          width: 365,
-          child: ClipRRect(
-              borderRadius: BorderRadius.circular(30),
-              child: Image.network(
-                imagesItem[4],
-                fit: BoxFit.cover,
-              )),
-        ),
+            height: 365,
+            width: 365,
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(30),
+                child: Image.network(imagesItem[4], fit: BoxFit.cover))),
         const SizedBox(height: 10),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
