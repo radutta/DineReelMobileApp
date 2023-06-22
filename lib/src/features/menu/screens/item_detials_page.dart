@@ -137,25 +137,22 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                           child: ListView.separated(
                               physics: const NeverScrollableScrollPhysics(),
                               shrinkWrap: true,
-                              itemCount: 40,
+                              itemCount: 60,
                               separatorBuilder: (context, index) {
                                 return const SizedBox(height: 3);
                               },
                               itemBuilder: (context, index) {
-                                return index == 0 || index == 12 || index == 24
-                                    ? Row(
-                                        children: [
-                                          Container(
-                                              height: 10,
-                                              width: 10,
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          100),
-                                                  color: AppColors
-                                                      .prinaryGradientDeep)),
-                                        ],
-                                      )
+                                return index == 0 || index == 12 || index == 30
+                                    ? Row(children: [
+                                        Container(
+                                            height: 10,
+                                            width: 10,
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(100),
+                                                color: AppColors
+                                                    .prinaryGradientDeep))
+                                      ])
                                     : Center(
                                         child: Container(
                                             height: 5,
@@ -164,18 +161,73 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                                                 AppColors.prinaryGradientDeep),
                                       );
                               }))),
-                  SizedBox(
-                    width: 100,
-                    child: ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: descItems.length,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.only(bottom: 70),
-                            child: Text(descItems[index]),
-                          );
-                        }),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 30),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(descItems[0]),
+                            Text(
+                              'Food history is an interdisciplinary field that examines the\nhistory and the cultural, economic, environmental, and\nsociological impacts of food',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall!
+                                  .copyWith(fontSize: 12),
+                            )
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 25),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(descItems[1]),
+                            Text(
+                              'A food ingredient is any substance that is added to a\nfood to achieve a desired effect. The term “food\ningredient” includes food additives, which\nare substances added to foods for specific technical\nand/or functional  purposes during processing,\nstorage or packaging.',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall!
+                                  .copyWith(fontSize: 12),
+                            )
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 17),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(descItems[2]),
+                            Text(
+                              'A food ingredient is any substance that is added to a\nfood to achieve a desired effect. The term “food\ningredient” includes food additives, which\nare substances added to foods for specific technical\nand/or functional  purposes during processing,\nstorage or packaging.',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall!
+                                  .copyWith(fontSize: 12),
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
+
+                  // SizedBox(
+                  //   width: 100,
+                  //   child: ListView.builder(
+                  //       physics: const NeverScrollableScrollPhysics(),
+                  //       shrinkWrap: true,
+                  //       itemCount: descItems.length,
+                  //       itemBuilder: (context, index) {
+                  //         return Padding(
+                  //           padding: const EdgeInsets.only(),
+                  //           child: Text(descItems[index]),
+                  //         );
+                  //       }),
+                  // ),
                 ],
               ),
             ),

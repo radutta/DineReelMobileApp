@@ -40,9 +40,11 @@ class _ItemDetailsButtonWidgetState extends State<ItemDetailsButtonWidget> {
               children: [
                 GestureDetector(
                     onTap: () {
-                      setState(() {
-                        itemCount = itemCount - 1;
-                      });
+                      if (itemCount > 0) {
+                        setState(() {
+                          itemCount = itemCount - 1;
+                        });
+                      }
                     },
                     child: const Icon(Icons.remove)),
                 Text(itemCount.toString(),
