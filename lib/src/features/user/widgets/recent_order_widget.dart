@@ -156,7 +156,7 @@ class RecentOrderWidget extends StatelessWidget {
                                   .copyWith(
                                       fontWeight: FontWeight.w600,
                                       fontSize: 12)),
-                          const SizedBox(width: 72),
+                          const SizedBox(width: 85),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [

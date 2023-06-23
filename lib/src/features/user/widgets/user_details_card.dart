@@ -1,3 +1,4 @@
+import 'package:dinereel/src/features/user/widgets/outlet_popup.dart';
 import 'package:dinereel/src/themes/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -63,30 +64,41 @@ class UserDetailsCard extends StatelessWidget {
                 .displaySmall!
                 .copyWith(fontWeight: FontWeight.w600),
           ),
-          Container(
-            width: 150,
-            height: 30,
-            alignment: Alignment.center,
-            decoration: ShapeDecoration(
-              color: AppColors.black,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
+          const SizedBox(height: 5),
+          GestureDetector(
+            onTap: () {
+              showDialog(
+                  barrierDismissible: false,
+                  context: context,
+                  builder: (context) {
+                    return const OutletPopupWidget();
+                  });
+            },
+            child: Container(
+              width: 150,
+              height: 30,
+              alignment: Alignment.center,
+              decoration: ShapeDecoration(
+                color: AppColors.black,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
               ),
-            ),
-            child: Text.rich(
-              TextSpan(
-                children: [
-                  TextSpan(
-                    text: 'Outlet',
-                    style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                        fontWeight: FontWeight.w400, color: AppColors.white),
-                  ),
-                  TextSpan(
-                    text: ' - Park street',
-                    style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                        fontWeight: FontWeight.w600, color: AppColors.white),
-                  ),
-                ],
+              child: Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'Outlet',
+                      style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                          fontWeight: FontWeight.w400, color: AppColors.white),
+                    ),
+                    TextSpan(
+                      text: ' - Park street',
+                      style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                          fontWeight: FontWeight.w600, color: AppColors.white),
+                    ),
+                  ],
+                ),
               ),
             ),
           )
