@@ -7,6 +7,7 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import '../../../common_widgets/primary_regular_action_button.dart';
 import '../../../themes/colors.dart';
 import '../../../routing/routing_function.dart';
+import '../../menu/screens/menu_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -95,7 +96,10 @@ class LoginPage extends StatelessWidget {
                             icon: const Icon(Icons.arrow_back,
                                 color: AppColors.primaryDarkFont)),
                         GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.of(context)
+                                  .push(Routes().createRoute(const MenuHome()));
+                            },
                             child: Text('skip'.tr(),
                                 style: Theme.of(context)
                                     .textTheme
@@ -120,6 +124,7 @@ class LoginPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: IntlPhoneField(
+                      initialCountryCode: 'IN',
                       style: Theme.of(context).textTheme.displaySmall,
                       decoration: InputDecoration(
                         counterText: "",
