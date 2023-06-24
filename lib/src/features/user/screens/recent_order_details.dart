@@ -15,7 +15,11 @@ class RecentOrderdetails extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Icon(Icons.arrow_back),
+              GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Icon(Icons.arrow_back)),
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -23,24 +27,19 @@ class RecentOrderdetails extends StatelessWidget {
                     'Dinereel Food Hub',
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
-                  Text(
-                    'East Kolkata Township, Kolkata',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodySmall!
-                        .copyWith(fontSize: 12),
-                  )
+                  Text('East Kolkata Township, Kolkata',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodySmall!
+                          .copyWith(fontSize: 12))
                 ],
               ),
               const SizedBox(width: 20)
             ],
           ),
         ),
-        Text(
-          '29 May, 23',
-          style: Theme.of(context).textTheme.bodySmall!.copyWith(fontSize: 12),
-        ),
-        RecentOrderDetailsCard()
+        Text('29 May, 23', style: Theme.of(context).textTheme.bodySmall),
+        const RecentOrderDetailsCard()
       ]),
     );
   }
