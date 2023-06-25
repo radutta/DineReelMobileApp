@@ -20,7 +20,7 @@ class PrimaryAppBar extends StatelessWidget {
               end: Alignment.bottomCenter,
               colors: [
                 AppColors.primaryappbarColor,
-                AppColors.prinaryGradientDeep,
+                AppColors.primaryGradientDeep,
               ])),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,

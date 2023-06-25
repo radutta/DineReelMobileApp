@@ -76,7 +76,7 @@ class _OutletPopupWidgetState extends State<OutletPopupWidget> {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(100),
                                     color: selected == 0
-                                        ? AppColors.prinaryGradientDeep
+                                        ? AppColors.primaryGradientDeep
                                         : AppColors.grey),
                               ),
                             ),
@@ -182,7 +182,7 @@ class _OutletPopupWidgetState extends State<OutletPopupWidget> {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(100),
                                     color: selected == 1
-                                        ? AppColors.prinaryGradientDeep
+                                        ? AppColors.primaryGradientDeep
                                         : AppColors.grey),
                               ),
                             ),
@@ -288,7 +288,7 @@ class _OutletPopupWidgetState extends State<OutletPopupWidget> {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(100),
                                     color: selected == 2
-                                        ? AppColors.prinaryGradientDeep
+                                        ? AppColors.primaryGradientDeep
                                         : AppColors.grey),
                               ),
                             ),

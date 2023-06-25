@@ -2,6 +2,9 @@ import 'package:dinereel/src/features/user/widgets/outlet_popup.dart';
 import 'package:dinereel/src/themes/colors.dart';
 import 'package:flutter/material.dart';
 
+import '../../../routing/routing_function.dart';
+import '../screens/edit_profile_page.dart';
+
 class UserDetailsCard extends StatelessWidget {
   const UserDetailsCard({super.key});
 
@@ -41,7 +44,12 @@ class UserDetailsCard extends StatelessWidget {
                   shape: OvalBorder(),
                 ),
               ),
-              GestureDetector(child: const Icon(Icons.edit))
+              GestureDetector(
+                  onTap: () {
+                    Navigator.of(context)
+                        .push(Routes().createRoute(const EditProfilePage()));
+                  },
+                  child: const Icon(Icons.edit))
             ],
           ),
           Text('Shyamantak Ghosh',

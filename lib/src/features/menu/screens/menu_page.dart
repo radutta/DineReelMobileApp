@@ -30,30 +30,41 @@ class _MenuHomeState extends State<MenuHome> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: screens[context.watch<NavigationcontrollerCubit>().state],
-      extendBody: true,
-      floatingActionButton: GestureDetector(
-          onTap: () {
-            showModalBottomSheet(
-                isScrollControlled: true,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.vertical(
-                    top: Radius.circular(25.0),
+    return WillPopScope(
+      onWillPop: () async {
+        if (context.read<NavigationcontrollerCubit>().state != 0) {
+          setState(() {
+            context.read<NavigationcontrollerCubit>().changescreen(0);
+          });
+          return false;
+        }
+        return true;
+      },
+      child: Scaffold(
+        body: screens[context.watch<NavigationcontrollerCubit>().state],
+        extendBody: true,
+        floatingActionButton: GestureDetector(
+            onTap: () {
+              showModalBottomSheet(
+                  isScrollControlled: true,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(25.0),
+                    ),
                   ),
-                ),
-                context: context,
-                builder: (context) {
-                  return const CategoryBottomSheet();
-                });
-          },
-          child: Image.asset('assets/menu/images/menu.png')),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: const BottomAppBar(
-          padding: EdgeInsets.symmetric(vertical: 10),
-          shape: CircularNotchedRectangle(),
-          notchMargin: 10,
-          child: BottomNavigationBarWidget()),
+                  context: context,
+                  builder: (context) {
+                    return const CategoryBottomSheet();
+                  });
+            },
+            child: Image.asset('assets/menu/images/menu.png')),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: const BottomAppBar(
+            padding: EdgeInsets.symmetric(vertical: 10),
+            shape: CircularNotchedRectangle(),
+            notchMargin: 10,
+            child: BottomNavigationBarWidget()),
+      ),
     );
   }
 }
@@ -121,7 +132,7 @@ class WishlistPage extends StatelessWidget {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-            AppColors.prinaryGradientDeep,
+            AppColors.primaryGradientDeep,
             AppColors.secondaryLightColor
           ])),
       child: const Center(
@@ -158,7 +169,7 @@ class AdminPage extends StatelessWidget {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-            AppColors.prinaryGradientDeep,
+            AppColors.primaryGradientDeep,
             AppColors.secondaryLightColor
           ])),
       child: const Center(

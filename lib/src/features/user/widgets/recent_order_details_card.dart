@@ -11,7 +11,7 @@ class RecentOrderDetailsCard extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: AppColors.prinaryGradientDeep)),
+          border: Border.all(color: AppColors.primaryGradientDeep)),
       child: Column(
         children: [
           ListView.builder(
@@ -61,8 +61,8 @@ class RecentOrderDetailsCard extends StatelessWidget {
                                   begin: Alignment(1.00, 0.00),
                                   end: Alignment(-1, 0),
                                   colors: [
-                                    AppColors.prinaryGradientDeep,
-                                    AppColors.prinaryGradientLight
+                                    AppColors.primaryGradientDeep,
+                                    AppColors.primaryGradientLight
                                   ],
                                 ),
                               ),

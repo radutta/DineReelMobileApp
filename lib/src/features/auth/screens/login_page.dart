@@ -23,8 +23,8 @@ class LoginPage extends StatelessWidget {
             Container(
               decoration: const BoxDecoration(
                 gradient: LinearGradient(colors: [
-                  AppColors.prinaryGradientLight,
-                  AppColors.prinaryGradientDeep,
+                  AppColors.primaryGradientLight,
+                  AppColors.primaryGradientDeep,
                 ]),
               ),
               child: SafeArea(
@@ -136,7 +136,7 @@ class LoginPage extends StatelessWidget {
                         ),
                         focusedBorder: const OutlineInputBorder(
                           borderSide: BorderSide(
-                              color: AppColors.prinaryGradientLight, width: 2),
+                              color: AppColors.primaryGradientLight, width: 2),
                         ),
                       ),
                       onChanged: (phone) {},

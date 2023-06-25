@@ -85,7 +85,7 @@ class _CategoryBottomSheetState extends State<CategoryBottomSheet> {
                             borderRadius: BorderRadius.circular(10),
                             border: selected.contains(index)
                                 ? Border.all(
-                                    color: AppColors.prinaryGradientLight)
+                                    color: AppColors.primaryGradientLight)
                                 : null,
                             boxShadow: selected.contains(index)
                                 ? null
@@ -124,7 +124,7 @@ class _CategoryBottomSheetState extends State<CategoryBottomSheet> {
                                       padding: EdgeInsets.only(right: 4),
                                       child: Icon(
                                         Icons.check_circle,
-                                        color: AppColors.prinaryGradientLight,
+                                        color: AppColors.primaryGradientLight,
                                       ),
                                     ),
                                   )

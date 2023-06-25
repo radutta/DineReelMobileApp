@@ -65,8 +65,8 @@ class _ItemDetailsButtonWidgetState extends State<ItemDetailsButtonWidget> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 gradient: const LinearGradient(colors: [
-                  AppColors.prinaryGradientDeep,
-                  AppColors.prinaryGradientLight
+                  AppColors.primaryGradientDeep,
+                  AppColors.primaryGradientLight
                 ]),
               ),
               alignment: Alignment.center,

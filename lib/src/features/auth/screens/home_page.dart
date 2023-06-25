@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
         effect: const ScrollingDotsEffect(
           dotWidth: 10,
           dotHeight: 10,
-          activeDotColor: AppColors.prinaryGradientDeep,
+          activeDotColor: AppColors.primaryGradientDeep,
           dotColor: Colors.grey,
         ),
       );
@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                AppColors.prinaryGradientDeep,
+                AppColors.primaryGradientDeep,
                 AppColors.secondaryLightColor
               ])),
           child: Column(

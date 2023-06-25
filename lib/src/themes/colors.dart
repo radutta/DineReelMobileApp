@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const prinaryGradientDeep = Color(0XFFF7971E);
-  static const prinaryGradientLight = Color(0XFFFFD200);
+  static const primaryGradientDeep = Color(0XFFF7971E);
+  static const primaryGradientLight = Color(0XFFFFD200);
   static const secondaryDarkColor = Color(0XFF2B2C2D);
   static const secondaryLightColor = Color(0XFFFFEEC3);
   static const buttonDark = Color(0XFF000000);

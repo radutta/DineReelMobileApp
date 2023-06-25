@@ -68,7 +68,7 @@ class _ItemPreviewSliderState extends State<ItemPreviewSlider> {
                     dotColor: Colors.grey,
                     activeDotScale: 1,
                     activeStrokeWidth: 1.7,
-                    activeDotColor: AppColors.prinaryGradientDeep)),
+                    activeDotColor: AppColors.primaryGradientDeep)),
           ),
         ),
         Align(

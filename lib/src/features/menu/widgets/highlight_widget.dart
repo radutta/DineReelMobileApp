@@ -17,8 +17,8 @@ class HighlightWidget extends StatelessWidget {
           padding: const EdgeInsets.all(5),
           decoration: BoxDecoration(
             gradient: const LinearGradient(colors: [
-              AppColors.prinaryGradientLight,
-              AppColors.prinaryGradientDeep,
+              AppColors.primaryGradientLight,
+              AppColors.primaryGradientDeep,
               Color.fromARGB(255, 203, 122, 24),
               Color.fromARGB(255, 145, 88, 18),
             ]),

@@ -5,9 +5,9 @@ import 'colors.dart';
 
 class AppTheme {
   static final ThemeData theme = ThemeData(
-      primaryColor: AppColors.prinaryGradientDeep,
+      primaryColor: AppColors.primaryGradientDeep,
       textSelectionTheme: const TextSelectionThemeData(
-          cursorColor: AppColors.prinaryGradientDeep),
+          cursorColor: AppColors.primaryGradientDeep),
       fontFamily: GoogleFonts.poppins().fontFamily,
       textTheme: TextTheme(
         displaySmall: TextStyle(
