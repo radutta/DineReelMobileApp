@@ -214,20 +214,6 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                       ),
                     ],
                   ),
-
-                  // SizedBox(
-                  //   width: 100,
-                  //   child: ListView.builder(
-                  //       physics: const NeverScrollableScrollPhysics(),
-                  //       shrinkWrap: true,
-                  //       itemCount: descItems.length,
-                  //       itemBuilder: (context, index) {
-                  //         return Padding(
-                  //           padding: const EdgeInsets.only(),
-                  //           child: Text(descItems[index]),
-                  //         );
-                  //       }),
-                  // ),
                 ],
               ),
             ),

@@ -1,13 +1,10 @@
 import 'package:dinereel/src/features/menu/widgets/category_filter_bottomsheet.dart';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../common_widgets/bottom_navigation_bar.dart';
 import '../../../cubit/cubit/navigationcontroller_cubit.dart';
 import '../../../themes/colors.dart';
-// import '../../auth/screens/home_page.dart';
 import '../../user/screens/user_profile_page.dart';
 import '../widgets/banner_widget.dart';
 import '../widgets/highlightlist_widget.dart';
