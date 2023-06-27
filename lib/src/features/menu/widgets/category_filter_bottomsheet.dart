@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:dinereel/src/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -26,7 +24,6 @@ class _CategoryBottomSheetState extends State<CategoryBottomSheet> {
       child: Container(
         color: AppColors.white,
         height: MediaQuery.of(context).size.height * .8,
-        // padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 30),
           child: Column(
@@ -142,7 +139,6 @@ class _CategoryBottomSheetState extends State<CategoryBottomSheet> {
                 },
                 disable: true,
               ),
-              // const SizedBox(height: 124),
             ],
           ),
         ),
