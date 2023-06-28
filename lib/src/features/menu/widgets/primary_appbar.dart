@@ -2,7 +2,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../routing/routing_function.dart';
 import '../../../themes/colors.dart';
+import '../screens/search_page.dart';
 
 class PrimaryAppBar extends StatelessWidget {
   const PrimaryAppBar({super.key});
@@ -63,14 +65,20 @@ class PrimaryAppBar extends StatelessWidget {
             ],
           ),
           const Spacer(),
-          Container(
-              height: 50,
-              width: 50,
-              padding: const EdgeInsets.all(1),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(100),
-                  color: AppColors.white),
-              child: SvgPicture.asset('assets/auth/images/search.svg')),
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context)
+                  .push(Routes().createRoute(const SearchPage()));
+            },
+            child: Container(
+                height: 50,
+                width: 50,
+                padding: const EdgeInsets.all(1),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    color: AppColors.white),
+                child: SvgPicture.asset('assets/auth/images/search.svg')),
+          ),
         ],
       ),
     );
