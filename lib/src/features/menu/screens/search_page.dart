@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../themes/colors.dart';
+import '../widgets/menu_card.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
@@ -89,6 +90,20 @@ class SearchPage extends StatelessWidget {
                 ],
               ),
               textAlign: TextAlign.center,
+            ),
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .814,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 14),
+              child: ListView.builder(
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 33),
+                      child: MenuCardWidget(index: index),
+                    );
+                  }),
             ),
           ),
         ],

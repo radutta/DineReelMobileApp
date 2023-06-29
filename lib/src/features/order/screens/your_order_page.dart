@@ -34,9 +34,10 @@ class YourOrderPage extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                    color: AppColors.white,
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: AppColors.primaryGradientDeep)),
+                  color: AppColors.white,
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: AppColors.primaryGradientDeep),
+                ),
                 height: 650,
                 child: Column(children: [
                   ListView.builder(
