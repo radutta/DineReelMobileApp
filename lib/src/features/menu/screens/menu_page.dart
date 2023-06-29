@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../common_widgets/bottom_navigation_bar.dart';
 import '../../../cubit/cubit/navigationcontroller_cubit.dart';
 import '../../../themes/colors.dart';
+import '../../order/widgets/view_order_widget.dart';
 import '../../user/screens/user_profile_page.dart';
 import '../widgets/banner_widget.dart';
 import '../widgets/highlightlist_widget.dart';
@@ -38,7 +39,12 @@ class _MenuHomeState extends State<MenuHome> {
         return true;
       },
       child: Scaffold(
-        body: screens[context.watch<NavigationcontrollerCubit>().state],
+        body: Stack(
+          children: [
+            screens[context.watch<NavigationcontrollerCubit>().state],
+            const Positioned(bottom: 82, child: ViewOrderWidget(orderNo: '2'))
+          ],
+        ),
         extendBody: true,
         floatingActionButton: GestureDetector(
             onTap: () {
