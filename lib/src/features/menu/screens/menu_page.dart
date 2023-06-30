@@ -1,4 +1,5 @@
 import 'package:dinereel/src/features/menu/widgets/category_filter_bottomsheet.dart';
+import 'package:dinereel/src/features/order/cubit/order_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,7 +43,10 @@ class _MenuHomeState extends State<MenuHome> {
         body: Stack(
           children: [
             screens[context.watch<NavigationcontrollerCubit>().state],
-            const Positioned(bottom: 82, child: ViewOrderWidget(orderNo: '2'))
+            context.watch<OrderControllerCubit>().state
+                ? const Positioned(
+                    bottom: 82, child: ViewOrderWidget(orderNo: '2'))
+                : Container()
           ],
         ),
         extendBody: true,
