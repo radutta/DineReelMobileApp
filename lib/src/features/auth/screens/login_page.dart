@@ -7,6 +7,7 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import '../../../common_widgets/primary_regular_action_button.dart';
 import '../../../themes/colors.dart';
 import '../../../routing/routing_function.dart';
+import '../../admin/screens/business_login_page.dart';
 import '../../menu/screens/menu_page.dart';
 
 class LoginPage extends StatelessWidget {
@@ -33,10 +34,16 @@ class LoginPage extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const Spacer(),
-                    Center(
-                      child: Text(
-                        'use_dinereel_business'.tr(),
-                        style: Theme.of(context).textTheme.titleMedium,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                            Routes().createRoute(const BusinessLoginPage()));
+                      },
+                      child: Center(
+                        child: Text(
+                          'use_dinereel_business'.tr(),
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 23),
@@ -125,7 +132,7 @@ class LoginPage extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: IntlPhoneField(
                       initialCountryCode: 'IN',
-                      style: Theme.of(context).textTheme.displaySmall,
+                      style: Theme.of(context).textTheme.bodyMedium,
                       decoration: InputDecoration(
                         counterText: "",
                         contentPadding: const EdgeInsets.symmetric(vertical: 0),

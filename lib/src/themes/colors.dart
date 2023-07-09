@@ -23,4 +23,6 @@ class AppColors {
   static const usercardGradientLight = Color(0XFFFFBB0C);
   static const usercardGradienrDeep = Color(0XFFFFA000);
   static const recentordercardBoxShadow = Color(0X3F000000);
+  static const greytextcolor = Color(0xFF8784AC);
+  static const blacktextcolot = Color(0xFF15104D);
 }

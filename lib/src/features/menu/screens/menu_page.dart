@@ -1,13 +1,12 @@
 import 'package:dinereel/src/features/menu/widgets/category_filter_bottomsheet.dart';
-
+import 'package:dinereel/src/features/order/cubit/order_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../common_widgets/bottom_navigation_bar.dart';
 import '../../../cubit/cubit/navigationcontroller_cubit.dart';
 import '../../../themes/colors.dart';
-// import '../../auth/screens/home_page.dart';
+import '../../order/widgets/view_order_widget.dart';
 import '../../user/screens/user_profile_page.dart';
 import '../widgets/banner_widget.dart';
 import '../widgets/highlightlist_widget.dart';
@@ -41,7 +40,15 @@ class _MenuHomeState extends State<MenuHome> {
         return true;
       },
       child: Scaffold(
-        body: screens[context.watch<NavigationcontrollerCubit>().state],
+        body: Stack(
+          children: [
+            screens[context.watch<NavigationcontrollerCubit>().state],
+            context.watch<OrderControllerCubit>().state
+                ? const Positioned(
+                    bottom: 82, child: ViewOrderWidget(orderNo: '2'))
+                : Container()
+          ],
+        ),
         extendBody: true,
         floatingActionButton: GestureDetector(
             onTap: () {
@@ -59,7 +66,8 @@ class _MenuHomeState extends State<MenuHome> {
             },
             child: Image.asset('assets/menu/images/menu.png')),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: const BottomAppBar(
+        bottomNavigationBar:
+         const BottomAppBar(
             padding: EdgeInsets.symmetric(vertical: 10),
             shape: CircularNotchedRectangle(),
             notchMargin: 10,
@@ -76,43 +84,39 @@ class MenuPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      body: SafeArea(
-        bottom: false,
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const PrimaryAppBar(),
-              const SizedBox(height: 20),
-              const HighlightListWidget(),
-              const SizedBox(height: 18),
-              const BannerWidget(),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 14, vertical: 20),
-                child: Text(
-                  'recommended'.tr(),
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const PrimaryAppBar(),
+            const SizedBox(height: 20),
+            const HighlightListWidget(),
+            const SizedBox(height: 18),
+            const BannerWidget(),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 20),
+              child: Text(
+                'recommended'.tr(),
+                style: Theme.of(context).textTheme.titleMedium,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 14),
-                child: ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: 10,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(bottom: 33),
-                        child: MenuCardWidget(
-                          index: index,
-                        ),
-                      );
-                    }),
-              ),
-              const SizedBox(height: 20),
-            ],
-          ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 14),
+              child: ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 33),
+                      child: MenuCardWidget(
+                        index: index,
+                      ),
+                    );
+                  }),
+            ),
+            const SizedBox(height: 20),
+          ],
         ),
       ),
     );

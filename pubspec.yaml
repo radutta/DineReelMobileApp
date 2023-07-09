@@ -75,6 +75,7 @@ flutter:
       - assets/auth/images/
       - assets/menu/images/
       - lib/src/localization/
+      - assets/admin/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

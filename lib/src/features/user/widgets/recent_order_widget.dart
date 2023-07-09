@@ -1,3 +1,4 @@
+import 'package:dinereel/src/features/order/screens/your_order_page.dart';
 import 'package:dinereel/src/features/user/screens/recent_order_details.dart';
 import 'package:flutter/material.dart';
 
@@ -20,9 +21,15 @@ class RecentOrderWidget extends StatelessWidget {
                 'Recent orders',
                 style: Theme.of(context).textTheme.titleMedium,
               ),
-              Text(
-                'Show all',
-                style: Theme.of(context).textTheme.bodySmall,
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context)
+                      .push(Routes().createRouteUp(const YourOrderPage()));
+                },
+                child: Text(
+                  'Show all',
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
               )
             ],
           ),
