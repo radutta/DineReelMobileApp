@@ -1,11 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-class SemiCircleClipper extends CustomClipper<Path> {
+class TicketDesignClipper extends CustomClipper<Path> {
   final double holeRadius;
   final double bottom;
 
-  SemiCircleClipper({required this.holeRadius, required this.bottom});
+  TicketDesignClipper({required this.holeRadius, required this.bottom});
 
   @override
   Path getClip(Size size) {
@@ -33,6 +33,5 @@ class SemiCircleClipper extends CustomClipper<Path> {
   }
 
   @override
-  bool shouldReclip(SemiCircleClipper oldClipper) => true;
+  bool shouldReclip(TicketDesignClipper oldClipper) => true;
 }
-

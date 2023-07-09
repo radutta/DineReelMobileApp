@@ -81,7 +81,7 @@ class _EditOrderPageState extends State<EditOrderPage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: ClipPath(
-              clipper: SemiCircleClipper(
+              clipper: TicketDesignClipper(
                 bottom: 146,
                 holeRadius: 100,
               ),
