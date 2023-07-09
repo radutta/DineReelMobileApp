@@ -46,6 +46,7 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
     return Container(
       height: 400,
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+      margin: const EdgeInsets.only(bottom: 25),
       child: Stack(
         children: [
           PageView.builder(

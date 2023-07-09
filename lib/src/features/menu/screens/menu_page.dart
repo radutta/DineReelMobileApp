@@ -66,8 +66,7 @@ class _MenuHomeState extends State<MenuHome> {
             },
             child: Image.asset('assets/menu/images/menu.png')),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar:
-         const BottomAppBar(
+        bottomNavigationBar: const BottomAppBar(
             padding: EdgeInsets.symmetric(vertical: 10),
             shape: CircularNotchedRectangle(),
             notchMargin: 10,
@@ -94,7 +93,8 @@ class MenuPage extends StatelessWidget {
             const SizedBox(height: 18),
             const BannerWidget(),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 20),
+              padding: const EdgeInsets.only(
+                  left: 14, right: 14, top: 20, bottom: 20),
               child: Text(
                 'recommended'.tr(),
                 style: Theme.of(context).textTheme.titleMedium,
@@ -103,19 +103,14 @@ class MenuPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 14),
               child: ListView.builder(
+                  padding: const EdgeInsets.only(bottom: 100),
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: 10,
                   itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(bottom: 33),
-                      child: MenuCardWidget(
-                        index: index,
-                      ),
-                    );
+                    return MenuCardWidget(index: index);
                   }),
             ),
-            const SizedBox(height: 20),
           ],
         ),
       ),

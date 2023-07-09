@@ -13,7 +13,6 @@ class SearchPage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 39),
           Container(
             padding: const EdgeInsets.all(20),
             decoration: const BoxDecoration(
@@ -27,40 +26,45 @@ class SearchPage extends StatelessWidget {
                       AppColors.primaryappbarColor,
                       AppColors.primaryGradientDeep,
                     ])),
-            child: Row(
+            child: Column(
               children: [
-                GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: const Icon(Icons.arrow_back)),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: SizedBox(
-                    height: 56,
-                    child: TextFormField(
-                      cursorHeight: 23,
-                      style: Theme.of(context).textTheme.bodySmall,
-                      decoration: InputDecoration(
-                          filled: true,
-                          fillColor: AppColors.white,
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15),
-                              borderSide:
-                                  const BorderSide(color: Colors.transparent)),
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15),
-                              borderSide:
-                                  const BorderSide(color: Colors.transparent)),
-                          contentPadding: const EdgeInsets.symmetric(
-                              horizontal: 15, vertical: 0),
-                          hintText: 'Search',
-                          hintStyle: Theme.of(context).textTheme.bodySmall,
-                          suffixIcon: Image.asset(
-                              'assets/menu/images/cross_circle.png')),
-                    ),
-                  ),
-                )
+                const SizedBox(height: 39),
+                Row(
+                  children: [
+                    GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Icon(Icons.arrow_back)),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: SizedBox(
+                        height: 56,
+                        child: TextFormField(
+                          cursorHeight: 23,
+                          style: Theme.of(context).textTheme.bodySmall,
+                          decoration: InputDecoration(
+                              filled: true,
+                              fillColor: AppColors.white,
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                  borderSide: const BorderSide(
+                                      color: Colors.transparent)),
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                  borderSide: const BorderSide(
+                                      color: Colors.transparent)),
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 15, vertical: 0),
+                              hintText: 'Search',
+                              hintStyle: Theme.of(context).textTheme.bodySmall,
+                              suffixIcon: Image.asset(
+                                  'assets/menu/images/cross_circle.png')),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ],
             ),
           ),
