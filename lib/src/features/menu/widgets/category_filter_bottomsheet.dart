@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:dinereel/src/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -26,7 +24,6 @@ class _CategoryBottomSheetState extends State<CategoryBottomSheet> {
       child: Container(
         color: AppColors.white,
         height: MediaQuery.of(context).size.height * .8,
-        // padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 30),
           child: Column(
@@ -85,7 +82,7 @@ class _CategoryBottomSheetState extends State<CategoryBottomSheet> {
                             borderRadius: BorderRadius.circular(10),
                             border: selected.contains(index)
                                 ? Border.all(
-                                    color: AppColors.prinaryGradientLight)
+                                    color: AppColors.primaryGradientLight)
                                 : null,
                             boxShadow: selected.contains(index)
                                 ? null
@@ -124,7 +121,7 @@ class _CategoryBottomSheetState extends State<CategoryBottomSheet> {
                                       padding: EdgeInsets.only(right: 4),
                                       child: Icon(
                                         Icons.check_circle,
-                                        color: AppColors.prinaryGradientLight,
+                                        color: AppColors.primaryGradientLight,
                                       ),
                                     ),
                                   )
@@ -142,7 +139,6 @@ class _CategoryBottomSheetState extends State<CategoryBottomSheet> {
                 },
                 disable: true,
               ),
-              // const SizedBox(height: 124),
             ],
           ),
         ),

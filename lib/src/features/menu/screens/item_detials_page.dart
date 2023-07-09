@@ -151,14 +151,14 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                                                 borderRadius:
                                                     BorderRadius.circular(100),
                                                 color: AppColors
-                                                    .prinaryGradientDeep))
+                                                    .primaryGradientDeep))
                                       ])
                                     : Center(
                                         child: Container(
                                             height: 5,
                                             width: 1,
                                             color:
-                                                AppColors.prinaryGradientDeep),
+                                                AppColors.primaryGradientDeep),
                                       );
                               }))),
                   Column(

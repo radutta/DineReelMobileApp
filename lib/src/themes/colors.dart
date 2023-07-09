@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const prinaryGradientDeep = Color(0XFFF7971E);
-  static const prinaryGradientLight = Color(0XFFFFD200);
+  static const primaryGradientDeep = Color(0XFFF7971E);
+  static const primaryGradientLight = Color(0XFFFFD200);
   static const secondaryDarkColor = Color(0XFF2B2C2D);
   static const secondaryLightColor = Color(0XFFFFEEC3);
   static const buttonDark = Color(0XFF000000);
@@ -20,4 +20,7 @@ class AppColors {
   static const pinbgColor = Color(0XFFEFF3FF);
   static const scanbgColor = Color(0xFF1E1E1E);
   static const primaryappbarColor = Color(0XFFFFBB0C);
+  static const usercardGradientLight = Color(0XFFFFBB0C);
+  static const usercardGradienrDeep = Color(0XFFFFA000);
+  static const recentordercardBoxShadow = Color(0X3F000000);
 }

@@ -20,8 +20,8 @@ class PrimaryRegularActionButton extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             gradient: const LinearGradient(colors: [
-              AppColors.prinaryGradientDeep,
-              AppColors.prinaryGradientLight
+              AppColors.primaryGradientDeep,
+              AppColors.primaryGradientLight
             ]),
             boxShadow: const [
               BoxShadow(

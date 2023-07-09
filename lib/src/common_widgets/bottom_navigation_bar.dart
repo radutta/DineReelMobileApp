@@ -32,7 +32,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
                           color:
                               context.read<NavigationcontrollerCubit>().state ==
                                       0
-                                  ? AppColors.prinaryGradientDeep
+                                  ? AppColors.primaryGradientDeep
                                   : AppColors.black,
                         ),
                   )
@@ -56,7 +56,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
                           color:
                               context.read<NavigationcontrollerCubit>().state ==
                                       1
-                                  ? AppColors.prinaryGradientDeep
+                                  ? AppColors.primaryGradientDeep
                                   : AppColors.black,
                         ),
                   )
@@ -81,7 +81,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
                           color:
                               context.read<NavigationcontrollerCubit>().state ==
                                       2
-                                  ? AppColors.prinaryGradientDeep
+                                  ? AppColors.primaryGradientDeep
                                   : AppColors.black,
                         ),
                   )
@@ -105,7 +105,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
                           color:
                               context.read<NavigationcontrollerCubit>().state ==
                                       3
-                                  ? AppColors.prinaryGradientDeep
+                                  ? AppColors.primaryGradientDeep
                                   : AppColors.black,
                         ),
                   )
@@ -142,7 +142,7 @@ class HomeBottomNavigationBar extends StatelessWidget {
                         fontWeight: FontWeight.w700,
                         color:
                             context.read<NavigationcontrollerCubit>().state == 0
-                                ? AppColors.prinaryGradientDeep
+                                ? AppColors.primaryGradientDeep
                                 : AppColors.black,
                       ),
                 )
@@ -165,7 +165,7 @@ class HomeBottomNavigationBar extends StatelessWidget {
                         fontWeight: FontWeight.w700,
                         color:
                             context.read<NavigationcontrollerCubit>().state == 1
-                                ? AppColors.prinaryGradientDeep
+                                ? AppColors.primaryGradientDeep
                                 : AppColors.black,
                       ),
                 )

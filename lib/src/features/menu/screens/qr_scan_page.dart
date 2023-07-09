@@ -71,7 +71,7 @@ class _QrScanPageState extends State<QrScanPage> {
                   child: QRView(
                     key: qrKey,
                     overlay: QrScannerOverlayShape(
-                        borderColor: AppColors.prinaryGradientDeep,
+                        borderColor: AppColors.primaryGradientDeep,
                         borderRadius: 10,
                         borderLength: 30,
                         borderWidth: 10,

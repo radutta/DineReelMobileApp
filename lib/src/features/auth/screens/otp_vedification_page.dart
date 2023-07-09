@@ -54,8 +54,8 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
               height: 300,
               decoration: const BoxDecoration(
                 gradient: LinearGradient(colors: [
-                  AppColors.prinaryGradientLight,
-                  AppColors.prinaryGradientDeep,
+                  AppColors.primaryGradientLight,
+                  AppColors.primaryGradientDeep,
                 ]),
               ),
               child: Column(
@@ -135,7 +135,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                             margin: const EdgeInsets.only(bottom: 9),
                             width: 22,
                             height: 1,
-                            color: AppColors.prinaryGradientDeep,
+                            color: AppColors.primaryGradientDeep,
                           ),
                         ],
                       ),
@@ -143,7 +143,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                         decoration: defaultPinTheme.decoration!.copyWith(
                           borderRadius: BorderRadius.circular(8),
                           border:
-                              Border.all(color: AppColors.prinaryGradientDeep),
+                              Border.all(color: AppColors.primaryGradientDeep),
                         ),
                       ),
                       submittedPinTheme: defaultPinTheme.copyWith(
@@ -151,7 +151,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                           color: AppColors.pinbgColor,
                           borderRadius: BorderRadius.circular(8),
                           border:
-                              Border.all(color: AppColors.prinaryGradientDeep),
+                              Border.all(color: AppColors.primaryGradientDeep),
                         ),
                       ),
                       errorPinTheme: defaultPinTheme.copyBorderWith(

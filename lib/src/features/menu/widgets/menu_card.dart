@@ -111,8 +111,8 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                 width: 85,
                 decoration: BoxDecoration(
                     gradient: LinearGradient(colors: [
-                  AppColors.prinaryGradientDeep,
-                  AppColors.prinaryGradientLight,
+                  AppColors.primaryGradientDeep,
+                  AppColors.primaryGradientLight,
                   Colors.transparent.withOpacity(.2)
                 ])),
                 child: Text(
@@ -140,7 +140,7 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                         dotColor: Colors.grey,
                         activeDotScale: 1,
                         activeStrokeWidth: 1.7,
-                        activeDotColor: AppColors.prinaryGradientDeep)),
+                        activeDotColor: AppColors.primaryGradientDeep)),
               ),
             ),
             Align(
@@ -196,10 +196,10 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             gradient: const LinearGradient(colors: [
-                              AppColors.prinaryGradientDeep,
-                              AppColors.prinaryGradientLight
+                              AppColors.primaryGradientDeep,
+                              AppColors.primaryGradientLight
                             ]),
-                            color: AppColors.prinaryGradientLight),
+                            color: AppColors.primaryGradientLight),
                         child: Text(
                           'add'.tr(),
                           style: Theme.of(context).textTheme.bodyMedium,
