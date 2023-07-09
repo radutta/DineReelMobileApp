@@ -4,8 +4,10 @@ class Routes {
   Route createRoute(final pageraute) {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => pageraute,
+      transitionDuration: const Duration(milliseconds: 500),
+      reverseTransitionDuration: const Duration(milliseconds: 500),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        const begin = Offset(0.50, 0.0);
+        const begin = Offset(1.0, 0.0);
         const end = Offset.zero;
         const curve = Curves.ease;
 
@@ -23,8 +25,10 @@ class Routes {
   Route createRouteUp(final pageraute) {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => pageraute,
+      transitionDuration: const Duration(milliseconds: 500),
+      reverseTransitionDuration: const Duration(milliseconds: 500),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        const begin = Offset(0.0, 0.50);
+        const begin = Offset(0.0, 1.0);
         const end = Offset.zero;
         const curve = Curves.ease;
 

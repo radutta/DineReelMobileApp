@@ -30,7 +30,10 @@ class YourOrderPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: ClipPath(
-              clipper: SemiCircleClipper(bottom: 146, holeRadius: 100),
+              clipper: SemiCircleClipper(
+                bottom: 146,
+                holeRadius: 100,
+              ),
               child: Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
