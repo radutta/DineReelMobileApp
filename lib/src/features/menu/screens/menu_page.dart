@@ -1,4 +1,5 @@
 import 'package:dinereel/src/features/menu/widgets/category_filter_bottomsheet.dart';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -89,9 +90,11 @@ class MenuPage extends StatelessWidget {
                     shrinkWrap: true,
                     itemCount: 10,
                     itemBuilder: (context, index) {
-                      return const Padding(
-                        padding: EdgeInsets.only(bottom: 33),
-                        child: MenuCardWidget(),
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 33),
+                        child: MenuCardWidget(
+                          index: index,
+                        ),
                       );
                     }),
               ),
