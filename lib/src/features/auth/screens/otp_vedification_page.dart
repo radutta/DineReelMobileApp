@@ -163,7 +163,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                       'resend_otp'.tr(),
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.displaySmall,
-                    )
+                    ),
                   ],
                 ),
               ),
