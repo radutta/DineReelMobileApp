@@ -23,7 +23,7 @@ class _CategoryBottomSheetState extends State<CategoryBottomSheet> {
       ),
       child: Container(
         color: AppColors.white,
-        height: MediaQuery.of(context).size.height * .8,
+        height: MediaQuery.of(context).size.height * .85,
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 30),
           child: Column(
@@ -100,7 +100,11 @@ class _CategoryBottomSheetState extends State<CategoryBottomSheet> {
                               children: [
                                 Column(
                                   children: [
-                                    SvgPicture.asset(categories[index].icon),
+                                    SvgPicture.asset(
+                                      categories[index].icon,
+                                      height: 75,
+                                      fit: BoxFit.cover,
+                                    ),
                                   ],
                                 ),
                                 Center(

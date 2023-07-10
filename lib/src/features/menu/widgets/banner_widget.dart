@@ -33,7 +33,7 @@ class _BannerWidgetState extends State<BannerWidget> {
 
   Widget buildIndicator() => AnimatedSmoothIndicator(
         activeIndex: activeIndex,
-        count: 4,
+        count: images.length,
         onDotClicked: animateToSlide,
         effect: const ScrollingDotsEffect(
           dotWidth: 10,

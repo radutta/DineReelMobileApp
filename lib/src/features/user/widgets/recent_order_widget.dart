@@ -45,9 +45,10 @@ class RecentOrderWidget extends StatelessWidget {
                       .push(Routes().createRoute(const RecentOrderdetails()));
                 },
                 child: Container(
-                  width: 385,
+                  // width: 385,
                   height: 94,
-                  padding: const EdgeInsets.all(18),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                   margin: const EdgeInsets.all(10),
                   decoration: ShapeDecoration(
                     color: Colors.white,
@@ -78,7 +79,7 @@ class RecentOrderWidget extends StatelessWidget {
                             Container(
                               width: 88,
                               height: 65,
-                              padding: const EdgeInsets.only(right: 15),
+                              padding: const EdgeInsets.only(right: 15, top: 5),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -179,9 +180,11 @@ class RecentOrderWidget extends StatelessWidget {
                                         .textTheme
                                         .bodySmall!
                                         .copyWith(fontSize: 10)),
+                                const SizedBox(height: 5),
                                 Container(
-                                  width: 75,
                                   height: 40,
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 14),
                                   decoration: ShapeDecoration(
                                     gradient: const LinearGradient(
                                       begin: Alignment(1.00, 0.00),

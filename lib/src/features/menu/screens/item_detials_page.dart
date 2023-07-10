@@ -131,7 +131,8 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      padding:
+                          const EdgeInsets.only(left: 10, top: 5, right: 10),
                       child: SizedBox(
                           width: 10,
                           child: ListView.separated(
@@ -170,28 +171,34 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(descItems[0]),
-                            Text(
-                              'Food history is an interdisciplinary field that examines the\nhistory and the cultural, economic, environmental, and\nsociological impacts of food',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodySmall!
-                                  .copyWith(fontSize: 12),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * .87,
+                              child: Text(
+                                'Food history is an interdisciplinary field that examines the history and the cultural, economic, environmental, and sociological impacts of food',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall!
+                                    .copyWith(fontSize: 12),
+                              ),
                             )
                           ],
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 25),
+                        padding: const EdgeInsets.only(top: 20),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(descItems[1]),
-                            Text(
-                              'A food ingredient is any substance that is added to a\nfood to achieve a desired effect. The term “food\ningredient” includes food additives, which\nare substances added to foods for specific technical\nand/or functional  purposes during processing,\nstorage or packaging.',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodySmall!
-                                  .copyWith(fontSize: 12),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * .87,
+                              child: Text(
+                                'A food ingredient is any substance that is added to a food to achieve a desired effect. The term “food ingredient” includes food additives, which are substances added to foods for specific technical and/or functional  purposes during processing, storage or packaging.',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall!
+                                    .copyWith(fontSize: 12),
+                              ),
                             )
                           ],
                         ),
@@ -202,12 +209,15 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(descItems[2]),
-                            Text(
-                              'A food ingredient is any substance that is added to a\nfood to achieve a desired effect. The term “food\ningredient” includes food additives, which\nare substances added to foods for specific technical\nand/or functional  purposes during processing,\nstorage or packaging.',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodySmall!
-                                  .copyWith(fontSize: 12),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * .87,
+                              child: Text(
+                                'A food ingredient is any substance that is added to a food to achieve a desired effect. The term “food ingredient” includes food additives, which are substances added to foods for specific technical and/or functional  purposes during processing, storage or packaging.',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall!
+                                    .copyWith(fontSize: 12),
+                              ),
                             )
                           ],
                         ),

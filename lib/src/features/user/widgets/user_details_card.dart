@@ -49,7 +49,7 @@ class UserDetailsCard extends StatelessWidget {
                     Navigator.of(context)
                         .push(Routes().createRoute(const EditProfilePage()));
                   },
-                  child: const Icon(Icons.edit))
+                  child: const Icon(Icons.edit_outlined))
             ],
           ),
           Text('Shyamantak Ghosh',
