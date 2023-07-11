@@ -97,11 +97,13 @@ class SearchPage extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
+          const SizedBox(height: 10),
           SizedBox(
-            height: MediaQuery.of(context).size.height * .814,
+            height: MediaQuery.of(context).size.height * .78,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 14),
               child: ListView.builder(
+                  padding: const EdgeInsets.all(0),
                   itemCount: 10,
                   itemBuilder: (context, index) {
                     return Padding(

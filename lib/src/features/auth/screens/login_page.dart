@@ -70,7 +70,7 @@ class LoginPage extends StatelessWidget {
                   counterText: "",
                   contentPadding: const EdgeInsets.symmetric(vertical: 0),
                   hintText: 'phone_no'.tr(),
-                  hintStyle: Theme.of(context).textTheme.bodyMedium,
+                  hintStyle: Theme.of(context).textTheme.displaySmall,
                   border: const OutlineInputBorder(
                     borderSide: BorderSide(),
                   ),

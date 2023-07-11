@@ -102,7 +102,7 @@ class _CategoryBottomSheetState extends State<CategoryBottomSheet> {
                                   children: [
                                     SvgPicture.asset(
                                       categories[index].icon,
-                                      height: 75,
+                                      height: 70,
                                       fit: BoxFit.cover,
                                     ),
                                   ],
