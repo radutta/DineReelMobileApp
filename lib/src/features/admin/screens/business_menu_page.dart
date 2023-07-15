@@ -130,7 +130,7 @@ class _BusinessMenuPageState extends State<BusinessMenuPage> {
                 )),
             const SizedBox(height: 20),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: ListView.builder(
                   shrinkWrap: true,
                   itemCount: 3,

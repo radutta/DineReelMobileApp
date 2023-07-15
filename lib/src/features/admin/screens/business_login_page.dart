@@ -109,7 +109,7 @@ class _BusinessLoginPageState extends State<BusinessLoginPage>
                 ),
               ),
               SizedBox(
-                height: 570,
+                height: MediaQuery.of(context).size.height * .65,
                 child: TabBarView(controller: _controller, children: const [
                   EmailTab(),
                   PhoneTab(),

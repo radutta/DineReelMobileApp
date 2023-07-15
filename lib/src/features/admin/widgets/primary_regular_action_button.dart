@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../themes/colors.dart';
 
-
-
 class PrimaryRegularActionButton extends StatelessWidget {
   const PrimaryRegularActionButton(
       {super.key,
@@ -20,12 +18,11 @@ class PrimaryRegularActionButton extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 14),
         decoration: BoxDecoration(
-            color: AppColors.black,
             borderRadius: BorderRadius.circular(15),
-            // gradient: const LinearGradient(colors: [
-            //   AppColors.primaryGradientDeep,
-            //   AppColors.primaryGradientLight
-            // ]),
+            gradient: const LinearGradient(colors: [
+              AppColors.primaryGradientDeep,
+              AppColors.primaryGradientLight
+            ]),
             boxShadow: const [
               BoxShadow(
                   offset: Offset(0, 5),
@@ -41,7 +38,7 @@ class PrimaryRegularActionButton extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .bodyMedium!
-                  .copyWith(color: AppColors.white),
+                  .copyWith(color: AppColors.black),
             ),
             const Spacer(),
           ],

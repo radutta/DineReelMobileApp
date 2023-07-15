@@ -35,7 +35,7 @@ class _PhoneTabState extends State<PhoneTab> {
               hintStyle: Theme.of(context)
                   .textTheme
                   .bodyMedium!
-                  .copyWith(color: AppColors.greytextcolor),
+                  .copyWith(color: AppColors.grey),
               border: const OutlineInputBorder(borderSide: BorderSide()),
               focusedBorder: const OutlineInputBorder(
                 borderSide:
