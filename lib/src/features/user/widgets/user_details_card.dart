@@ -31,7 +31,11 @@ class UserDetailsCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              GestureDetector(child: const Icon(Icons.arrow_back)),
+              GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Icon(Icons.arrow_back)),
               Container(
                 width: 80,
                 height: 80,

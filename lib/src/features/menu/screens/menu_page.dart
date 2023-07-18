@@ -73,6 +73,7 @@ class _MenuHomeState extends State<MenuHome>
             onTap: () {
               showModalBottomSheet(
                   isScrollControlled: true,
+                  backgroundColor: Colors.transparent,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.vertical(
                       top: Radius.circular(25.0),

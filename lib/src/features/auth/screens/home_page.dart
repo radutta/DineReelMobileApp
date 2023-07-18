@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dinereel/src/features/menu/screens/menu_page.dart';
 import 'package:dinereel/src/features/menu/screens/qr_scan_page.dart';
+import 'package:dinereel/src/features/user/screens/user_profile_page.dart';
 import 'package:dinereel/src/themes/colors.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -116,12 +117,18 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                   const Spacer(),
-                  Container(
-                    padding: const EdgeInsets.all(6),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
-                        border: Border.all()),
-                    child: const Icon(Icons.person_2_outlined),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                          Routes().createRouteUp(const UserProfilePage()));
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(6),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(100),
+                          border: Border.all()),
+                      child: const Icon(Icons.person_2_outlined),
+                    ),
                   )
                 ],
               ),
