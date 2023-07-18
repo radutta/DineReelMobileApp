@@ -53,10 +53,8 @@ class _WelcomePageState extends State<WelcomePage> {
               child: Row(
                 children: [
                   const Spacer(),
-                  Text(
-                    "get_started".tr(),
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
+                  Text("get_started".tr(),
+                      style: Theme.of(context).textTheme.bodyMedium),
                   const Spacer(),
                 ],
               ),

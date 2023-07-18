@@ -19,12 +19,12 @@ class LoginBottomWidget extends StatelessWidget {
           decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
               AppColors.primaryGradientLight,
-              AppColors.primaryGradientDeep,
+              AppColors.primaryGradientDeep
             ]),
           ),
           child: Column(
             children: [
-              const SizedBox(height: 100),
+              const SizedBox(height: 80),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context)
@@ -37,7 +37,7 @@ class LoginBottomWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 23),
+              const SizedBox(height: 20),
               Center(
                 child: Text(
                   'accept'.tr(),
@@ -64,7 +64,7 @@ class LoginBottomWidget extends StatelessWidget {
                       style: Theme.of(context).textTheme.displaySmall)
                 ])),
               ),
-              const SizedBox(height: 43),
+              const SizedBox(height: 30),
             ],
           ),
         ),

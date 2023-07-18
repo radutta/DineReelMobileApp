@@ -72,6 +72,7 @@ class LoginPage extends StatelessWidget {
                   contentPadding: const EdgeInsets.symmetric(vertical: 0),
                   hintText: 'phone_no'.tr(),
                   hintStyle: Theme.of(context).textTheme.displaySmall,
+                  errorStyle: const TextStyle(fontSize: 12),
                   border: const OutlineInputBorder(
                     borderSide: BorderSide(),
                   ),
