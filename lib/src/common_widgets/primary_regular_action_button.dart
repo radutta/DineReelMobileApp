@@ -3,14 +3,17 @@ import 'package:flutter/material.dart';
 import '../themes/colors.dart';
 
 class PrimaryRegularActionButton extends StatelessWidget {
-  const PrimaryRegularActionButton(
-      {super.key,
-      required this.text,
-      required this.action,
-      required this.disable});
+  const PrimaryRegularActionButton({
+    super.key,
+    required this.text,
+    required this.action,
+    required this.disable,
+    this.showboxShadow,
+  });
   final String text;
   final VoidCallback action;
   final bool disable;
+  final bool? showboxShadow;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

@@ -19,6 +19,7 @@ class LoginPage extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.white,
       body: SafeArea(
+        bottom: false,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
@@ -139,7 +140,7 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            const LoginBottomWidget()
+            const LoginBottomWidget(),
           ],
         ),
       ),

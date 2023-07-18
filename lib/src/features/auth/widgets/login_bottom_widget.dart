@@ -64,7 +64,7 @@ class LoginBottomWidget extends StatelessWidget {
                       style: Theme.of(context).textTheme.displaySmall)
                 ])),
               ),
-              const SizedBox(height: 23),
+              const SizedBox(height: 43),
             ],
           ),
         ),
@@ -76,7 +76,7 @@ class LoginBottomWidget extends StatelessWidget {
             decoration: const BoxDecoration(
               gradient: LinearGradient(colors: [
                 AppColors.primaryGradientLight,
-                AppColors.primaryGradientDeep,
+                AppColors.primaryGradientDeep
               ]),
             ),
           ),
