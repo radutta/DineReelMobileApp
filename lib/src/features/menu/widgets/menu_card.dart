@@ -7,6 +7,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../routing/routing_function.dart';
 import '../../../themes/colors.dart';
 import '../../order/cubit/order_cubit.dart';
+
 import 'item_details_bottom_sheet.dart';
 
 final List<String> imagesItem = [
@@ -80,10 +81,7 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                           //             'https://player.vimeo.com/external/376204686.hd.mp4?s=4014d6c498512ff5908a1a17dd05fd346954944f&profile_id=174&oauth2_token_id=57447761',
                           //       )
                           //     :
-                          Image.network(
-                        imagesItem[index],
-                        fit: BoxFit.cover,
-                      )),
+                          Image.network(imagesItem[index], fit: BoxFit.cover)),
                 );
               }),
           Align(
