@@ -58,6 +58,7 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                     widget.index == 0
                         ? showModalBottomSheet(
                             isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
                             shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.vertical(
                                 top: Radius.circular(25.0),

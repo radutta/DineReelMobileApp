@@ -31,6 +31,38 @@ class _LoginSuccessPageState extends State<LoginSuccessPage> {
       body: SafeArea(
         child: Stack(
           children: [
+            // Container(
+            //   height: 200,
+            //   width: MediaQuery.of(context).size.width,
+            //   decoration: const BoxDecoration(
+            //     gradient: LinearGradient(colors: [
+            //       AppColors.primaryGradientLight,
+            //       AppColors.primaryGradientDeep
+            //     ]),
+            //   ),
+            //   child: Column(
+            //     children: [
+            //       const SizedBox(height: 80),
+            //       Text('get_ready_to_explore'.tr(),
+            //           textAlign: TextAlign.center,
+            //           style: Theme.of(context).textTheme.titleLarge),
+            //       const SizedBox(height: 30),
+            //     ],
+            //   ),
+            // ),
+            // CustomPaint(
+            //   painter: SemicirclePainter(),
+            //   child: Container(
+            //     height: 0,
+            //     width: MediaQuery.of(context).size.width,
+            //     decoration: const BoxDecoration(
+            //       gradient: LinearGradient(colors: [
+            //         AppColors.primaryGradientLight,
+            //         AppColors.primaryGradientDeep
+            //       ]),
+            //     ),
+            //   ),
+            // ),
             TweenAnimationBuilder<Offset>(
               duration: const Duration(milliseconds: 1200),
               curve: Curves.linear,
