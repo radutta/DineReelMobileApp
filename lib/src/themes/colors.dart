@@ -25,4 +25,5 @@ class AppColors {
   static const recentordercardBoxShadow = Color(0X3F000000);
   static const greytextcolor = Color(0xFF8784AC);
   static const blacktextcolot = Color(0xFF15104D);
+  static const lightgrey = Color(0xFFE5E5E6);
 }

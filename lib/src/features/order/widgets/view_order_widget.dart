@@ -1,8 +1,10 @@
 import 'package:dinereel/src/features/order/screens/view_order_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../routing/routing_function.dart';
 import '../../../themes/colors.dart';
+import '../screens/your_order_page.dart';
 
 class ViewOrderWidget extends StatefulWidget {
   const ViewOrderWidget({super.key, required this.orderNo});
@@ -20,6 +22,7 @@ class _ViewOrderWidgetState extends State<ViewOrderWidget> {
       children: [
         AnimatedContainer(
           height: height,
+          // width: MediaQuery.of(context).size.width,
           padding: const EdgeInsets.symmetric(horizontal: 20),
           duration: const Duration(milliseconds: 300),
           decoration: const BoxDecoration(
@@ -34,7 +37,7 @@ class _ViewOrderWidgetState extends State<ViewOrderWidget> {
                 children: [
                   Text('Items added',
                       style: Theme.of(context).textTheme.titleMedium),
-                  const SizedBox(width: 194),
+                  SizedBox(width: 100.w),
                   Text(
                     'Clear All',
                     style: Theme.of(context)
@@ -75,7 +78,7 @@ class _ViewOrderWidgetState extends State<ViewOrderWidget> {
                       ),
                     ),
                   ),
-                  const SizedBox(width: 170),
+                  SizedBox(width: 130.w),
                   Text('₹ 200',
                       style: Theme.of(context)
                           .textTheme
@@ -133,7 +136,7 @@ class _ViewOrderWidgetState extends State<ViewOrderWidget> {
                       ),
                     ),
                   ),
-                  const SizedBox(width: 170),
+                  SizedBox(width: 130.w),
                   Text('₹ 200', style: Theme.of(context).textTheme.bodyMedium)
                 ],
               ),
@@ -234,6 +237,8 @@ class _ViewOrderWidgetState extends State<ViewOrderWidget> {
                 onTap: () {
                   Navigator.of(context)
                       .push(Routes().createRoute(const ViewOrderPage()));
+                  // Navigator.of(context)
+                  //     .push(Routes().createRouteUp(const YourOrderPage()));
                 },
                 child: Container(
                   padding:

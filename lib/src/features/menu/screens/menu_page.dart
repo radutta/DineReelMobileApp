@@ -64,7 +64,10 @@ class _MenuHomeState extends State<MenuHome>
             screens[context.watch<NavigationcontrollerCubit>().state],
             context.watch<OrderControllerCubit>().state
                 ? const Positioned(
-                    bottom: 82, child: ViewOrderWidget(orderNo: '2'))
+                    left: 0,
+                    right: 0,
+                    bottom: 82,
+                    child: ViewOrderWidget(orderNo: '2'))
                 : Container()
           ],
         ),
