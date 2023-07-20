@@ -2,9 +2,7 @@ import 'package:dinereel/src/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../routing/routing_function.dart';
 import '../../user/widgets/recent_order_details_card.dart';
-import 'edit_order_page.dart';
 
 class ViewOrderPage extends StatelessWidget {
   const ViewOrderPage({super.key});
@@ -12,6 +10,7 @@ class ViewOrderPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: AppColors.white,

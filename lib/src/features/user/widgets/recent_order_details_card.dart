@@ -1,9 +1,31 @@
 import 'package:dinereel/src/themes/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class RecentOrderDetailsCard extends StatelessWidget {
+import '../../order/cubit/instruction_cubit.dart';
+import 'add_instruction_dialog.dart';
+
+class RecentOrderDetailsCard extends StatefulWidget {
   const RecentOrderDetailsCard({super.key});
+
+  @override
+  State<RecentOrderDetailsCard> createState() => _RecentOrderDetailsCardState();
+}
+
+class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
+  late TextEditingController controller;
+  @override
+  void initState() {
+    super.initState();
+    controller = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -148,7 +170,13 @@ class RecentOrderDetailsCard extends StatelessWidget {
           ),
           SizedBox(height: 10.h),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AddCookingInstructionDialog(controller: controller);
+                  });
+            },
             child: Container(
               width: 356.w,
               height: 32.w,
@@ -157,7 +185,7 @@ class RecentOrderDetailsCard extends StatelessWidget {
               decoration: BoxDecoration(
                   color: AppColors.lightgrey,
                   borderRadius: BorderRadius.circular(5)),
-              child: Text('add cooking Instructions',
+              child: Text(context.watch<InstructionCubit>().state,
                   style: Theme.of(context)
                       .textTheme
                       .bodyMedium!

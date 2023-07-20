@@ -1,5 +1,6 @@
 import 'package:dinereel/src/cubit/cubit/navigationcontroller_cubit.dart';
 import 'package:dinereel/src/features/auth/screens/welcome_page.dart';
+import 'package:dinereel/src/features/order/cubit/instruction_cubit.dart';
 import 'package:dinereel/src/features/order/cubit/order_cubit.dart';
 import 'package:dinereel/src/themes/app_themes.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
           return MultiBlocProvider(
             providers: [
               BlocProvider(create: (context) => NavigationcontrollerCubit()),
-              BlocProvider(create: (context) => OrderControllerCubit())
+              BlocProvider(create: (context) => OrderControllerCubit()),
+              BlocProvider(create: (context) => InstructionCubit())
             ],
             child: MaterialApp(
               title: 'Dinereel App',
