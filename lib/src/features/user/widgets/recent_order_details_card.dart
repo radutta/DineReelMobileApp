@@ -179,7 +179,7 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
             },
             child: Container(
               width: 356.w,
-              height: 32.w,
+              // height: 32.w,
               padding: const EdgeInsets.all(5),
               alignment: Alignment.centerLeft,
               decoration: BoxDecoration(

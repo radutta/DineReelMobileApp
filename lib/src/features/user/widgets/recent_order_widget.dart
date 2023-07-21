@@ -52,7 +52,6 @@ class RecentOrderWidget extends StatelessWidget {
                       children: [
                         SizedBox(height: 3.h),
                         Container(
-                          // width: 385,
                           height: 86.w,
                           padding: const EdgeInsets.symmetric(
                               horizontal: 10, vertical: 15),
@@ -79,7 +78,6 @@ class RecentOrderWidget extends StatelessWidget {
                               SizedBox(
                                 height: 65,
                                 child: Row(
-                                  mainAxisSize: MainAxisSize.min,
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -97,7 +95,7 @@ class RecentOrderWidget extends StatelessWidget {
                                         children: [
                                           SizedBox(
                                             width: 300.w,
-                                            height: 47.h,
+                                            height: 44.h,
                                             child: Center(
                                               child: Stack(
                                                 children: [
@@ -106,7 +104,7 @@ class RecentOrderWidget extends StatelessWidget {
                                                     top: 0,
                                                     child: Container(
                                                       width: 40.w,
-                                                      height: 49,
+                                                      height: 40.w,
                                                       decoration:
                                                           ShapeDecoration(
                                                         image:
@@ -130,11 +128,11 @@ class RecentOrderWidget extends StatelessWidget {
                                                     ),
                                                   ),
                                                   Positioned(
-                                                    left: 16.69.w,
+                                                    left: 16.w,
                                                     top: 0,
                                                     child: Container(
                                                       width: 40.w,
-                                                      height: 49,
+                                                      height: 40.w,
                                                       decoration:
                                                           ShapeDecoration(
                                                         image:
@@ -161,8 +159,8 @@ class RecentOrderWidget extends StatelessWidget {
                                                     left: 0,
                                                     top: 0,
                                                     child: Container(
-                                                      width: 45.w,
-                                                      height: 49,
+                                                      width: 40.w,
+                                                      height: 40.w,
                                                       decoration:
                                                           ShapeDecoration(
                                                         image:
@@ -200,8 +198,9 @@ class RecentOrderWidget extends StatelessWidget {
                                             .copyWith(
                                                 fontWeight: FontWeight.w600,
                                                 fontSize: 12)),
-                                    const SizedBox(width: 85),
+                                    SizedBox(width: 95.w),
                                     Column(
+                                      mainAxisSize: MainAxisSize.min,
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [

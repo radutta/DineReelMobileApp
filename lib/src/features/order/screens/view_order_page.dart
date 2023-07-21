@@ -41,10 +41,7 @@ class ViewOrderPage extends StatelessWidget {
               ),
               const SizedBox(
                 height: 20,
-                child: VerticalDivider(
-                  color: AppColors.black,
-                  thickness: 2,
-                ),
+                child: VerticalDivider(color: AppColors.black, thickness: 2),
               ),
               Text('₹ 900', style: Theme.of(context).textTheme.titleMedium),
               const Spacer(),
