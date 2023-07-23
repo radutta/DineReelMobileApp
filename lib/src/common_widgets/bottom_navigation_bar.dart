@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../cubit/cubit/navigationcontroller_cubit.dart';
@@ -29,6 +30,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
                     'Home',
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
                           fontWeight: FontWeight.w700,
+                          fontSize: 12.sp,
                           color:
                               context.read<NavigationcontrollerCubit>().state ==
                                       0
@@ -53,6 +55,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
                     'Blog',
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
                           fontWeight: FontWeight.w700,
+                          fontSize: 12.sp,
                           color:
                               context.read<NavigationcontrollerCubit>().state ==
                                       1
@@ -78,6 +81,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
                     'Wishlist',
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
                           fontWeight: FontWeight.w700,
+                          fontSize: 12.sp,
                           color:
                               context.read<NavigationcontrollerCubit>().state ==
                                       2
@@ -102,6 +106,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
                     'Admin',
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
                           fontWeight: FontWeight.w700,
+                          fontSize: 12.sp,
                           color:
                               context.read<NavigationcontrollerCubit>().state ==
                                       3

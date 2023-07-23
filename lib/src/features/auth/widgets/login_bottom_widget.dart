@@ -1,6 +1,7 @@
 import 'package:dinereel/src/features/auth/widgets/semicircle_painter.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../routing/routing_function.dart';
 import '../../../themes/colors.dart';
@@ -24,7 +25,7 @@ class LoginBottomWidget extends StatelessWidget {
           ),
           child: Column(
             children: [
-              const SizedBox(height: 80),
+              SizedBox(height: 80.h),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context)

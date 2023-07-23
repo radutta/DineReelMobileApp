@@ -1,5 +1,6 @@
 import 'package:dinereel/src/themes/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../common_widgets/primary_regular_action_button.dart';
@@ -78,12 +79,11 @@ class _CategoryBottomSheetState extends State<CategoryBottomSheet> {
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: categories.length,
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 3,
-                                mainAxisSpacing: 33.0,
-                                crossAxisSpacing: 20.0,
-                                childAspectRatio: 90 / 90),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3,
+                            mainAxisSpacing: 20.0.w,
+                            crossAxisSpacing: 10.w,
+                            childAspectRatio: 97.w / 94.h),
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {
@@ -123,7 +123,7 @@ class _CategoryBottomSheetState extends State<CategoryBottomSheet> {
                                         children: [
                                           SvgPicture.asset(
                                             categories[index].icon,
-                                            height: 70,
+                                            height: 70.h,
                                             fit: BoxFit.cover,
                                           ),
                                         ],
@@ -157,7 +157,7 @@ class _CategoryBottomSheetState extends State<CategoryBottomSheet> {
                             ),
                           );
                         }),
-                    const SizedBox(height: 36),
+                    SizedBox(height: 36.h),
                     PrimaryRegularActionButton(
                       text: "Apply",
                       action: () {

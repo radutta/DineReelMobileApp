@@ -4,7 +4,9 @@ import 'package:dinereel/src/features/order/cubit/order_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:sliver_tools/sliver_tools.dart';
 import '../../../common_widgets/bottom_navigation_bar.dart';
 import '../../../cubit/cubit/navigationcontroller_cubit.dart';
 import '../../../routing/routing_function.dart';
@@ -15,6 +17,7 @@ import '../widgets/banner_widget.dart';
 import '../widgets/highlightlist_widget.dart';
 import '../widgets/menu_card.dart';
 import '../widgets/primary_appbar.dart';
+import 'dart:io' show Platform;
 
 class MenuHome extends StatefulWidget {
   const MenuHome({super.key});
@@ -27,7 +30,7 @@ class _MenuHomeState extends State<MenuHome>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
   List<Widget> screens = [
-    const NewMenuPage(),
+    const MenuPage(),
     const BlogPage(),
     const WishlistPage(),
     const UserProfilePage()
@@ -218,17 +221,10 @@ class NewMenuPage extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          SliverFixedExtentList(
-            itemExtent: 400,
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 14),
-                  child: MenuCardWidget(index: index),
-                );
-              },
-            ),
-          ),
+          const FlexibleSpaceBarHeader(),
+          SliverPersistentHeader(pinned: true, delegate: HeaderSliver()),
+
+          buildCard(context),
           // const PrimaryAppBar(),
           // const SizedBox(height: 20),
           // const HighlightListWidget(),
@@ -257,4 +253,104 @@ class NewMenuPage extends StatelessWidget {
       ),
     );
   }
+
+  Widget buildCard(BuildContext context) => MultiSliver(children: [
+        SliverFixedExtentList(
+          itemExtent: 400,
+          delegate: SliverChildBuilderDelegate(
+            (BuildContext context, int index) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 14),
+                child: MenuCardWidget(index: index),
+              );
+            },
+          ),
+        ),
+      ]);
+}
+
+class FlexibleSpaceBarHeader extends StatelessWidget {
+  const FlexibleSpaceBarHeader({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return SliverAppBar(
+      automaticallyImplyLeading: false,
+      expandedHeight: 123.h,
+      backgroundColor: AppColors.white,
+      flexibleSpace: const FlexibleSpaceBar(
+        collapseMode: CollapseMode.parallax,
+        stretchModes: [StretchMode.zoomBackground],
+        background: Stack(fit: StackFit.expand, children: [PrimaryAppBar()]),
+      ),
+    );
+  }
+}
+
+const _maxHeaderExtend = 80.0;
+
+class HeaderSliver extends SliverPersistentHeaderDelegate {
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    var percent = shrinkOffset / _maxHeaderExtend;
+    return AnimatedOpacity(
+      duration: const Duration(milliseconds: 300),
+      opacity: percent > 0.1 ? 1 : 0,
+      child: Stack(
+        children: [
+          Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Container(
+                height: _maxHeaderExtend,
+                color: AppColors.white,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsets.only(left: 10.w, right: 10.w, top: 30.h),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Icon(
+                              Icons.arrow_back,
+                              color: AppColors.black,
+                            ),
+                          ),
+                          SizedBox(width: 10.w),
+                          Text(
+                            'Dinereel Food hub',
+                            style: Theme.of(context).textTheme.titleMedium,
+                          ),
+                          const Spacer(),
+                          SvgPicture.asset('assets/auth/images/search.svg')
+                        ],
+                      ),
+                    ),
+                    const Spacer(),
+                    const Divider(
+                        thickness: 1, height: 0, color: AppColors.grey)
+                  ],
+                ),
+              ))
+        ],
+      ),
+    );
+  }
+
+  @override
+  double get maxExtent => _maxHeaderExtend;
+
+  @override
+  double get minExtent => _maxHeaderExtend;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) =>
+      false;
 }
