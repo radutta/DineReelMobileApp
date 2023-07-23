@@ -30,6 +30,10 @@ class HighlightWidget extends StatelessWidget {
         Text(
           title,
           textAlign: TextAlign.center,
+          style: Theme.of(context)
+              .textTheme
+              .bodySmall!
+              .copyWith(color: AppColors.black),
         )
       ],
     );

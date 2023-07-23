@@ -1,4 +1,3 @@
-import 'package:dinereel/src/features/menu/screens/search_page.dart';
 import 'package:dinereel/src/features/menu/widgets/category_filter_bottomsheet.dart';
 import 'package:dinereel/src/features/order/cubit/order_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -9,7 +8,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 import '../../../common_widgets/bottom_navigation_bar.dart';
 import '../../../cubit/cubit/navigationcontroller_cubit.dart';
-import '../../../routing/routing_function.dart';
 import '../../../themes/colors.dart';
 import '../../order/widgets/view_order_widget.dart';
 import '../../user/screens/user_profile_page.dart';
@@ -17,7 +15,6 @@ import '../widgets/banner_widget.dart';
 import '../widgets/highlightlist_widget.dart';
 import '../widgets/menu_card.dart';
 import '../widgets/primary_appbar.dart';
-import 'dart:io' show Platform;
 
 class MenuHome extends StatefulWidget {
   const MenuHome({super.key});

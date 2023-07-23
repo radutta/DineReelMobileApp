@@ -2,6 +2,7 @@ import 'package:dinereel/src/features/user/widgets/outlet_popup.dart';
 import 'package:dinereel/src/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../cubit/cubit/navigationcontroller_cubit.dart';
 import '../../../routing/routing_function.dart';
@@ -102,7 +103,7 @@ class _UserDetailsCardState extends State<UserDetailsCard> {
                     });
               },
               child: Container(
-                width: 150,
+                width: 150.w,
                 height: 30,
                 alignment: Alignment.center,
                 decoration: ShapeDecoration(
