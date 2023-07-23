@@ -157,7 +157,7 @@ class _CategoryBottomSheetState extends State<CategoryBottomSheet> {
                             ),
                           );
                         }),
-                    SizedBox(height: 36.h),
+                    SizedBox(height: 25.h),
                     PrimaryRegularActionButton(
                       text: "Apply",
                       action: () {
