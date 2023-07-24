@@ -29,6 +29,7 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Container(
       margin: const EdgeInsets.all(20),
       padding: const EdgeInsets.all(10),
@@ -153,7 +154,7 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
                                 height: 1,
                                 child: ListView.builder(
                                     scrollDirection: Axis.horizontal,
-                                    itemCount: 50,
+                                    itemCount: width > 450 ? 150 : 50,
                                     itemBuilder: (context, index) {
                                       return Container(
                                         margin: const EdgeInsets.only(left: 3),
@@ -199,7 +200,7 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
               height: 1,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 50,
+                  itemCount: width > 450 ? 150 : 50,
                   itemBuilder: (context, index) {
                     return Container(
                       margin: const EdgeInsets.only(left: 3),
@@ -270,7 +271,7 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
               height: 1,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 50,
+                  itemCount: width > 450 ? 150 : 50,
                   itemBuilder: (context, index) {
                     return Container(
                       margin: const EdgeInsets.only(left: 3),

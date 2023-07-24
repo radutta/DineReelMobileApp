@@ -276,7 +276,7 @@ class YourOrderPage extends StatelessWidget {
                         height: 1,
                         child: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: 150,
+                            itemCount: 50,
                             itemBuilder: (context, index) {
                               return Container(
                                   margin: const EdgeInsets.only(left: 3),
