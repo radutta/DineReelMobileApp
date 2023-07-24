@@ -26,6 +26,7 @@ class MenuHome extends StatefulWidget {
 class _MenuHomeState extends State<MenuHome>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
+  var w = 450;
   List<Widget> screens = [
     const MenuPage(),
     const BlogPage(),
@@ -51,6 +52,7 @@ class _MenuHomeState extends State<MenuHome>
 
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.of(context).size.width);
     return WillPopScope(
       onWillPop: () async {
         if (context.read<NavigationcontrollerCubit>().state != 0) {

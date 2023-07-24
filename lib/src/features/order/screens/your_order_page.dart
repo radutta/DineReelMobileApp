@@ -170,11 +170,10 @@ class YourOrderPage extends StatelessWidget {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.network(
-                            "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-                            height: 50,
-                            width: 50,
-                            fit: BoxFit.cover,
-                          ),
+                              "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+                              height: 50,
+                              width: 50,
+                              fit: BoxFit.cover),
                         ),
                         const SizedBox(width: 48),
                         ClipRRect(
@@ -190,11 +189,10 @@ class YourOrderPage extends StatelessWidget {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.network(
-                            "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-                            height: 50,
-                            width: 50,
-                            fit: BoxFit.cover,
-                          ),
+                              "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+                              height: 50,
+                              width: 50,
+                              fit: BoxFit.cover),
                         ),
                       ],
                     ),
@@ -209,11 +207,10 @@ class YourOrderPage extends StatelessWidget {
                             itemCount: 50,
                             itemBuilder: (context, index) {
                               return Container(
-                                margin: const EdgeInsets.only(left: 3),
-                                height: 1,
-                                width: 5,
-                                color: AppColors.black,
-                              );
+                                  margin: const EdgeInsets.only(left: 3),
+                                  height: 1,
+                                  width: 5,
+                                  color: AppColors.black);
                             }),
                       ),
                     ),
@@ -279,14 +276,13 @@ class YourOrderPage extends StatelessWidget {
                         height: 1,
                         child: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: 50,
+                            itemCount: 150,
                             itemBuilder: (context, index) {
                               return Container(
-                                margin: const EdgeInsets.only(left: 3),
-                                height: 1,
-                                width: 5,
-                                color: AppColors.black,
-                              );
+                                  margin: const EdgeInsets.only(left: 3),
+                                  height: 1,
+                                  width: 5,
+                                  color: AppColors.black);
                             }),
                       ),
                     ),
@@ -316,10 +312,7 @@ class YourOrderPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 children: [
-                  Text(
-                    'Total',
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
+                  Text('Total', style: Theme.of(context).textTheme.bodySmall),
                   const SizedBox(
                     height: 20,
                     child: VerticalDivider(

@@ -10,6 +10,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       child: Row(
@@ -62,7 +63,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
                   )
                 ]),
               )),
-          const SizedBox(width: 100),
+          SizedBox(width: width > 450.0 ? 300 : 100),
           GestureDetector(
               onTap: () {
                 context.read<NavigationcontrollerCubit>().changescreen(2);
