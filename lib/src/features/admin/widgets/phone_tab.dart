@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
 import '../../../common_widgets/primary_regular_action_button.dart';
@@ -22,7 +23,7 @@ class _PhoneTabState extends State<PhoneTab> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 33),
+          SizedBox(height: 20.h),
           Text('Phone Number', style: Theme.of(context).textTheme.displaySmall),
           const SizedBox(height: 3),
           IntlPhoneField(
@@ -79,61 +80,12 @@ class _PhoneTabState extends State<PhoneTab> {
           ),
           const SizedBox(height: 75),
           PrimaryRegularActionButton(
-            text: "SUBMIT",
-            action: () {
-              Navigator.of(context)
-                  .push(Routes().createRoute(const MenuHome()));
-            },
-            disable: false,
-          ),
-          const SizedBox(height: 49),
-          Center(
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('New to Dinereel?',
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.displaySmall),
-                const SizedBox(width: 4),
-                Text(
-                  'Join as a partner',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context)
-                      .textTheme
-                      .displaySmall!
-                      .copyWith(decoration: TextDecoration.underline),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 14),
-          Text.rich(
-            TextSpan(
-              children: [
-                TextSpan(
-                    text: 'By creating an account, you accept our\n',
-                    style: Theme.of(context).textTheme.displaySmall),
-                TextSpan(
-                    text: 'Terms and conditions',
-                    style: Theme.of(context).textTheme.displaySmall),
-                TextSpan(
-                    text: ' you read our ',
-                    style: Theme.of(context)
-                        .textTheme
-                        .displaySmall!
-                        .copyWith(color: AppColors.greytextcolor)),
-                TextSpan(
-                    text: 'Privacy Policy.',
-                    style: Theme.of(context)
-                        .textTheme
-                        .displaySmall!
-                        .copyWith(color: AppColors.blacktextcolot)),
-              ],
-            ),
-            textAlign: TextAlign.center,
-          ),
+              text: "SUBMIT",
+              action: () {
+                Navigator.of(context)
+                    .push(Routes().createRoute(const MenuHome()));
+              },
+              disable: false),
         ],
       ),
     );

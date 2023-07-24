@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../themes/colors.dart';
 import '../widgets/email_tab.dart';
@@ -30,7 +31,7 @@ class _BusinessLoginPageState extends State<BusinessLoginPage>
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
@@ -39,16 +40,13 @@ class _BusinessLoginPageState extends State<BusinessLoginPage>
                       onTap: () {
                         Navigator.pop(context);
                       },
-                      child: const Icon(
-                        Icons.arrow_back,
-                        color: Colors.black,
-                      ),
+                      child: const Icon(Icons.arrow_back, color: Colors.black),
                     ),
                     const Spacer()
                   ],
                 ),
               ),
-              const SizedBox(height: 40),
+              SizedBox(height: 20.h),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Text.rich(
@@ -109,12 +107,62 @@ class _BusinessLoginPageState extends State<BusinessLoginPage>
                 ),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * .65,
+                height: MediaQuery.of(context).size.height * .42,
                 child: TabBarView(controller: _controller, children: const [
                   EmailTab(),
                   PhoneTab(),
                 ]),
-              )
+              ),
+              const SizedBox(height: 49),
+              Center(
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('New to Dinereel?',
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.displaySmall),
+                    const SizedBox(width: 4),
+                    Text(
+                      'Join as a partner',
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context)
+                          .textTheme
+                          .displaySmall!
+                          .copyWith(decoration: TextDecoration.underline),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 14),
+              Center(
+                child: Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                          text: 'By creating an account, you accept our\n',
+                          style: Theme.of(context).textTheme.displaySmall),
+                      TextSpan(
+                          text: 'Terms and conditions',
+                          style: Theme.of(context).textTheme.displaySmall),
+                      TextSpan(
+                          text: ' you read our ',
+                          style: Theme.of(context)
+                              .textTheme
+                              .displaySmall!
+                              .copyWith(color: AppColors.greytextcolor)),
+                      TextSpan(
+                          text: 'Privacy Policy.',
+                          style: Theme.of(context)
+                              .textTheme
+                              .displaySmall!
+                              .copyWith(color: AppColors.blacktextcolot)),
+                    ],
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
             ],
           ),
         ),
