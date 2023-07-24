@@ -52,9 +52,9 @@ class RecentOrderWidget extends StatelessWidget {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          SizedBox(height: 3.h),
+                          SizedBox(height: 10.h),
                           Container(
-                            height: 80.w,
+                            height: 90,
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 10, vertical: 15),
                             margin: const EdgeInsets.all(10),
@@ -217,7 +217,7 @@ class RecentOrderWidget extends StatelessWidget {
                                               height: 40,
                                               padding:
                                                   const EdgeInsets.symmetric(
-                                                      horizontal: 14),
+                                                      horizontal: 10),
                                               decoration: ShapeDecoration(
                                                   gradient:
                                                       const LinearGradient(
