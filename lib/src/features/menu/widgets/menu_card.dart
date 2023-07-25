@@ -126,7 +126,10 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                   ),
               child: Text(
                 "new".tr(),
-                style: const TextStyle(color: AppColors.black),
+                style: Theme.of(context)
+                    .textTheme
+                    .displaySmall!
+                    .copyWith(fontSize: 12.sp, fontWeight: FontWeight.w700),
               ),
             ),
           ),
@@ -188,14 +191,16 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                           style: Theme.of(context)
                               .textTheme
                               .displaySmall!
-                              .copyWith(color: AppColors.white),
+                              .copyWith(
+                                  color: AppColors.white, fontSize: 14.sp),
                         ),
                         Text(
                           '₹ 290',
                           style: Theme.of(context)
                               .textTheme
                               .titleMedium!
-                              .copyWith(color: AppColors.white),
+                              .copyWith(
+                                  color: AppColors.white, fontSize: 20.sp),
                         )
                       ],
                     ),
@@ -282,7 +287,10 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                                     const EdgeInsets.symmetric(horizontal: 48),
                                 child: Text(
                                   'add'.tr(),
-                                  style: Theme.of(context).textTheme.bodyMedium,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .copyWith(fontSize: 15.sp),
                                 ),
                               ),
                             ),
