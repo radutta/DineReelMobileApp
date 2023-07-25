@@ -94,7 +94,10 @@ class _MenuHomeState extends State<MenuHome>
                   });
             },
             child: Image.asset('assets/menu/images/menu.png')),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButtonLocation:
+            context.watch<OrderControllerCubit>().state
+                ? FloatingActionButtonLocation.miniCenterFloat
+                : FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: context.watch<OrderControllerCubit>().state
             ? Container()
             : const BottomAppBar(

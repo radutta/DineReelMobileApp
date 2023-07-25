@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../routing/routing_function.dart';
 import '../../../themes/colors.dart';
+import '../../menu/widgets/category_filter_bottomsheet.dart';
 
 class ViewOrderWidget extends StatefulWidget {
   const ViewOrderWidget({super.key, required this.orderNo});
@@ -19,6 +20,22 @@ class _ViewOrderWidgetState extends State<ViewOrderWidget> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        GestureDetector(
+            onTap: () {
+              showModalBottomSheet(
+                  isScrollControlled: true,
+                  backgroundColor: Colors.transparent,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(25.0),
+                    ),
+                  ),
+                  context: context,
+                  builder: (context) {
+                    return const CategoryBottomSheet();
+                  });
+            },
+            child: Image.asset('assets/menu/images/menu.png')),
         AnimatedContainer(
           height: height,
           // width: MediaQuery.of(context).size.width,
