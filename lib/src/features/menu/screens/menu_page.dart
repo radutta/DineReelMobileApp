@@ -1,3 +1,4 @@
+import 'package:dinereel/src/features/menu/screens/search_page.dart';
 import 'package:dinereel/src/features/menu/widgets/category_filter_bottomsheet.dart';
 import 'package:dinereel/src/features/order/cubit/order_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -8,6 +9,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 import '../../../common_widgets/bottom_navigation_bar.dart';
 import '../../../cubit/cubit/navigationcontroller_cubit.dart';
+import '../../../routing/routing_function.dart';
 import '../../../themes/colors.dart';
 import '../../order/widgets/view_order_widget.dart';
 import '../../user/screens/user_profile_page.dart';
@@ -121,7 +123,47 @@ class MenuPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const PrimaryAppBar(),
+            context.watch<OrderControllerCubit>().state
+                ? Padding(
+                    padding: const EdgeInsets.only(top: 40),
+                    child: Row(
+                      children: [
+                        GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Icon(Icons.arrow_back)),
+                        const SizedBox(width: 10),
+                        Text(
+                          'dinereel_foodhub'.tr(),
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
+                        const Spacer(),
+                        GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(
+                                  Routes().createRoute(const SearchPage()));
+                            },
+                            child: SvgPicture.asset(
+                                'assets/auth/images/search.svg')),
+                        GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(
+                                  Routes().createRoute(const WishlistPage()));
+                            },
+                            child: SvgPicture.asset(
+                                'assets/menu/images/Heart.svg')),
+                        GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(Routes()
+                                  .createRoute(const UserProfilePage()));
+                            },
+                            child:
+                                SvgPicture.asset('assets/menu/images/user.svg'))
+                      ],
+                    ),
+                  )
+                : const PrimaryAppBar(),
             const SizedBox(height: 20),
             const HighlightListWidget(),
             const SizedBox(height: 18),
@@ -171,7 +213,13 @@ class WishlistPage extends StatelessWidget {
       child: const Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: [Text('Wishlist Screen')],
+          children: [
+            Column(
+              children: [
+                Material(child: Text('Wishlist Screen')),
+              ],
+            )
+          ],
         ),
       ),
     );
