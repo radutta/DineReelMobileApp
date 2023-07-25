@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
+import '../../../routing/routing_function.dart';
 import '../../../themes/colors.dart';
+import '../../menu/screens/menu_page.dart';
 import '../widgets/primary_regular_action_button.dart';
 
 class BusinessMenuPage extends StatefulWidget {
@@ -197,7 +198,7 @@ class _BusinessMenuPageState extends State<BusinessMenuPage> {
                                         '₹ 550',
                                         style: TextStyle(
                                           color: Color(0xFF303136),
-                                          fontSize: 20,
+                                          fontSize: 15,
                                           fontFamily: 'Inter',
                                           fontWeight: FontWeight.w700,
                                         ),
@@ -213,7 +214,7 @@ class _BusinessMenuPageState extends State<BusinessMenuPage> {
                                               'It is made with Indian spices, vegetables, rice, and\nusually some type of meat (chicken, beef, goat,\nlamb, prawn, ',
                                           style: TextStyle(
                                             color: Color(0xFF303136),
-                                            fontSize: 12,
+                                            fontSize: 11.5,
                                             fontFamily: 'Inter',
                                             fontWeight: FontWeight.w400,
                                           ),
@@ -301,7 +302,10 @@ class _BusinessMenuPageState extends State<BusinessMenuPage> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: PrimaryRegularActionButton(
                 text: "Select table",
-                action: () {},
+                action: () {
+                  Navigator.of(context)
+                      .push(Routes().createRoute(const MenuHome()));
+                },
                 disable: false,
               ),
             ),

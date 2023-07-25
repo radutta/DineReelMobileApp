@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../common_widgets/primary_regular_action_button.dart';
+import '../../../routing/routing_function.dart';
 import '../../../themes/colors.dart';
+import '../screens/business_menu_page.dart';
 
 class EmailTab extends StatefulWidget {
   const EmailTab({super.key});
@@ -74,6 +76,9 @@ class _EmailTabState extends State<EmailTab> {
           PrimaryRegularActionButton(
             text: "SUBMIT",
             action: () {
+              Navigator.of(context)
+                  .push(Routes().createRoute(const BusinessMenuPage()));
+
               //   Navigator.of(context).push(Routes().createRoute(const LoginPage()));
             },
             disable: false,
