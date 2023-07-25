@@ -1,6 +1,8 @@
+import 'package:dinereel/src/features/admin/screens/business_signup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../routing/routing_function.dart';
 import '../../../themes/colors.dart';
 import '../widgets/email_tab.dart';
 import '../widgets/phone_tab.dart';
@@ -124,13 +126,19 @@ class _BusinessLoginPageState extends State<BusinessLoginPage>
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.displaySmall),
                     const SizedBox(width: 4),
-                    Text(
-                      'Join as a partner',
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context)
-                          .textTheme
-                          .displaySmall!
-                          .copyWith(decoration: TextDecoration.underline),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                            Routes().createRoute(const BusinessSignUpPage()));
+                      },
+                      child: Text(
+                        'Join as a partner',
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context)
+                            .textTheme
+                            .displaySmall!
+                            .copyWith(decoration: TextDecoration.underline),
+                      ),
                     ),
                   ],
                 ),

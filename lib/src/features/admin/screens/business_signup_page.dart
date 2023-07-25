@@ -16,11 +16,21 @@ class BusinessSignUpPage extends StatefulWidget {
 class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
   late TextEditingController nameController;
   late TextEditingController phoneController;
+  late TextEditingController addressController;
+  late TextEditingController ownerController;
+  late TextEditingController fssaiController;
+  late TextEditingController passwordController;
+  late TextEditingController confirmpasswordController;
   bool showmore = false;
   @override
   void initState() {
     nameController = TextEditingController();
     phoneController = TextEditingController();
+    addressController = TextEditingController();
+    ownerController = TextEditingController();
+    fssaiController = TextEditingController();
+    passwordController = TextEditingController();
+    confirmpasswordController = TextEditingController();
     super.initState();
   }
 
@@ -28,6 +38,11 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
   void dispose() {
     nameController.dispose();
     phoneController.dispose();
+    addressController.dispose();
+    ownerController.dispose();
+    fssaiController.dispose();
+    passwordController.dispose();
+    confirmpasswordController.dispose();
     super.dispose();
   }
 
@@ -70,32 +85,32 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
               TextFieldWidget(
                   title: 'Phone Nubmer*',
                   hinttext: '+7000045000',
-                  controller: nameController),
+                  controller: phoneController),
               const SizedBox(height: 10),
               TextFieldWidget(
                   title: 'Address*',
                   hinttext: '9/19 N.P.Dutta Road',
-                  controller: nameController),
+                  controller: addressController),
               const SizedBox(height: 10),
               TextFieldWidget(
                   title: 'Owner Name*',
                   hinttext: 'Sample name',
-                  controller: nameController),
+                  controller: ownerController),
               const SizedBox(height: 10),
               TextFieldWidget(
                   title: 'fssai Number*',
                   hinttext: '12000ktrlkrt',
-                  controller: nameController),
+                  controller: fssaiController),
               const SizedBox(height: 10),
               TextFieldWidget(
                   title: 'Password*',
                   hinttext: 'Password',
-                  controller: nameController),
+                  controller: passwordController),
               const SizedBox(height: 10),
               TextFieldWidget(
                   title: 'Confirm Password*',
                   hinttext: 'Password',
-                  controller: nameController),
+                  controller: confirmpasswordController),
               const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -111,7 +126,7 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
                       });
                     },
                     child: Container(
-                      width: 72,
+                      width: 73,
                       height: 28,
                       padding: const EdgeInsets.symmetric(horizontal: 9),
                       decoration: ShapeDecoration(
@@ -336,19 +351,27 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
                       ],
                     )
                   : Container(),
-              const SizedBox(height: 50),
-              PrimaryRegularActionButton(
-                text: "Sign Up",
-                action: () {
-                  Navigator.of(context)
-                      .push(Routes().createRoute(const BusinessHomePage()));
-                },
-                disable: false,
-              ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 60),
             ]),
           ),
         ),
+      ),
+      bottomSheet: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Padding(
+            padding:
+                const EdgeInsets.only(left: 15, right: 15, top: 0, bottom: 30),
+            child: PrimaryRegularActionButton(
+              text: "Sign Up",
+              action: () {
+                Navigator.of(context)
+                    .push(Routes().createRoute(const BusinessHomePage()));
+              },
+              disable: false,
+            ),
+          ),
+        ],
       ),
     );
   }
