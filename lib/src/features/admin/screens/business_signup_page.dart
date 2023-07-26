@@ -22,6 +22,23 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
   late TextEditingController passwordController;
   late TextEditingController confirmpasswordController;
   bool showmore = false;
+  int selestedindex = 0;
+  List<String> morecategory = [
+    'Cafe',
+    'Restaurant',
+    'Fast Food\nRestaurants',
+    'Barbeque\nGrill',
+    'Cafe',
+    'Restaurant',
+    'Fast Food\nRestaurants',
+    'Barbeque\nGrill',
+  ];
+  List<String> category = [
+    'Cafe',
+    'Restaurant',
+    'Fast Food\nRestaurants',
+    'Barbeque\nGrill',
+  ];
   @override
   void initState() {
     nameController = TextEditingController();
@@ -155,202 +172,418 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
               ),
               const SizedBox(height: 10),
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    children: [
-                      Container(
-                        width: 70,
-                        height: 70,
-                        decoration: const ShapeDecoration(
-                          color: Color(0xFFD9D9D9),
-                          shape: OvalBorder(),
+                  GestureDetector(
+                    onTap: () {
+                      if (selestedindex != 0) {
+                        setState(() {
+                          selestedindex = 0;
+                        });
+                      } else {
+                        setState(() {
+                          selestedindex = -1;
+                        });
+                      }
+                    },
+                    child: Column(
+                      children: [
+                        Container(
+                          width: 70,
+                          height: 70,
+                          decoration: BoxDecoration(
+                              color: const Color(0xFFD9D9D9),
+                              borderRadius: BorderRadius.circular(100),
+                              border: Border.all(
+                                color: selestedindex == 0
+                                    ? AppColors.primaryGradientDeep
+                                    : const Color(0xFFD9D9D9),
+                                width: 2,
+                              )),
                         ),
-                      ),
-                      const SizedBox(height: 10),
-                      const Text(
-                        'Cafe',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Color(0xFF303136),
-                          fontSize: 13,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w400,
+                        const SizedBox(height: 10),
+                        const Text(
+                          'Cafe',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Color(0xFF303136),
+                            fontSize: 13,
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                  Column(
-                    children: [
-                      Container(
-                        width: 70,
-                        height: 70,
-                        decoration: const ShapeDecoration(
-                          color: Color(0xFFD9D9D9),
-                          shape: OvalBorder(),
+                  GestureDetector(
+                    onTap: () {
+                      if (selestedindex != 1) {
+                        setState(() {
+                          selestedindex = 1;
+                        });
+                      } else {
+                        setState(() {
+                          selestedindex = -1;
+                        });
+                      }
+                    },
+                    child: Column(
+                      children: [
+                        Container(
+                          width: 70,
+                          height: 70,
+                          decoration: BoxDecoration(
+                              color: const Color(0xFFD9D9D9),
+                              borderRadius: BorderRadius.circular(100),
+                              border: Border.all(
+                                color: selestedindex == 1
+                                    ? AppColors.primaryGradientDeep
+                                    : const Color(0xFFD9D9D9),
+                                width: 2,
+                              )),
                         ),
-                      ),
-                      const SizedBox(height: 10),
-                      const Text(
-                        'Restaurant',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Color(0xFF303136),
-                          fontSize: 13,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w400,
+                        const SizedBox(height: 10),
+                        const Text(
+                          'Restaurant',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Color(0xFF303136),
+                            fontSize: 13,
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                  Column(
-                    children: [
-                      Container(
-                        width: 70,
-                        height: 70,
-                        decoration: const ShapeDecoration(
-                          color: Color(0xFFD9D9D9),
-                          shape: OvalBorder(),
+                  GestureDetector(
+                    onTap: () {
+                      if (selestedindex != 2) {
+                        setState(() {
+                          selestedindex = 2;
+                        });
+                      } else {
+                        setState(() {
+                          selestedindex = -1;
+                        });
+                      }
+                    },
+                    child: Column(
+                      children: [
+                        Container(
+                          width: 70,
+                          height: 70,
+                          decoration: BoxDecoration(
+                              color: const Color(0xFFD9D9D9),
+                              borderRadius: BorderRadius.circular(100),
+                              border: Border.all(
+                                color: selestedindex == 2
+                                    ? AppColors.primaryGradientDeep
+                                    : const Color(0xFFD9D9D9),
+                                width: 2,
+                              )),
                         ),
-                      ),
-                      const SizedBox(height: 10),
-                      const Text(
-                        'Fast Food\nRestaurants',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Color(0xFF303136),
-                          fontSize: 13,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w400,
+                        const SizedBox(height: 10),
+                        const Text(
+                          'Fast Food\nRestaurants',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Color(0xFF303136),
+                            fontSize: 13,
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                  Column(
-                    children: [
-                      Container(
-                        width: 70,
-                        height: 70,
-                        decoration: const ShapeDecoration(
-                          color: Color(0xFFD9D9D9),
-                          shape: OvalBorder(),
+                  GestureDetector(
+                    onTap: () {
+                      if (selestedindex != 3) {
+                        setState(() {
+                          selestedindex = 3;
+                        });
+                      } else {
+                        setState(() {
+                          selestedindex = -1;
+                        });
+                      }
+                    },
+                    child: Column(
+                      children: [
+                        Container(
+                          width: 70,
+                          height: 70,
+                          decoration: BoxDecoration(
+                              color: const Color(0xFFD9D9D9),
+                              borderRadius: BorderRadius.circular(100),
+                              border: Border.all(
+                                color: selestedindex == 3
+                                    ? AppColors.primaryGradientDeep
+                                    : const Color(0xFFD9D9D9),
+                                width: 2,
+                              )),
                         ),
-                      ),
-                      const SizedBox(height: 10),
-                      const Text(
-                        'Barbeque\nGrill',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Color(0xFF303136),
-                          fontSize: 13,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w400,
+                        const SizedBox(height: 10),
+                        const Text(
+                          'Barbeque\nGrill',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Color(0xFF303136),
+                            fontSize: 13,
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ],
               ),
               const SizedBox(height: 20),
               showmore
                   ? Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Column(
-                          children: [
-                            Container(
-                              width: 70,
-                              height: 70,
-                              decoration: const ShapeDecoration(
-                                color: Color(0xFFD9D9D9),
-                                shape: OvalBorder(),
+                        GestureDetector(
+                          onTap: () {
+                            if (selestedindex != 4) {
+                              setState(() {
+                                selestedindex = 4;
+                              });
+                            } else {
+                              setState(() {
+                                selestedindex = -1;
+                              });
+                            }
+                          },
+                          child: Column(
+                            children: [
+                              Container(
+                                width: 70,
+                                height: 70,
+                                decoration: BoxDecoration(
+                                    color: const Color(0xFFD9D9D9),
+                                    borderRadius: BorderRadius.circular(100),
+                                    border: Border.all(
+                                      color: selestedindex == 4
+                                          ? AppColors.primaryGradientDeep
+                                          : const Color(0xFFD9D9D9),
+                                      width: 2,
+                                    )),
                               ),
-                            ),
-                            const SizedBox(height: 10),
-                            const Text(
-                              'Cafe',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Color(0xFF303136),
-                                fontSize: 13,
-                                fontFamily: 'Inter',
-                                fontWeight: FontWeight.w400,
+                              const SizedBox(height: 10),
+                              const Text(
+                                'Cafe',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Color(0xFF303136),
+                                  fontSize: 13,
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                        Column(
-                          children: [
-                            Container(
-                              width: 70,
-                              height: 70,
-                              decoration: const ShapeDecoration(
-                                color: Color(0xFFD9D9D9),
-                                shape: OvalBorder(),
+                        GestureDetector(
+                          onTap: () {
+                            if (selestedindex != 5) {
+                              setState(() {
+                                selestedindex = 5;
+                              });
+                            } else {
+                              setState(() {
+                                selestedindex = -1;
+                              });
+                            }
+                          },
+                          child: Column(
+                            children: [
+                              Container(
+                                width: 70,
+                                height: 70,
+                                decoration: BoxDecoration(
+                                    color: const Color(0xFFD9D9D9),
+                                    borderRadius: BorderRadius.circular(100),
+                                    border: Border.all(
+                                      color: selestedindex == 5
+                                          ? AppColors.primaryGradientDeep
+                                          : const Color(0xFFD9D9D9),
+                                      width: 2,
+                                    )),
                               ),
-                            ),
-                            const SizedBox(height: 10),
-                            const Text(
-                              'Restaurant',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Color(0xFF303136),
-                                fontSize: 13,
-                                fontFamily: 'Inter',
-                                fontWeight: FontWeight.w400,
+                              const SizedBox(height: 10),
+                              const Text(
+                                'Restaurant',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Color(0xFF303136),
+                                  fontSize: 13,
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                        Column(
-                          children: [
-                            Container(
-                              width: 70,
-                              height: 70,
-                              decoration: const ShapeDecoration(
-                                color: Color(0xFFD9D9D9),
-                                shape: OvalBorder(),
+                        GestureDetector(
+                          onTap: () {
+                            if (selestedindex != 6) {
+                              setState(() {
+                                selestedindex = 6;
+                              });
+                            } else {
+                              setState(() {
+                                selestedindex = -1;
+                              });
+                            }
+                          },
+                          child: Column(
+                            children: [
+                              Container(
+                                width: 70,
+                                height: 70,
+                                decoration: BoxDecoration(
+                                    color: const Color(0xFFD9D9D9),
+                                    borderRadius: BorderRadius.circular(100),
+                                    border: Border.all(
+                                      color: selestedindex == 6
+                                          ? AppColors.primaryGradientDeep
+                                          : const Color(0xFFD9D9D9),
+                                      width: 2,
+                                    )),
                               ),
-                            ),
-                            const SizedBox(height: 10),
-                            const Text(
-                              'Fast Food\nRestaurants',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Color(0xFF303136),
-                                fontSize: 13,
-                                fontFamily: 'Inter',
-                                fontWeight: FontWeight.w400,
+                              const SizedBox(height: 10),
+                              const Text(
+                                'Fast Food\nRestaurants',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Color(0xFF303136),
+                                  fontSize: 13,
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                        Column(
-                          children: [
-                            Container(
-                              width: 70,
-                              height: 70,
-                              decoration: const ShapeDecoration(
-                                color: Color(0xFFD9D9D9),
-                                shape: OvalBorder(),
+                        GestureDetector(
+                          onTap: () {
+                            if (selestedindex != 7) {
+                              setState(() {
+                                selestedindex = 7;
+                              });
+                            } else {
+                              setState(() {
+                                selestedindex = -1;
+                              });
+                            }
+                          },
+                          child: Column(
+                            children: [
+                              Container(
+                                width: 70,
+                                height: 70,
+                                decoration: BoxDecoration(
+                                    color: const Color(0xFFD9D9D9),
+                                    borderRadius: BorderRadius.circular(100),
+                                    border: Border.all(
+                                      color: selestedindex == 7
+                                          ? AppColors.primaryGradientDeep
+                                          : const Color(0xFFD9D9D9),
+                                      width: 2,
+                                    )),
                               ),
-                            ),
-                            const SizedBox(height: 10),
-                            const Text(
-                              'Barbeque\nGrill',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Color(0xFF303136),
-                                fontSize: 13,
-                                fontFamily: 'Inter',
-                                fontWeight: FontWeight.w400,
+                              const SizedBox(height: 10),
+                              const Text(
+                                'Barbeque\nGrill',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Color(0xFF303136),
+                                  fontSize: 13,
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ],
                     )
                   : Container(),
+              // GridView.count(
+              //     physics: const NeverScrollableScrollPhysics(),
+              //     shrinkWrap: true,
+              //     crossAxisCount: 3,
+              //     children: showmore
+              //         ? morecategory
+              //             .map(
+              //               (e) => Column(
+              //                 mainAxisAlignment: MainAxisAlignment.center,
+              //                 children: [
+              //                   Container(
+              //                     width: 70,
+              //                     height: 70,
+              //                     decoration: const ShapeDecoration(
+              //                       color: Color(0xFFD9D9D9),
+              //                       shape: OvalBorder(),
+              //                     ),
+              //                   ),
+              //                   const SizedBox(height: 10),
+              //                   SizedBox(
+              //                     width: 70,
+              //                     child: Text(
+              //                       e,
+              //                       textAlign: TextAlign.center,
+              //                       overflow: TextOverflow.ellipsis,
+              //                       style: const TextStyle(
+              //                         color: Color(0xFF303136),
+              //                         fontSize: 12,
+              //                         fontFamily: 'Inter',
+              //                         fontWeight: FontWeight.w400,
+              //                       ),
+              //                     ),
+              //                   ),
+              //                 ],
+              //               ),
+              //             )
+              //             .toList()
+              //         : category
+              //             .map(
+              //               (e) => Column(
+              //                 mainAxisAlignment: MainAxisAlignment.center,
+              //                 // mainAxisSize: MainAxisSize.min,
+              //                 children: [
+              //                   Container(
+              //                     width: 70,
+              //                     height: 70,
+              //                     decoration: const ShapeDecoration(
+              //                       color: Color(0xFFD9D9D9),
+              //                       shape: OvalBorder(),
+              //                     ),
+              //                   ),
+              //                   const SizedBox(height: 10),
+              //                   SizedBox(
+              //                     width: 60,
+              //                     child: Text(
+              //                       e,
+              //                       textAlign: TextAlign.center,
+              //                       overflow: TextOverflow.ellipsis,
+              //                       style: const TextStyle(
+              //                         color: Color(0xFF303136),
+              //                         fontSize: 12,
+              //                         fontFamily: 'Inter',
+              //                         fontWeight: FontWeight.w400,
+              //                       ),
+              //                     ),
+              //                   ),
+              //                 ],
+              //               ),
+              //             )
+              //             .toList()),
               const SizedBox(height: 60),
             ]),
           ),

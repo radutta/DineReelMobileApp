@@ -51,6 +51,7 @@ dependencies:
   animate_do: ^3.0.2
   sliver_tools: ^0.2.12
   device_info_plus: ^9.0.2
+  lottie: ^2.5.0
  
 
 dev_dependencies:
@@ -81,6 +82,7 @@ flutter:
       - assets/menu/images/
       - lib/src/localization/
       - assets/admin/
+      - assets/order/lottie_asset/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
