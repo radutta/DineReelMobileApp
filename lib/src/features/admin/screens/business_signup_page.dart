@@ -23,6 +23,7 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
   late TextEditingController confirmpasswordController;
   bool showmore = false;
   int selestedindex = 0;
+  List<int> selectedindexs = [];
   List<String> morecategory = [
     'Cafe',
     'Restaurant',
@@ -177,13 +178,13 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      if (selestedindex != 0) {
+                      if (selectedindexs.contains(0)) {
                         setState(() {
-                          selestedindex = 0;
+                          selectedindexs.remove(0);
                         });
                       } else {
                         setState(() {
-                          selestedindex = -1;
+                          selectedindexs.add(0);
                         });
                       }
                     },
@@ -196,7 +197,7 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
                               color: const Color(0xFFD9D9D9),
                               borderRadius: BorderRadius.circular(100),
                               border: Border.all(
-                                color: selestedindex == 0
+                                color: selectedindexs.contains(0)
                                     ? AppColors.primaryGradientDeep
                                     : const Color(0xFFD9D9D9),
                                 width: 2,
@@ -218,13 +219,13 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      if (selestedindex != 1) {
+                      if (selectedindexs.contains(1)) {
                         setState(() {
-                          selestedindex = 1;
+                          selectedindexs.remove(1);
                         });
                       } else {
                         setState(() {
-                          selestedindex = -1;
+                          selectedindexs.add(1);
                         });
                       }
                     },
@@ -237,7 +238,7 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
                               color: const Color(0xFFD9D9D9),
                               borderRadius: BorderRadius.circular(100),
                               border: Border.all(
-                                color: selestedindex == 1
+                                color: selectedindexs.contains(1)
                                     ? AppColors.primaryGradientDeep
                                     : const Color(0xFFD9D9D9),
                                 width: 2,
@@ -259,13 +260,13 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      if (selestedindex != 2) {
+                      if (selectedindexs.contains(2)) {
                         setState(() {
-                          selestedindex = 2;
+                          selectedindexs.remove(2);
                         });
                       } else {
                         setState(() {
-                          selestedindex = -1;
+                          selectedindexs.add(2);
                         });
                       }
                     },
@@ -278,7 +279,7 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
                               color: const Color(0xFFD9D9D9),
                               borderRadius: BorderRadius.circular(100),
                               border: Border.all(
-                                color: selestedindex == 2
+                                color: selectedindexs.contains(2)
                                     ? AppColors.primaryGradientDeep
                                     : const Color(0xFFD9D9D9),
                                 width: 2,
@@ -300,13 +301,13 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      if (selestedindex != 3) {
+                      if (selectedindexs.contains(3)) {
                         setState(() {
-                          selestedindex = 3;
+                          selectedindexs.remove(3);
                         });
                       } else {
                         setState(() {
-                          selestedindex = -1;
+                          selectedindexs.add(3);
                         });
                       }
                     },
@@ -319,7 +320,7 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
                               color: const Color(0xFFD9D9D9),
                               borderRadius: BorderRadius.circular(100),
                               border: Border.all(
-                                color: selestedindex == 3
+                                color: selectedindexs.contains(3)
                                     ? AppColors.primaryGradientDeep
                                     : const Color(0xFFD9D9D9),
                                 width: 2,
@@ -349,13 +350,13 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            if (selestedindex != 4) {
+                            if (selectedindexs.contains(4)) {
                               setState(() {
-                                selestedindex = 4;
+                                selectedindexs.remove(4);
                               });
                             } else {
                               setState(() {
-                                selestedindex = -1;
+                                selectedindexs.add(4);
                               });
                             }
                           },
@@ -368,7 +369,7 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
                                     color: const Color(0xFFD9D9D9),
                                     borderRadius: BorderRadius.circular(100),
                                     border: Border.all(
-                                      color: selestedindex == 4
+                                      color: selectedindexs.contains(4)
                                           ? AppColors.primaryGradientDeep
                                           : const Color(0xFFD9D9D9),
                                       width: 2,
@@ -390,13 +391,13 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            if (selestedindex != 5) {
+                            if (selectedindexs.contains(5)) {
                               setState(() {
-                                selestedindex = 5;
+                                selectedindexs.remove(5);
                               });
                             } else {
                               setState(() {
-                                selestedindex = -1;
+                                selectedindexs.add(5);
                               });
                             }
                           },
@@ -409,7 +410,7 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
                                     color: const Color(0xFFD9D9D9),
                                     borderRadius: BorderRadius.circular(100),
                                     border: Border.all(
-                                      color: selestedindex == 5
+                                      color: selectedindexs.contains(5)
                                           ? AppColors.primaryGradientDeep
                                           : const Color(0xFFD9D9D9),
                                       width: 2,
@@ -431,13 +432,13 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            if (selestedindex != 6) {
+                            if (selectedindexs.contains(6)) {
                               setState(() {
-                                selestedindex = 6;
+                                selectedindexs.remove(6);
                               });
                             } else {
                               setState(() {
-                                selestedindex = -1;
+                                selectedindexs.add(6);
                               });
                             }
                           },
@@ -450,7 +451,7 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
                                     color: const Color(0xFFD9D9D9),
                                     borderRadius: BorderRadius.circular(100),
                                     border: Border.all(
-                                      color: selestedindex == 6
+                                      color: selectedindexs.contains(6)
                                           ? AppColors.primaryGradientDeep
                                           : const Color(0xFFD9D9D9),
                                       width: 2,
@@ -472,13 +473,13 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            if (selestedindex != 7) {
+                            if (selectedindexs.contains(7)) {
                               setState(() {
-                                selestedindex = 7;
+                                selectedindexs.remove(7);
                               });
                             } else {
                               setState(() {
-                                selestedindex = -1;
+                                selectedindexs.add(7);
                               });
                             }
                           },
@@ -491,7 +492,7 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
                                     color: const Color(0xFFD9D9D9),
                                     borderRadius: BorderRadius.circular(100),
                                     border: Border.all(
-                                      color: selestedindex == 7
+                                      color: selectedindexs.contains(7)
                                           ? AppColors.primaryGradientDeep
                                           : const Color(0xFFD9D9D9),
                                       width: 2,
