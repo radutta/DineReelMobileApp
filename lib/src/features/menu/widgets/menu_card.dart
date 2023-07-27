@@ -1,4 +1,6 @@
+
 import 'package:dinereel/src/features/menu/screens/item_detials_page.dart';
+import 'package:dinereel/src/features/menu/widgets/aniamted_add_button.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -31,6 +33,8 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
   late PageController pagecontroller;
   bool iconColor = false;
   int itemCount = 1;
+  AlignmentGeometry alignment = Alignment.center;
+
   @override
   void initState() {
     pagecontroller = PageController();
@@ -205,66 +209,7 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                       ],
                     ),
                     context.watch<OrderControllerCubit>().state
-                        ? GestureDetector(
-                            onTap: () {
-                              if (itemCount > 1) {
-                                setState(() {
-                                  itemCount = itemCount - 1;
-                                });
-                              } else if (itemCount == 0) {
-                                context
-                                    .read<OrderControllerCubit>()
-                                    .removeOrder();
-                              }
-                            },
-                            child: Container(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 6.5),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  gradient: const LinearGradient(colors: [
-                                    AppColors.primaryGradientDeep,
-                                    AppColors.primaryGradientLight
-                                  ]),
-                                  color: AppColors.primaryGradientLight),
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 30),
-                                child: Row(
-                                  children: [
-                                    GestureDetector(
-                                        onTap: () {
-                                          if (itemCount > 1) {
-                                            setState(() {
-                                              itemCount = itemCount - 1;
-                                            });
-                                          } else if (itemCount == 1) {
-                                            context
-                                                .read<OrderControllerCubit>()
-                                                .removeOrder();
-                                          }
-                                        },
-                                        child: const Icon(Icons.remove)),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 10),
-                                      child: Text(itemCount.toString(),
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .displaySmall),
-                                    ),
-                                    GestureDetector(
-                                        onTap: () {
-                                          setState(() {
-                                            itemCount = itemCount + 1;
-                                          });
-                                        },
-                                        child: const Icon(Icons.add))
-                                  ],
-                                ),
-                              ),
-                            ),
-                          )
+                        ? const AniamatedAddButton()
                         : GestureDetector(
                             onTap: () {
                               context.read<OrderControllerCubit>().showOrder();
