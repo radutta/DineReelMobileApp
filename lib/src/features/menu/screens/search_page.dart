@@ -1,3 +1,4 @@
+import 'package:dinereel/src/features/menu/models/menu_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../themes/colors.dart';
@@ -104,11 +105,14 @@ class SearchPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 14),
               child: ListView.builder(
                   padding: const EdgeInsets.all(0),
-                  itemCount: 10,
+                  itemCount: menuItems.length,
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 33),
-                      child: MenuCardWidget(index: index),
+                      child: MenuCardWidget(
+                        index: index,
+                        data: menuItems,
+                      ),
                     );
                   }),
             ),

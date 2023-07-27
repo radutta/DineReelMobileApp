@@ -5,12 +5,19 @@ import 'package:flutter_svg/svg.dart';
 import '../cubit/cubit/navigationcontroller_cubit.dart';
 import '../themes/colors.dart';
 
-class BottomNavigationBarWidget extends StatelessWidget {
+class BottomNavigationBarWidget extends StatefulWidget {
   const BottomNavigationBarWidget({super.key});
 
   @override
+  State<BottomNavigationBarWidget> createState() =>
+      _BottomNavigationBarWidgetState();
+}
+
+class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
+  @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
+
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       child: Row(

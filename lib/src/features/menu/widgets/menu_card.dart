@@ -1,4 +1,3 @@
-
 import 'package:dinereel/src/features/menu/screens/item_detials_page.dart';
 import 'package:dinereel/src/features/menu/widgets/aniamted_add_button.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -11,6 +10,7 @@ import '../../../routing/routing_function.dart';
 import '../../../themes/colors.dart';
 import '../../order/cubit/order_cubit.dart';
 
+import '../models/menu_model.dart';
 import 'item_details_bottom_sheet.dart';
 
 final List<String> imagesItem = [
@@ -22,9 +22,10 @@ final List<String> imagesItem = [
 ];
 
 class MenuCardWidget extends StatefulWidget {
-  const MenuCardWidget({super.key, required this.index});
+  const MenuCardWidget({super.key, required this.index, required this.data});
 
   final int index;
+  final List<MenuModel> data;
   @override
   State<MenuCardWidget> createState() => _MenuCardWidgetState();
 }
@@ -57,7 +58,7 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
         children: [
           PageView.builder(
               controller: pagecontroller,
-              itemCount: imagesItem.length,
+              itemCount: widget.data[widget.index].images.length,
               itemBuilder: (context, index) {
                 return GestureDetector(
                   onTap: () {
@@ -86,7 +87,8 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                           //             'https://player.vimeo.com/external/376204686.hd.mp4?s=4014d6c498512ff5908a1a17dd05fd346954944f&profile_id=174&oauth2_token_id=57447761',
                           //       )
                           //     :
-                          Image.network(imagesItem[index], fit: BoxFit.cover)),
+                          Image.network(widget.data[widget.index].images[index],
+                              fit: BoxFit.cover)),
                 );
               }),
           Align(
@@ -191,7 +193,7 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                           ),
                         ),
                         Text(
-                          'Chicken Biriyani',
+                          widget.data[widget.index].productname,
                           style: Theme.of(context)
                               .textTheme
                               .displaySmall!
@@ -199,7 +201,7 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                                   color: AppColors.white, fontSize: 14.sp),
                         ),
                         Text(
-                          '₹ 290',
+                          '₹ ${widget.data[widget.index].price}${widget.data[widget.index].count}',
                           style: Theme.of(context)
                               .textTheme
                               .titleMedium!
@@ -208,13 +210,16 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                         )
                       ],
                     ),
-                    context.watch<OrderControllerCubit>().state
-                        ? const AniamatedAddButton()
+                    context.watch<OrderControllerCubit>().state &&
+                            menuItems[widget.index].count != 0
+                        ? AniamatedAddButton(
+                            index: widget.index,
+                          )
                         : GestureDetector(
                             onTap: () {
                               context.read<OrderControllerCubit>().showOrder();
                               setState(() {
-                                itemCount = 1;
+                                widget.data[widget.index].count = 1;
                               });
                             },
                             child: Container(

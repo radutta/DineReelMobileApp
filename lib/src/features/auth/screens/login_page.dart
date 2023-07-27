@@ -1,6 +1,7 @@
 import 'package:dinereel/src/features/auth/screens/otp_vedification_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
@@ -10,8 +11,26 @@ import '../../../routing/routing_function.dart';
 import '../../menu/screens/menu_page.dart';
 import '../widgets/login_bottom_widget.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  late TextEditingController controller;
+  @override
+  void initState() {
+    super.initState();
+    controller = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,8 +84,10 @@ class LoginPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: IntlPhoneField(
+                controller: controller,
                 initialCountryCode: 'IN',
                 style: Theme.of(context).textTheme.bodyMedium,
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 decoration: InputDecoration(
                   counterText: "",
                   contentPadding: const EdgeInsets.symmetric(vertical: 0),
@@ -92,8 +113,13 @@ class LoginPage extends StatelessWidget {
                 child: PrimaryRegularActionButton(
                   text: 'get_otp'.tr(),
                   action: () {
-                    Navigator.of(context).push(
-                        Routes().createRouteUp(const OtpVerificationPage()));
+                    if (controller.text.isNotEmpty &&
+                        controller.text.length == 10) {
+                      Navigator.of(context)
+                          .push(Routes().createRouteUp(OtpVerificationPage(
+                        number: controller.text,
+                      )));
+                    }
                   },
                   disable: false,
                 ),

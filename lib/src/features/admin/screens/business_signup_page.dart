@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../routing/routing_function.dart';
 import '../../../themes/colors.dart';
@@ -585,7 +586,7 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
               //               ),
               //             )
               //             .toList()),
-              const SizedBox(height: 60),
+              SizedBox(height: 70.h),
             ]),
           ),
         ),

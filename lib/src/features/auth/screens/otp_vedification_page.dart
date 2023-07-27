@@ -7,8 +7,8 @@ import '../../../routing/routing_function.dart';
 import 'login_success_page.dart';
 
 class OtpVerificationPage extends StatefulWidget {
-  const OtpVerificationPage({super.key});
-
+  const OtpVerificationPage({super.key, required this.number});
+  final String number;
   @override
   State<OtpVerificationPage> createState() => _OtpVerificationPageState();
 }
@@ -44,6 +44,8 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
 
   @override
   Widget build(BuildContext context) {
+    var phone = widget.number.substring(widget.number.length - 5);
+
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -101,7 +103,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                             Image.asset(
                                 'assets/auth/images/verfication_page_img.png'),
                             Text(
-                              'verify_code'.tr(),
+                              '${'verify_code'.tr()}\n+91 XXXXX$phone',
                               textAlign: TextAlign.center,
                               style: Theme.of(context).textTheme.displaySmall,
                             )

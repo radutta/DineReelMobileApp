@@ -1,3 +1,4 @@
+import 'package:dinereel/src/features/menu/models/menu_model.dart';
 import 'package:dinereel/src/features/menu/screens/search_page.dart';
 import 'package:dinereel/src/features/menu/widgets/category_filter_bottomsheet.dart';
 import 'package:dinereel/src/features/order/cubit/order_cubit.dart';
@@ -54,7 +55,6 @@ class _MenuHomeState extends State<MenuHome>
 
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size.width);
     return WillPopScope(
       onWillPop: () async {
         if (context.read<NavigationcontrollerCubit>().state != 0) {
@@ -182,9 +182,12 @@ class MenuPage extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 100),
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: 10,
+                  itemCount: menuItems.length,
                   itemBuilder: (context, index) {
-                    return MenuCardWidget(index: index);
+                    return MenuCardWidget(
+                      index: index,
+                      data: menuItems,
+                    );
                   }),
             ),
           ],
@@ -309,10 +312,10 @@ class NewMenuPage extends StatelessWidget {
           itemExtent: 400,
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 14),
-                child: MenuCardWidget(index: index),
-              );
+              // return Padding(
+              //   padding: const EdgeInsets.symmetric(horizontal: 14),
+              //   child: MenuCardWidget(index: index),
+              // );
             },
           ),
         ),

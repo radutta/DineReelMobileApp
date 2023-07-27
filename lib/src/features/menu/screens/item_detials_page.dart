@@ -17,6 +17,7 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
   int selected = 0;
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -68,9 +69,9 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
               child: SizedBox(
                 height: 1,
                 child: ListView.builder(
-                    padding: EdgeInsets.all(0),
+                    padding: const EdgeInsets.all(0),
                     scrollDirection: Axis.horizontal,
-                    itemCount: 50,
+                    itemCount: width > 450 ? 150 : 50,
                     itemBuilder: (context, index) {
                       return Container(
                         margin: const EdgeInsets.only(left: 3),
@@ -122,7 +123,7 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(top: 30),
+                        padding: EdgeInsets.only(top: width > 450 ? 45 : 30),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -141,7 +142,7 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 20),
+                        padding: EdgeInsets.only(top: width > 450 ? 40 : 23),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -160,7 +161,7 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 17),
+                        padding: EdgeInsets.only(top: width > 450 ? 73 : 35),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [

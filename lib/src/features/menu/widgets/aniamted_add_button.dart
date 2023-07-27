@@ -1,12 +1,15 @@
+import 'package:dinereel/src/features/menu/models/menu_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../themes/colors.dart';
 import '../../order/cubit/order_cubit.dart';
 
 class AniamatedAddButton extends StatefulWidget {
-  const AniamatedAddButton({super.key});
+  const AniamatedAddButton({super.key, required this.index});
 
+  final int index;
   @override
   State<AniamatedAddButton> createState() => _AniamatedAddButtonState();
 }
@@ -40,13 +43,13 @@ class _AniamatedAddButtonState extends State<AniamatedAddButton>
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if (itemCount > 1) {
+        if (menuItems[widget.index].count > 1) {
           setState(() {
-            itemCount = itemCount - 1;
+            menuItems[widget.index].count = menuItems[widget.index].count - 1;
           });
           controller.reset();
           controller.forward();
-        } else if (itemCount == 0) {
+        } else if (menuItems[widget.index].count == 0) {
           context.read<OrderControllerCubit>().removeOrder();
         }
       },
@@ -65,13 +68,14 @@ class _AniamatedAddButtonState extends State<AniamatedAddButton>
             children: [
               GestureDetector(
                   onTap: () {
-                    if (itemCount > 1) {
+                    if (menuItems[widget.index].count > 1) {
+                      setState(() {
+                        menuItems[widget.index].count =
+                            menuItems[widget.index].count - 1;
+                      });
                       controller.reset();
                       controller.forward();
-                      setState(() {
-                        itemCount = itemCount - 1;
-                      });
-                    } else if (itemCount == 1) {
+                    } else if (menuItems[widget.index].count == 0) {
                       context.read<OrderControllerCubit>().removeOrder();
                     }
                   },
@@ -85,19 +89,14 @@ class _AniamatedAddButtonState extends State<AniamatedAddButton>
                       opacity: fabAnimation.value,
                       child: Transform.translate(
                         offset: moveAnimation.value,
-                        child: Text(itemCount.toString(),
-                            style: Theme.of(context).textTheme.displaySmall),
+                        child: Text(menuItems[widget.index].count.toString(),
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(fontSize: 12.sp)),
                       ),
                     );
                   },
-                  child: Opacity(
-                    opacity: fabAnimation.value,
-                    child: Transform.translate(
-                      offset: moveAnimation.value,
-                      child: Text(itemCount.toString(),
-                          style: Theme.of(context).textTheme.displaySmall),
-                    ),
-                  ),
                 ),
               ),
               GestureDetector(
@@ -105,7 +104,8 @@ class _AniamatedAddButtonState extends State<AniamatedAddButton>
                     controller.reset();
                     controller.forward();
                     setState(() {
-                      itemCount = itemCount + 1;
+                      menuItems[widget.index].count =
+                          menuItems[widget.index].count + 1;
                     });
                   },
                   child: const Icon(Icons.add))
