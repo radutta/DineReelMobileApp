@@ -99,9 +99,8 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Container(
-                                width: 90.w,
-                                height: 30,
-                                padding: EdgeInsets.symmetric(horizontal: 10.w),
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 30),
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
@@ -116,17 +115,24 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
                                 ),
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
                                     Icon(
                                       Icons.remove,
                                       color: AppColors.black,
                                       size: 12.r,
                                     ),
-                                    Text('1',
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyMedium),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 10),
+                                      child: Text('1',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyMedium!
+                                              .copyWith(
+                                                fontSize: 16.r,
+                                              )),
+                                    ),
                                     Icon(
                                       Icons.add,
                                       color: AppColors.black,

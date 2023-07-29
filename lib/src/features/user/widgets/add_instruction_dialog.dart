@@ -16,17 +16,23 @@ class AddCookingInstructionDialog extends StatelessWidget {
         children: [
           TextFormField(
             controller: controller,
+            style: Theme.of(context).textTheme.bodyMedium,
             decoration: InputDecoration(
+                hintText: 'Write instructions',
+                hintStyle: Theme.of(context).textTheme.bodyMedium,
                 contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
                 border: const OutlineInputBorder()),
           ),
           SizedBox(height: 20.h),
           GestureDetector(
               onTap: () {
-                context
-                    .read<InstructionCubit>()
-                    .addInstruction(controller.text);
-                Navigator.pop(context);
+                if (controller.text.isNotEmpty) {
+                  context
+                      .read<InstructionCubit>()
+                      .addInstruction(controller.text);
+                  // controller.clear();
+                  Navigator.pop(context);
+                }
               },
               child: Container(
                   width: 90.w,
