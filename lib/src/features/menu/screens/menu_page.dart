@@ -312,6 +312,7 @@ class NewMenuPage extends StatelessWidget {
           itemExtent: 400,
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
+              return Container();
               // return Padding(
               //   padding: const EdgeInsets.symmetric(horizontal: 14),
               //   child: MenuCardWidget(index: index),

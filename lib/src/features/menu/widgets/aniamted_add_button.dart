@@ -75,7 +75,7 @@ class _AniamatedAddButtonState extends State<AniamatedAddButton>
                       });
                       controller.reset();
                       controller.forward();
-                    } else if (menuItems[widget.index].count == 0) {
+                    } else if (menuItems[widget.index].count == 1) {
                       context.read<OrderControllerCubit>().removeOrder();
                     }
                   },
