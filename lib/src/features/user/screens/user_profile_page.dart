@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/profile_page_options_btn.dart';
-import '../widgets/recent_order_widget.dart';
+import '../../order/widgets/recent_order_widget.dart';
 import '../widgets/user_details_card.dart';
 
 class UserProfilePage extends StatelessWidget {

@@ -1,5 +1,5 @@
-import 'package:dinereel/src/features/order/screens/your_order_page.dart';
-import 'package:dinereel/src/features/user/screens/recent_order_details.dart';
+import 'package:dinereel/src/features/order/screens/recent_order_page.dart';
+import 'package:dinereel/src/features/order/screens/recent_order_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -25,7 +25,7 @@ class RecentOrderWidget extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   Navigator.of(context)
-                      .push(Routes().createRouteUp(const YourOrderPage()));
+                      .push(Routes().createRouteUp(const RecentOrderPage()));
                 },
                 child: Text(
                   'Show all',

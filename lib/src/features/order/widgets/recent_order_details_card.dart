@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../order/cubit/instruction_cubit.dart';
-import 'add_instruction_dialog.dart';
+import '../cubit/instruction_cubit.dart';
+import '../../user/widgets/add_instruction_dialog.dart';
 
 class RecentOrderDetailsCard extends StatefulWidget {
   const RecentOrderDetailsCard({super.key});

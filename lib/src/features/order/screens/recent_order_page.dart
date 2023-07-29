@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../../menu/widgets/semi_circle_clipper.dart';
 
-class YourOrderPage extends StatelessWidget {
-  const YourOrderPage({super.key});
+class RecentOrderPage extends StatelessWidget {
+  const RecentOrderPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +31,7 @@ class YourOrderPage extends StatelessWidget {
                     onTap: () {
                       Navigator.pop(context);
                     },
-                    child: const Icon(
-                      Icons.arrow_back,
-                      color: AppColors.black,
-                    ),
+                    child: const Icon(Icons.arrow_back, color: AppColors.black),
                   ),
                   const SizedBox(width: 20),
                   Text('Your Order',
@@ -46,16 +43,12 @@ class YourOrderPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: ClipPath(
-                clipper: TicketDesignClipper(
-                  bottom: 146,
-                  holeRadius: 100,
-                ),
+                clipper: TicketDesignClipper(bottom: 146, holeRadius: 100),
                 child: Container(
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color: AppColors.white,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
+                      color: AppColors.white,
+                      borderRadius: BorderRadius.circular(20)),
                   height: MediaQuery.of(context).size.height * .78,
                   child: Column(children: [
                     ListView.builder(
@@ -69,11 +62,10 @@ class YourOrderPage extends StatelessWidget {
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(10),
                                     child: Image.network(
-                                      "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-                                      height: 50,
-                                      width: 50,
-                                      fit: BoxFit.cover,
-                                    ),
+                                        "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+                                        height: 50,
+                                        width: 50,
+                                        fit: BoxFit.cover),
                                   ),
                                   const SizedBox(width: 20),
                                   Column(
@@ -134,21 +126,19 @@ class YourOrderPage extends StatelessWidget {
                                       padding: const EdgeInsets.symmetric(
                                           vertical: 10),
                                       child: SizedBox(
-                                        height: 1,
-                                        child: ListView.builder(
-                                            scrollDirection: Axis.horizontal,
-                                            itemCount: 50,
-                                            itemBuilder: (context, index) {
-                                              return Container(
-                                                margin: const EdgeInsets.only(
-                                                    left: 3),
-                                                height: 1,
-                                                width: 5,
-                                                color: AppColors.black,
-                                              );
-                                            }),
-                                      ),
-                                    ),
+                                          height: 1,
+                                          child: ListView.builder(
+                                              scrollDirection: Axis.horizontal,
+                                              itemCount: 50,
+                                              itemBuilder: (context, index) {
+                                                return Container(
+                                                    margin:
+                                                        const EdgeInsets.only(
+                                                            left: 3),
+                                                    height: 1,
+                                                    width: 5,
+                                                    color: AppColors.black);
+                                              })))
                             ],
                           );
                         }),
