@@ -304,7 +304,9 @@ class _BusinessMenuPageState extends State<BusinessMenuPage> {
                 text: "Select table",
                 action: () {
                   Navigator.of(context)
-                      .push(Routes().createRoute(const MenuHome()));
+                      .push(Routes().createRoute(const MenuHome(
+                    type: 'admin',
+                  )));
                   // await storeValue('user', 'partner');
                 },
                 disable: false,

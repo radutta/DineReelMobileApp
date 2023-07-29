@@ -185,36 +185,27 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                               borderRadius: BorderRadius.circular(5),
                               border: Border.all(color: AppColors.activeRed)),
                           child: const Center(
-                            child: Icon(
-                              Icons.fiber_manual_record,
-                              color: AppColors.activeRed,
-                              size: 18,
-                            ),
+                            child: Icon(Icons.fiber_manual_record,
+                                color: AppColors.activeRed, size: 18),
                           ),
                         ),
-                        Text(
-                          widget.data[widget.index].productname,
-                          style: Theme.of(context)
-                              .textTheme
-                              .displaySmall!
-                              .copyWith(
-                                  color: AppColors.white, fontSize: 14.sp),
-                        ),
-                        Text(
-                          '₹ ${widget.data[widget.index].price}${widget.data[widget.index].count}',
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleMedium!
-                              .copyWith(
-                                  color: AppColors.white, fontSize: 20.sp),
-                        )
+                        Text(widget.data[widget.index].productname,
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(
+                                    color: AppColors.white, fontSize: 14.sp)),
+                        Text('₹ ${widget.data[widget.index].price}',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium!
+                                .copyWith(
+                                    color: AppColors.white, fontSize: 20.sp))
                       ],
                     ),
                     context.watch<OrderControllerCubit>().state &&
                             menuItems[widget.index].count != 0
-                        ? AniamatedAddButton(
-                            index: widget.index,
-                          )
+                        ? AniamatedAddButton(index: widget.index)
                         : GestureDetector(
                             onTap: () {
                               context.read<OrderControllerCubit>().showOrder();
@@ -223,28 +214,23 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                               });
                             },
                             child: Container(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 6.5),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  gradient: const LinearGradient(colors: [
-                                    AppColors.primaryGradientDeep,
-                                    AppColors.primaryGradientLight
-                                  ]),
-                                  color: AppColors.primaryGradientLight),
-                              child: Padding(
                                 padding:
-                                    const EdgeInsets.symmetric(horizontal: 48),
-                                child: Text(
-                                  'add'.tr(),
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyMedium!
-                                      .copyWith(fontSize: 15.sp),
-                                ),
-                              ),
-                            ),
-                          ),
+                                    const EdgeInsets.symmetric(vertical: 6.5),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    gradient: const LinearGradient(colors: [
+                                      AppColors.primaryGradientDeep,
+                                      AppColors.primaryGradientLight
+                                    ]),
+                                    color: AppColors.primaryGradientLight),
+                                child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 48),
+                                    child: Text('add'.tr(),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium!
+                                            .copyWith(fontSize: 15.sp)))))
                   ],
                 ),
               ))

@@ -20,8 +20,8 @@ import '../widgets/menu_card.dart';
 import '../widgets/primary_appbar.dart';
 
 class MenuHome extends StatefulWidget {
-  const MenuHome({super.key});
-
+  const MenuHome({super.key, this.type});
+  final String? type;
   @override
   State<MenuHome> createState() => _MenuHomeState();
 }
@@ -30,12 +30,6 @@ class _MenuHomeState extends State<MenuHome>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
   var w = 450;
-  List<Widget> screens = [
-    const MenuPage(),
-    const BlogPage(),
-    const WishlistPage(),
-    const UserProfilePage()
-  ];
 
   @override
   void initState() {
@@ -55,6 +49,12 @@ class _MenuHomeState extends State<MenuHome>
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> screens = [
+      const MenuPage(),
+      const BlogPage(),
+      const WishlistPage(),
+      UserProfilePage(type: widget.type)
+    ];
     return WillPopScope(
       onWillPop: () async {
         if (context.read<NavigationcontrollerCubit>().state != 0) {
@@ -102,11 +102,11 @@ class _MenuHomeState extends State<MenuHome>
                 : FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: context.watch<OrderControllerCubit>().state
             ? Container()
-            : const BottomAppBar(
-                padding: EdgeInsets.symmetric(vertical: 10),
-                shape: CircularNotchedRectangle(),
+            : BottomAppBar(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                shape: const CircularNotchedRectangle(),
                 notchMargin: 10,
-                child: BottomNavigationBarWidget()),
+                child: BottomNavigationBarWidget(type: widget.type)),
       ),
     );
   }

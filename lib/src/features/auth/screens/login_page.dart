@@ -8,7 +8,7 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import '../../../common_widgets/primary_regular_action_button.dart';
 import '../../../themes/colors.dart';
 import '../../../routing/routing_function.dart';
-import '../../menu/screens/menu_page.dart';
+import '../../menu/screens/qr_scan_page.dart';
 import '../widgets/login_bottom_widget.dart';
 
 class LoginPage extends StatefulWidget {
@@ -57,8 +57,10 @@ class _LoginPageState extends State<LoginPage> {
                           color: AppColors.primaryDarkFont)),
                   GestureDetector(
                       onTap: () {
-                        Navigator.of(context)
-                            .push(Routes().createRoute(const MenuHome()));
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return const QrScanPage();
+                        }));
                       },
                       child: Text('skip'.tr(),
                           style: Theme.of(context)

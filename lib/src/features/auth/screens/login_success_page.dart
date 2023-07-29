@@ -1,10 +1,10 @@
 import 'dart:async';
 
+import 'package:dinereel/src/features/menu/screens/menu_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../themes/colors.dart';
-import '../../menu/screens/qr_scan_page.dart';
 
 class LoginSuccessPage extends StatefulWidget {
   const LoginSuccessPage({super.key});
@@ -18,7 +18,7 @@ class _LoginSuccessPageState extends State<LoginSuccessPage> {
   void initState() {
     Timer(const Duration(seconds: 3), () {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return const QrScanPage();
+        return const MenuHome(type: 'loggedIn',);
       }));
     });
     super.initState();

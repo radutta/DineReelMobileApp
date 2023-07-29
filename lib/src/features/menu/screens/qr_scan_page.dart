@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:dinereel/src/features/menu/screens/menu_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
@@ -47,14 +48,14 @@ class _QrScanPageState extends State<QrScanPage> {
             children: [
               const SizedBox(height: 50),
               GestureDetector(
-                onTap: () {
-                  Navigator.of(context)
-                      .push(Routes().createRoute(const Home()));
+                onTap: () async {
+                  result != null
+                      ? Navigator.of(context)
+                          .push(Routes().createRoute(const MenuHome()))
+                      : Navigator.of(context)
+                          .push(Routes().createRoute(const Home()));
                 },
-                child: const Icon(
-                  Icons.arrow_back,
-                  color: AppColors.white,
-                ),
+                child: const Icon(Icons.arrow_back, color: AppColors.white),
               ),
               const SizedBox(height: 50),
               Center(
@@ -65,23 +66,20 @@ class _QrScanPageState extends State<QrScanPage> {
                           .copyWith(color: AppColors.white))),
               const SizedBox(height: 52),
               Center(
-                child: SizedBox(
-                  height: 300,
-                  width: 300,
-                  child: QRView(
-                    key: qrKey,
-                    overlay: QrScannerOverlayShape(
-                        borderColor: AppColors.primaryGradientDeep,
-                        borderRadius: 10,
-                        borderLength: 30,
-                        borderWidth: 10,
-                        overlayColor: AppColors.scanbgColor,
-                        cutOutBottomOffset: 0),
-                    onQRViewCreated: _onQRViewCreated,
-                    overlayMargin: const EdgeInsets.all(0),
-                  ),
-                ),
-              ),
+                  child: SizedBox(
+                      height: 300,
+                      width: 300,
+                      child: QRView(
+                          key: qrKey,
+                          overlay: QrScannerOverlayShape(
+                              borderColor: AppColors.primaryGradientDeep,
+                              borderRadius: 10,
+                              borderLength: 30,
+                              borderWidth: 10,
+                              overlayColor: AppColors.scanbgColor,
+                              cutOutBottomOffset: 0),
+                          onQRViewCreated: _onQRViewCreated,
+                          overlayMargin: const EdgeInsets.all(0))))
             ],
           ),
         ),

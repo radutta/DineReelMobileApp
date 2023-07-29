@@ -113,6 +113,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                     Pinput(
                       controller: pinController,
                       focusNode: focusNode,
+                      autofocus: true,
                       androidSmsAutofillMethod:
                           AndroidSmsAutofillMethod.smsUserConsentApi,
                       listenForMultipleSmsOnAndroid: true,

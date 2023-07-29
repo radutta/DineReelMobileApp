@@ -1,4 +1,3 @@
-import 'package:dinereel/src/features/order/screens/recent_order_page.dart';
 import 'package:dinereel/src/features/order/screens/recent_order_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,8 +23,8 @@ class RecentOrderWidget extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context)
-                      .push(Routes().createRouteUp(const RecentOrderPage()));
+                  //   Navigator.of(context)
+                  //       .push(Routes().createRouteUp(const RecentOrderPage()));
                 },
                 child: Text(
                   'Show all',
@@ -104,34 +103,24 @@ class RecentOrderWidget extends StatelessWidget {
                                                     child: Stack(
                                                       children: [
                                                         Positioned(
-                                                          left: 24,
-                                                          top: 0,
-                                                          child: Container(
-                                                            width: 40,
-                                                            height: 40,
-                                                            decoration:
-                                                                ShapeDecoration(
-                                                              image:
-                                                                  const DecorationImage(
-                                                                image: NetworkImage(
-                                                                    "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"),
-                                                                fit:
-                                                                    BoxFit.fill,
-                                                              ),
-                                                              shape:
-                                                                  RoundedRectangleBorder(
-                                                                side: const BorderSide(
-                                                                    width: 0.50,
-                                                                    color: Colors
-                                                                        .white),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            50),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
+                                                            left: 24,
+                                                            top: 0,
+                                                            child: Container(
+                                                                width: 40,
+                                                                height: 40,
+                                                                decoration:
+                                                                    ShapeDecoration(
+                                                                        image:
+                                                                            const DecorationImage(
+                                                                          image:
+                                                                              NetworkImage("https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"),
+                                                                          fit: BoxFit
+                                                                              .fill,
+                                                                        ),
+                                                                        shape: RoundedRectangleBorder(
+                                                                            side:
+                                                                                const BorderSide(width: 0.50, color: Colors.white),
+                                                                            borderRadius: BorderRadius.circular(50))))),
                                                         Positioned(
                                                           left: 16,
                                                           top: 0,
@@ -140,56 +129,43 @@ class RecentOrderWidget extends StatelessWidget {
                                                             height: 40,
                                                             decoration:
                                                                 ShapeDecoration(
-                                                              image:
-                                                                  const DecorationImage(
-                                                                image: NetworkImage(
-                                                                    "https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTJ8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60"),
-                                                                fit:
-                                                                    BoxFit.fill,
-                                                              ),
-                                                              shape:
-                                                                  RoundedRectangleBorder(
-                                                                side: const BorderSide(
-                                                                    width: 0.50,
-                                                                    color: Colors
-                                                                        .white),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            50),
-                                                              ),
-                                                            ),
+                                                                    image:
+                                                                        const DecorationImage(
+                                                                      image: NetworkImage(
+                                                                          "https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTJ8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60"),
+                                                                      fit: BoxFit
+                                                                          .fill,
+                                                                    ),
+                                                                    shape: RoundedRectangleBorder(
+                                                                        side: const BorderSide(
+                                                                            width:
+                                                                                0.50,
+                                                                            color: Colors
+                                                                                .white),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(50))),
                                                           ),
                                                         ),
                                                         Positioned(
-                                                          left: 0,
-                                                          top: 0,
-                                                          child: Container(
-                                                            width: 40,
-                                                            height: 40,
-                                                            decoration:
-                                                                ShapeDecoration(
-                                                              image:
-                                                                  const DecorationImage(
-                                                                image: NetworkImage(
-                                                                    "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTl8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60"),
-                                                                fit:
-                                                                    BoxFit.fill,
-                                                              ),
-                                                              shape:
-                                                                  RoundedRectangleBorder(
-                                                                side: const BorderSide(
-                                                                    width: 0.50,
-                                                                    color: Colors
-                                                                        .white),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            50),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
+                                                            left: 0,
+                                                            top: 0,
+                                                            child: Container(
+                                                                width: 40,
+                                                                height: 40,
+                                                                decoration: ShapeDecoration(
+                                                                    image: const DecorationImage(
+                                                                        image: NetworkImage(
+                                                                            "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTl8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60"),
+                                                                        fit: BoxFit
+                                                                            .fill),
+                                                                    shape: RoundedRectangleBorder(
+                                                                        side: const BorderSide(
+                                                                            width:
+                                                                                0.50,
+                                                                            color: Colors
+                                                                                .white),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(50)))))
                                                       ],
                                                     ),
                                                   ),
@@ -267,11 +243,9 @@ class RecentOrderWidget extends StatelessWidget {
                             height: 20.h,
                             alignment: Alignment.center,
                             decoration: ShapeDecoration(
-                              color: AppColors.black,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
+                                color: AppColors.black,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10))),
                             child: Text(
                               'Table No. 1',
                               style: Theme.of(context)

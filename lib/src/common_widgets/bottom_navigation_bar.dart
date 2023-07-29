@@ -6,8 +6,8 @@ import '../cubit/cubit/navigationcontroller_cubit.dart';
 import '../themes/colors.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
-  const BottomNavigationBarWidget({super.key});
-
+  const BottomNavigationBarWidget({super.key, this.type});
+  final String? type;
   @override
   State<BottomNavigationBarWidget> createState() =>
       _BottomNavigationBarWidgetState();
@@ -107,7 +107,11 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
                       ? SvgPicture.asset('assets/menu/images/user_active.svg')
                       : SvgPicture.asset('assets/menu/images/user.svg'),
                   Text(
-                    'Admin',
+                    widget.type == 'loggedIn'
+                        ? "Profile"
+                        : widget.type == 'admin'
+                            ? 'Admin'
+                            : "Guest",
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
                           fontWeight: FontWeight.w700,
                           color:

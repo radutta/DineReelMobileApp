@@ -103,42 +103,32 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
                                     const EdgeInsets.symmetric(horizontal: 30),
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  gradient: const LinearGradient(
-                                    begin: Alignment(1.00, 0.00),
-                                    end: Alignment(-1, 0),
-                                    colors: [
-                                      AppColors.primaryGradientDeep,
-                                      AppColors.primaryGradientLight
-                                    ],
-                                  ),
-                                ),
+                                    borderRadius: BorderRadius.circular(10),
+                                    gradient: const LinearGradient(
+                                        begin: Alignment(1.00, 0.00),
+                                        end: Alignment(-1, 0),
+                                        colors: [
+                                          AppColors.primaryGradientDeep,
+                                          AppColors.primaryGradientLight
+                                        ])),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceAround,
                                   children: [
-                                    Icon(
-                                      Icons.remove,
-                                      color: AppColors.black,
-                                      size: 12.r,
-                                    ),
+                                    Icon(Icons.remove,
+                                        color: AppColors.black, size: 12.r),
                                     Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 10),
-                                      child: Text('1',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyMedium!
-                                              .copyWith(
-                                                fontSize: 16.r,
-                                              )),
-                                    ),
-                                    Icon(
-                                      Icons.add,
-                                      color: AppColors.black,
-                                      size: 12.r,
-                                      weight: 100,
-                                    ),
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 10),
+                                        child: Text('1',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyMedium!
+                                                .copyWith(fontSize: 16.r))),
+                                    Icon(Icons.add,
+                                        color: AppColors.black,
+                                        size: 12.r,
+                                        weight: 100)
                                   ],
                                 ),
                               ),
@@ -186,17 +176,19 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
             },
             child: Container(
               width: 356.w,
-              // height: 32.w,
+              height: 70.w,
               padding: const EdgeInsets.all(5),
               alignment: Alignment.centerLeft,
               decoration: BoxDecoration(
                   color: AppColors.lightgrey,
                   borderRadius: BorderRadius.circular(5)),
-              child: Text(context.watch<InstructionCubit>().state,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium!
-                      .copyWith(fontSize: 12)),
+              child: SingleChildScrollView(
+                child: Text(context.watch<InstructionCubit>().state,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium!
+                        .copyWith(fontSize: 12)),
+              ),
             ),
           ),
           Padding(
@@ -218,87 +210,76 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Bitiyani',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium!
-                        .copyWith(fontWeight: FontWeight.w500)),
-                Text('₹600',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium!
-                        .copyWith(fontWeight: FontWeight.w500)),
-              ],
-            ),
-          ),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Bitiyani',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(fontWeight: FontWeight.w500)),
+                    Text('₹600',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(fontWeight: FontWeight.w500))
+                  ])),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('GST',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium!
-                        .copyWith(fontWeight: FontWeight.w500)),
-                Text('₹150',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium!
-                        .copyWith(fontWeight: FontWeight.w500)),
-              ],
-            ),
-          ),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('GST',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(fontWeight: FontWeight.w500)),
+                    Text('₹150',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(fontWeight: FontWeight.w500)),
+                  ])),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Restaurant charges',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium!
-                        .copyWith(fontWeight: FontWeight.w500)),
-                Text('₹150',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium!
-                        .copyWith(fontWeight: FontWeight.w500)),
-              ],
-            ),
-          ),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Restaurant charges',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(fontWeight: FontWeight.w500)),
+                    Text('₹150',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(fontWeight: FontWeight.w500))
+                  ])),
           Padding(
-            padding: const EdgeInsets.only(top: 5, left: 30, right: 30),
-            child: SizedBox(
-              height: 1,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: width > 450 ? 150 : 50,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: const EdgeInsets.only(left: 3),
-                      height: 1,
-                      width: 5,
-                      color: AppColors.grey,
-                    );
-                  }),
-            ),
-          ),
+              padding: const EdgeInsets.only(top: 5, left: 30, right: 30),
+              child: SizedBox(
+                  height: 1,
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: width > 450 ? 150 : 50,
+                      itemBuilder: (context, index) {
+                        return Container(
+                            margin: const EdgeInsets.only(left: 3),
+                            height: 1,
+                            width: 5,
+                            color: AppColors.grey);
+                      }))),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Restaurant charges',
-                    style: Theme.of(context).textTheme.bodyMedium),
-                Text('₹900', style: Theme.of(context).textTheme.bodyMedium),
-              ],
-            ),
-          ),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Restaurant charges',
+                        style: Theme.of(context).textTheme.bodyMedium),
+                    Text('₹900', style: Theme.of(context).textTheme.bodyMedium)
+                  ])),
           const SizedBox(height: 30)
         ],
       ),
