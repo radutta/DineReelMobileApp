@@ -12,6 +12,26 @@ class OutletPopupWidget extends StatefulWidget {
 
 class _OutletPopupWidgetState extends State<OutletPopupWidget> {
   int selected = 0;
+  String? selectedValue = "Park Street";
+  final _dropdownFormKey = GlobalKey<FormState>();
+  List<DropdownMenuItem<String>> get dropdownItems {
+    List<DropdownMenuItem<String>> menuItems = [
+      DropdownMenuItem(
+          value: "Park Street",
+          child: Text("Park Street",
+              style: Theme.of(context).textTheme.bodyMedium)),
+      DropdownMenuItem(
+          value: 'Chinar Park',
+          child: Text('Chinar Park',
+              style: Theme.of(context).textTheme.bodyMedium)),
+      DropdownMenuItem(
+          value: 'Nagerbazar',
+          child: Text('Nagerbazar',
+              style: Theme.of(context).textTheme.bodyMedium)),
+    ];
+    return menuItems;
+  }
+
   @override
   Widget build(BuildContext context) {
     return BackdropFilter(
@@ -24,7 +44,6 @@ class _OutletPopupWidgetState extends State<OutletPopupWidget> {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
             content: Container(
               width: 379,
-              height: 219,
               decoration: ShapeDecoration(
                 color: AppColors.white,
                 shape: RoundedRectangleBorder(
@@ -39,319 +58,61 @@ class _OutletPopupWidgetState extends State<OutletPopupWidget> {
                   )
                 ],
               ),
-              child: Column(
-                children: [
-                  const SizedBox(height: 10),
-                  Center(
-                    child: Text(
-                      'My Outlets',
-                      style: Theme.of(context)
-                          .textTheme
-                          .displaySmall!
-                          .copyWith(fontWeight: FontWeight.w600),
+              child: Form(
+                key: _dropdownFormKey,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const SizedBox(height: 10),
+                    Center(
+                      child: Text(
+                        'Change Outlets',
+                        style: Theme.of(context)
+                            .textTheme
+                            .displaySmall!
+                            .copyWith(fontWeight: FontWeight.w600),
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Row(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
+                    const SizedBox(height: 20),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: DropdownButtonFormField(
+                          decoration: InputDecoration(
+                            contentPadding:
+                                const EdgeInsets.symmetric(horizontal: 10),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: AppColors.black, width: 2),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: AppColors.primaryGradientDeep,
+                                  width: 2),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: AppColors.black, width: 2),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            filled: true,
+                            fillColor: AppColors.white,
+                          ),
+                          validator: (value) =>
+                              value == null ? "Park Street" : null,
+                          dropdownColor: AppColors.white,
+                          value: selectedValue,
+                          onChanged: (String? newValue) {
                             setState(() {
-                              selected = 0;
+                              selectedValue = newValue!;
                             });
                           },
-                          child: Container(
-                            width: 20,
-                            height: 20,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(100),
-                                color: AppColors.white,
-                                border: Border.all(
-                                    color: AppColors.black, width: 1)),
-                            child: Center(
-                              child: Container(
-                                width: 12,
-                                height: 12,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(100),
-                                    color: selected == 0
-                                        ? AppColors.primaryGradientDeep
-                                        : AppColors.grey),
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        Text(
-                          'Park Street',
-                          style: Theme.of(context)
-                              .textTheme
-                              .displaySmall!
-                              .copyWith(fontWeight: FontWeight.w600),
-                        ),
-                        const Spacer(),
-                        selected == 0
-                            ? Container(
-                                width: 104,
-                                height: 30,
-                                decoration: ShapeDecoration(
-                                  gradient: const LinearGradient(
-                                    begin: Alignment(1.00, 0.00),
-                                    end: Alignment(-1, 0),
-                                    colors: [
-                                      Color(0xFFFFBB0C),
-                                      Color(0xFFFFA000),
-                                    ],
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                alignment: Alignment.center,
-                                child: Text(
-                                  'Change Pin',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .displaySmall!
-                                      .copyWith(fontSize: 12),
-                                ),
-                              )
-                            : Container(
-                                width: 104,
-                                height: 30,
-                                decoration: ShapeDecoration(
-                                  color: AppColors.black,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                alignment: Alignment.center,
-                                child: Text(
-                                  'Set Pin',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .displaySmall!
-                                      .copyWith(
-                                          fontSize: 12, color: AppColors.white),
-                                ),
-                              ),
-                      ],
+                          items: dropdownItems),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 10),
-                    child: SizedBox(
-                      height: 1,
-                      child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 50,
-                          itemBuilder: (context, index) {
-                            return Container(
-                              margin: const EdgeInsets.only(left: 3),
-                              height: 1,
-                              width: 5,
-                              color: AppColors.black,
-                            );
-                          }),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Row(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              selected = 1;
-                            });
-                          },
-                          child: Container(
-                            width: 20,
-                            height: 20,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(100),
-                                color: AppColors.white,
-                                border: Border.all(
-                                    color: AppColors.black, width: 1)),
-                            child: Center(
-                              child: Container(
-                                width: 12,
-                                height: 12,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(100),
-                                    color: selected == 1
-                                        ? AppColors.primaryGradientDeep
-                                        : AppColors.grey),
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        Text(
-                          'Chinar Park',
-                          style: Theme.of(context)
-                              .textTheme
-                              .displaySmall!
-                              .copyWith(fontWeight: FontWeight.w600),
-                        ),
-                        const Spacer(),
-                        selected == 1
-                            ? Container(
-                                width: 104,
-                                height: 30,
-                                decoration: ShapeDecoration(
-                                  gradient: const LinearGradient(
-                                    begin: Alignment(1.00, 0.00),
-                                    end: Alignment(-1, 0),
-                                    colors: [
-                                      Color(0xFFFFBB0C),
-                                      Color(0xFFFFA000),
-                                    ],
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                alignment: Alignment.center,
-                                child: Text(
-                                  'Change Pin',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .displaySmall!
-                                      .copyWith(fontSize: 12),
-                                ),
-                              )
-                            : Container(
-                                width: 104,
-                                height: 30,
-                                decoration: ShapeDecoration(
-                                  color: AppColors.black,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                alignment: Alignment.center,
-                                child: Text(
-                                  'Set Pin',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .displaySmall!
-                                      .copyWith(
-                                          fontSize: 12, color: AppColors.white),
-                                ),
-                              ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 10),
-                    child: SizedBox(
-                      height: 1,
-                      child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 50,
-                          itemBuilder: (context, index) {
-                            return Container(
-                              margin: const EdgeInsets.only(left: 3),
-                              height: 1,
-                              width: 5,
-                              color: AppColors.black,
-                            );
-                          }),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Row(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              selected = 2;
-                            });
-                          },
-                          child: Container(
-                            width: 20,
-                            height: 20,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(100),
-                                color: AppColors.white,
-                                border: Border.all(
-                                    color: AppColors.black, width: 1)),
-                            child: Center(
-                              child: Container(
-                                width: 12,
-                                height: 12,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(100),
-                                    color: selected == 2
-                                        ? AppColors.primaryGradientDeep
-                                        : AppColors.grey),
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        Text(
-                          'Nagerbazar',
-                          style: Theme.of(context)
-                              .textTheme
-                              .displaySmall!
-                              .copyWith(fontWeight: FontWeight.w600),
-                        ),
-                        const Spacer(),
-                        selected == 2
-                            ? Container(
-                                width: 104,
-                                height: 30,
-                                decoration: ShapeDecoration(
-                                  gradient: const LinearGradient(
-                                    begin: Alignment(1.00, 0.00),
-                                    end: Alignment(-1, 0),
-                                    colors: [
-                                      Color(0xFFFFBB0C),
-                                      Color(0xFFFFA000),
-                                    ],
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                alignment: Alignment.center,
-                                child: Text(
-                                  'Change Pin',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .displaySmall!
-                                      .copyWith(fontSize: 12),
-                                ),
-                              )
-                            : Container(
-                                width: 104,
-                                height: 30,
-                                decoration: ShapeDecoration(
-                                  color: AppColors.black,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                alignment: Alignment.center,
-                                child: Text(
-                                  'Set Pin',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .displaySmall!
-                                      .copyWith(
-                                          fontSize: 12, color: AppColors.white),
-                                ),
-                              ),
-                      ],
-                    ),
-                  )
-                ],
+                    const SizedBox(height: 40),
+                  ],
+                ),
               ),
             ),
           ),
