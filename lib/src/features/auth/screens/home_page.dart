@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dinereel/src/features/menu/screens/menu_page.dart';
 import 'package:dinereel/src/features/menu/screens/qr_scan_page.dart';
+import 'package:dinereel/src/features/user/screens/user_profile_page.dart';
 import 'package:dinereel/src/themes/colors.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -87,79 +88,82 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      body: SafeArea(
-        bottom: false,
-        child: Container(
-          decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                AppColors.primaryGradientDeep,
-                AppColors.secondaryLightColor
-              ])),
-          child: Column(
-            children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                child: Row(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('hi_dinereeler'.tr(),
-                            style: const TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.w700)),
-                        Text(
-                          '+91 xxxxx-xxxxx'.tr(),
-                          style: Theme.of(context).textTheme.displaySmall,
-                        )
-                      ],
-                    ),
-                    const Spacer(),
-                    Container(
+      body: Container(
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+              AppColors.primaryGradientDeep,
+              AppColors.secondaryLightColor
+            ])),
+        child: Column(
+          children: [
+            const SizedBox(height: 30),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('hi_dinereeler'.tr(),
+                          style: const TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w700)),
+                      Text(
+                        '+91 xxxxx-xxxxx'.tr(),
+                        style: Theme.of(context).textTheme.displaySmall,
+                      )
+                    ],
+                  ),
+                  const Spacer(),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                          Routes().createRouteUp(const UserProfilePage()));
+                    },
+                    child: Container(
                       padding: const EdgeInsets.all(6),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(100),
                           border: Border.all()),
                       child: const Icon(Icons.person_2_outlined),
-                    )
-                  ],
-                ),
+                    ),
+                  )
+                ],
               ),
-              const SizedBox(height: 130),
-              CarouselSlider(
-                items: images
-                    .map(
-                      (e) => GestureDetector(
-                        onTap: () {},
-                        child: ClipRRect(
-                            borderRadius: BorderRadius.circular(200),
-                            child: Image.asset(
-                              e,
-                              fit: BoxFit.cover,
-                            )),
-                      ),
-                    )
-                    .toList(),
-                options: CarouselOptions(
-                  height: 345,
-                  enlargeCenterPage: true,
-                  autoPlay: true,
-                  aspectRatio: 16 / 9,
-                  autoPlayCurve: Curves.fastOutSlowIn,
-                  enableInfiniteScroll: true,
-                  autoPlayAnimationDuration: const Duration(milliseconds: 800),
-                  viewportFraction: 0.9,
-                  onPageChanged: (index, reason) =>
-                      setState(() => activeIndex = index),
-                ),
+            ),
+            const SizedBox(height: 130),
+            CarouselSlider(
+              items: images
+                  .map(
+                    (e) => GestureDetector(
+                      onTap: () {},
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.circular(200),
+                          child: Image.asset(
+                            e,
+                            fit: BoxFit.cover,
+                          )),
+                    ),
+                  )
+                  .toList(),
+              options: CarouselOptions(
+                height: 345,
+                enlargeCenterPage: true,
+                autoPlay: true,
+                aspectRatio: 16 / 9,
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enableInfiniteScroll: true,
+                autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                viewportFraction: 0.9,
+                onPageChanged: (index, reason) =>
+                    setState(() => activeIndex = index),
               ),
-              const SizedBox(height: 10),
-              buildIndicator(),
-            ],
-          ),
+            ),
+            const SizedBox(height: 10),
+            buildIndicator(),
+          ],
         ),
       ),
     );

@@ -16,18 +16,20 @@ class HighlightListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 95,
-      child: ListView.builder(
-          shrinkWrap: true,
-          scrollDirection: Axis.horizontal,
-          itemCount: highlights.length,
-          itemBuilder: (context, index) {
-            return HighlightWidget(
-              image: 'assets/auth/images/home_bg.png',
-              title: highlights[index],
-            );
-          }),
+    return Center(
+      child: SizedBox(
+        height: 95,
+        child: ListView.builder(
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            itemCount: highlights.length,
+            itemBuilder: (context, index) {
+              return HighlightWidget(
+                image: 'assets/auth/images/home_bg.png',
+                title: highlights[index],
+              );
+            }),
+      ),
     );
   }
 }

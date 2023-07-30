@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../themes/colors.dart';
 import '../widgets/item_details_button_widget.dart';
@@ -67,6 +68,7 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
               child: SizedBox(
                 height: 1,
                 child: ListView.builder(
+                    padding: EdgeInsets.all(0),
                     scrollDirection: Axis.horizontal,
                     itemCount: 50,
                     itemBuilder: (context, index) {
@@ -82,60 +84,14 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Row(
-                children: [
-                  const Spacer(),
-                  SizedBox(
-                    height: 18,
-                    width: 69 * descItems.length.toDouble(),
-                    child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: descItems.length,
-                        itemBuilder: (context, index) {
-                          return GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                selected = index;
-                              });
-                            },
-                            child: Container(
-                              height: 19,
-                              width: 69,
-                              decoration: BoxDecoration(
-                                  color: selected == index
-                                      ? AppColors.black
-                                      : AppColors.white,
-                                  borderRadius: BorderRadius.circular(5)),
-                              alignment: Alignment.center,
-                              child: Text(
-                                descItems[index],
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .displaySmall!
-                                    .copyWith(
-                                      fontSize: 10,
-                                      color: selected == index
-                                          ? AppColors.white
-                                          : AppColors.black,
-                                    ),
-                              ),
-                            ),
-                          );
-                        }),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                      padding:
-                          const EdgeInsets.only(left: 10, top: 5, right: 10),
+                      padding: EdgeInsets.only(left: 10, top: 30.h, right: 10),
                       child: SizedBox(
                           width: 10,
                           child: ListView.separated(
+                              padding: const EdgeInsets.all(0),
                               physics: const NeverScrollableScrollPhysics(),
                               shrinkWrap: true,
                               itemCount: 60,

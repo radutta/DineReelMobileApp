@@ -1,6 +1,7 @@
 import 'package:dinereel/src/features/auth/widgets/semicircle_painter.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../routing/routing_function.dart';
 import '../../../themes/colors.dart';
@@ -19,12 +20,12 @@ class LoginBottomWidget extends StatelessWidget {
           decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
               AppColors.primaryGradientLight,
-              AppColors.primaryGradientDeep,
+              AppColors.primaryGradientDeep
             ]),
           ),
           child: Column(
             children: [
-              const SizedBox(height: 100),
+              SizedBox(height: 80.h),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context)
@@ -37,7 +38,7 @@ class LoginBottomWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 23),
+              const SizedBox(height: 20),
               Center(
                 child: Text(
                   'accept'.tr(),
@@ -64,7 +65,7 @@ class LoginBottomWidget extends StatelessWidget {
                       style: Theme.of(context).textTheme.displaySmall)
                 ])),
               ),
-              const SizedBox(height: 23),
+              const SizedBox(height: 30),
             ],
           ),
         ),
@@ -76,7 +77,7 @@ class LoginBottomWidget extends StatelessWidget {
             decoration: const BoxDecoration(
               gradient: LinearGradient(colors: [
                 AppColors.primaryGradientLight,
-                AppColors.primaryGradientDeep,
+                AppColors.primaryGradientDeep
               ]),
             ),
           ),

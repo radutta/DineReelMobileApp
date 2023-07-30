@@ -2,11 +2,13 @@ import 'package:dinereel/src/features/menu/screens/item_detials_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../routing/routing_function.dart';
 import '../../../themes/colors.dart';
 import '../../order/cubit/order_cubit.dart';
+
 import 'item_details_bottom_sheet.dart';
 
 final List<String> imagesItem = [
@@ -44,7 +46,7 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 400,
+      height: 350.w,
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
       margin: const EdgeInsets.only(bottom: 25),
       child: Stack(
@@ -58,6 +60,7 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                     widget.index == 0
                         ? showModalBottomSheet(
                             isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
                             shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.vertical(
                                 top: Radius.circular(25.0),
@@ -79,10 +82,7 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                           //             'https://player.vimeo.com/external/376204686.hd.mp4?s=4014d6c498512ff5908a1a17dd05fd346954944f&profile_id=174&oauth2_token_id=57447761',
                           //       )
                           //     :
-                          Image.network(
-                        imagesItem[index],
-                        fit: BoxFit.cover,
-                      )),
+                          Image.network(imagesItem[index], fit: BoxFit.cover)),
                 );
               }),
           Align(
@@ -111,14 +111,19 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
             alignment: Alignment.topLeft,
             child: Container(
               margin: const EdgeInsets.only(top: 22),
-              padding: const EdgeInsets.only(left: 10),
-              width: 85,
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(colors: [
-                AppColors.primaryGradientDeep,
-                AppColors.primaryGradientLight,
-                Colors.transparent.withOpacity(.2)
-              ])),
+              padding: EdgeInsets.only(left: 20.w),
+              width: 70.w,
+              decoration: const BoxDecoration(
+                  color: AppColors.primaryGradientDeep,
+                  borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(5),
+                      bottomRight: Radius.circular(5))
+                  // gradient: LinearGradient(colors: [
+                  //   AppColors.primaryGradientDeep,
+                  //   AppColors.primaryGradientLight,
+                  //   Colors.transparent.withOpacity(.2)
+                  // ]),
+                  ),
               child: Text(
                 "new".tr(),
                 style: const TextStyle(color: AppColors.black),
@@ -197,7 +202,7 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                     context.watch<OrderControllerCubit>().state
                         ? GestureDetector(
                             onTap: () {
-                              if (itemCount > 0) {
+                              if (itemCount > 1) {
                                 setState(() {
                                   itemCount = itemCount - 1;
                                 });
@@ -224,11 +229,11 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                                   children: [
                                     GestureDetector(
                                         onTap: () {
-                                          if (itemCount > 0) {
+                                          if (itemCount > 1) {
                                             setState(() {
                                               itemCount = itemCount - 1;
                                             });
-                                          } else if (itemCount == 0) {
+                                          } else if (itemCount == 1) {
                                             context
                                                 .read<OrderControllerCubit>()
                                                 .removeOrder();

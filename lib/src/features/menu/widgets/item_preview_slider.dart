@@ -33,20 +33,25 @@ class _ItemPreviewSliderState extends State<ItemPreviewSlider> {
       children: [
         Container(
           height: 400,
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-          child: PageView.builder(
-              controller: pagecontroller,
-              itemCount: imagesItem.length,
-              itemBuilder: (context, index) {
-                return ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                        bottomLeft: Radius.circular(30),
-                        bottomRight: Radius.circular(30)),
-                    child: Image.network(
-                      imagesItem[index],
-                      fit: BoxFit.cover,
-                    ));
-              }),
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(30),
+                bottomRight: Radius.circular(30)),
+          ),
+          child: ClipRRect(
+            borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(30),
+                bottomRight: Radius.circular(30)),
+            child: PageView.builder(
+                controller: pagecontroller,
+                itemCount: imagesItem.length,
+                itemBuilder: (context, index) {
+                  return Image.network(
+                    imagesItem[index],
+                    fit: BoxFit.cover,
+                  );
+                }),
+          ),
         ),
         Positioned(
           left: MediaQuery.of(context).size.width / 2 - 37.5,

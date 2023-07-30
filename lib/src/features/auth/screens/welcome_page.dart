@@ -2,7 +2,6 @@ import 'package:dinereel/src/themes/colors.dart';
 import 'package:dinereel/src/features/auth/screens/login_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import '../../../common_widgets/primary_regular_action_button.dart';
 import '../../../routing/routing_function.dart';
 import '../widgets/video_controller_widget.dart';
 
@@ -36,18 +35,32 @@ class _WelcomePageState extends State<WelcomePage> {
         ),
         Align(
           alignment: Alignment.bottomCenter,
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 111, left: 20, right: 20),
-            child: PrimaryRegularActionButton(
-              text: "get_started".tr(),
-              action: () {
-                Navigator.of(context)
-                    .push(Routes().createRoute(const LoginPage()));
-              },
-              disable: false,
+          child: GestureDetector(
+            onTap: () {
+              Navigator.of(context)
+                  .push(Routes().createRoute(const LoginPage()));
+            },
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 14),
+              margin: const EdgeInsets.only(bottom: 111, left: 20, right: 20),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                gradient: const LinearGradient(colors: [
+                  AppColors.primaryGradientDeep,
+                  AppColors.primaryGradientLight
+                ]),
+              ),
+              child: Row(
+                children: [
+                  const Spacer(),
+                  Text("get_started".tr(),
+                      style: Theme.of(context).textTheme.bodyMedium),
+                  const Spacer(),
+                ],
+              ),
             ),
           ),
-        )
+        ),
       ],
     ));
   }

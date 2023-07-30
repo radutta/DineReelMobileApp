@@ -19,6 +19,7 @@ class LoginPage extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.white,
       body: SafeArea(
+        bottom: false,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
@@ -71,6 +72,7 @@ class LoginPage extends StatelessWidget {
                   contentPadding: const EdgeInsets.symmetric(vertical: 0),
                   hintText: 'phone_no'.tr(),
                   hintStyle: Theme.of(context).textTheme.displaySmall,
+                  errorStyle: const TextStyle(fontSize: 12),
                   border: const OutlineInputBorder(
                     borderSide: BorderSide(),
                   ),
@@ -139,7 +141,7 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            const LoginBottomWidget()
+            const LoginBottomWidget(),
           ],
         ),
       ),
