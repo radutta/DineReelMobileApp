@@ -97,7 +97,7 @@ class RecentOrderWidget extends StatelessWidget {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 SizedBox(
-                                                  width: 300,
+                                                  width: 300.w,
                                                   height: 44,
                                                   child: Center(
                                                     child: Stack(
@@ -182,7 +182,7 @@ class RecentOrderWidget extends StatelessWidget {
                                                       fontWeight:
                                                           FontWeight.w600,
                                                       fontSize: 12)),
-                                          const SizedBox(width: 85),
+                                          SizedBox(width: 60.h),
                                           Column(
                                             mainAxisSize: MainAxisSize.min,
                                             mainAxisAlignment:
