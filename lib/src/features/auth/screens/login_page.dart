@@ -2,6 +2,7 @@ import 'package:dinereel/src/features/auth/screens/otp_vedification_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
@@ -43,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            const SizedBox(height: 22),
+            SizedBox(height: 5.h),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Row(
@@ -70,19 +71,17 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
             ),
-            const SizedBox(height: 49),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20.h),
               child: Text('enter_mobile_number'.tr(),
                   style: Theme.of(context).textTheme.titleLarge),
             ),
-            const SizedBox(height: 33),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text('phone_no'.tr(),
                   style: Theme.of(context).textTheme.displaySmall),
             ),
-            const SizedBox(height: 3),
+            SizedBox(height: 3.h),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: IntlPhoneField(
@@ -108,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                 onCountryChanged: (country) {},
               ),
             ),
-            const SizedBox(height: 33),
+            SizedBox(height: 30.h),
             Center(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -127,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            const SizedBox(height: 33),
+            SizedBox(height: 30.h),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
@@ -157,7 +156,7 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
             ),
-            const SizedBox(height: 33),
+            SizedBox(height: 30.h),
             Center(
               child: Row(
                 mainAxisSize: MainAxisSize.min,
