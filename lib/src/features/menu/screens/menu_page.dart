@@ -75,7 +75,29 @@ class _MenuHomeState extends State<MenuHome>
                     right: 0,
                     bottom: 0,
                     child: ViewOrderWidget(orderNo: '2'))
-                : Container()
+                : Container(),
+            context.watch<OrderControllerCubit>().state
+                ? Positioned(
+                    left: (MediaQuery.of(context).size.width - 80) / 2,
+                    bottom: 66,
+                    child: GestureDetector(
+                        onTap: () {
+                          showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.vertical(
+                                  top: Radius.circular(25.0),
+                                ),
+                              ),
+                              context: context,
+                              builder: (context) {
+                                return const CategoryBottomSheet();
+                              });
+                        },
+                        child: Image.asset('assets/menu/images/menu.png')),
+                  )
+                : Container(),
           ],
         ),
         extendBody: true,
