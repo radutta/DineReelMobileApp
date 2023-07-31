@@ -15,28 +15,43 @@ class AniamatedAddButton extends StatefulWidget {
 }
 
 class _AniamatedAddButtonState extends State<AniamatedAddButton>
-    with SingleTickerProviderStateMixin {
-  late AnimationController controller;
-  late Animation fabAnimation;
-  late Animation<Offset> moveAnimation;
+    with TickerProviderStateMixin {
+  late AnimationController pluscontroller;
+  late AnimationController minuscontroller;
+  late Animation fabplusAnimation;
+  late Animation fabminusAnimation;
+
+  late Animation<Offset> moveplusAnimation;
+  late Animation<Offset> moveMinusAnimation;
   int itemCount = 1;
   AlignmentGeometry alignment = Alignment.center;
+  bool changeControllertominus = false;
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(
+    pluscontroller = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 500));
-    fabAnimation = Tween(begin: 0.0, end: 1.0)
-        .animate(CurvedAnimation(parent: controller, curve: Curves.easeIn));
-    moveAnimation = Tween(begin: const Offset(0, -20), end: const Offset(0, 0))
-        .animate(CurvedAnimation(parent: controller, curve: Curves.linear));
-    controller.forward();
+    minuscontroller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 500));
+    fabplusAnimation = Tween(begin: 0.0, end: 1.0)
+        .animate(CurvedAnimation(parent: pluscontroller, curve: Curves.easeIn));
+    fabminusAnimation = Tween(begin: 0.0, end: 1.0).animate(
+        CurvedAnimation(parent: minuscontroller, curve: Curves.easeIn));
+    moveMinusAnimation =
+        Tween(begin: const Offset(0, -20), end: const Offset(0, 0)).animate(
+            CurvedAnimation(parent: minuscontroller, curve: Curves.linear));
+    moveplusAnimation = Tween(
+            begin: const Offset(0, 20), end: const Offset(0, 0))
+        .animate(CurvedAnimation(parent: pluscontroller, curve: Curves.linear));
+    minuscontroller.forward();
+    pluscontroller.forward();
   }
 
   @override
   void dispose() {
+    pluscontroller.dispose();
+    minuscontroller.dispose();
     super.dispose();
-    controller.dispose();
   }
 
   @override
@@ -47,8 +62,6 @@ class _AniamatedAddButtonState extends State<AniamatedAddButton>
           setState(() {
             menuItems[widget.index].count = menuItems[widget.index].count - 1;
           });
-          controller.reset();
-          controller.forward();
         } else if (menuItems[widget.index].count == 0) {
           context.read<OrderControllerCubit>().removeOrder();
         }
@@ -69,12 +82,13 @@ class _AniamatedAddButtonState extends State<AniamatedAddButton>
               GestureDetector(
                   onTap: () {
                     if (menuItems[widget.index].count > 1) {
+                      minuscontroller.reset();
+                      minuscontroller.forward();
                       setState(() {
                         menuItems[widget.index].count =
                             menuItems[widget.index].count - 1;
+                        changeControllertominus = true;
                       });
-                      controller.reset();
-                      controller.forward();
                     } else if (menuItems[widget.index].count == 1) {
                       context.read<OrderControllerCubit>().removeOrder();
                     }
@@ -82,30 +96,50 @@ class _AniamatedAddButtonState extends State<AniamatedAddButton>
                   child: const Icon(Icons.remove)),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: AnimatedBuilder(
-                  animation: controller,
-                  builder: (context, child) {
-                    return Opacity(
-                      opacity: fabAnimation.value,
-                      child: Transform.translate(
-                        offset: moveAnimation.value,
-                        child: Text(menuItems[widget.index].count.toString(),
-                            style: Theme.of(context)
-                                .textTheme
-                                .displaySmall!
-                                .copyWith(fontSize: 12.sp)),
+                child: changeControllertominus
+                    ? AnimatedBuilder(
+                        animation: minuscontroller,
+                        builder: (context, child) {
+                          return Opacity(
+                            opacity: fabminusAnimation.value,
+                            child: Transform.translate(
+                              offset: moveMinusAnimation.value,
+                              child: Text(
+                                  menuItems[widget.index].count.toString(),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .displaySmall!
+                                      .copyWith(fontSize: 12.sp)),
+                            ),
+                          );
+                        },
+                      )
+                    : AnimatedBuilder(
+                        animation: pluscontroller,
+                        builder: (context, child) {
+                          return Opacity(
+                            opacity: fabplusAnimation.value,
+                            child: Transform.translate(
+                              offset: moveplusAnimation.value,
+                              child: Text(
+                                  menuItems[widget.index].count.toString(),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .displaySmall!
+                                      .copyWith(fontSize: 12.sp)),
+                            ),
+                          );
+                        },
                       ),
-                    );
-                  },
-                ),
               ),
               GestureDetector(
                   onTap: () {
-                    controller.reset();
-                    controller.forward();
+                    pluscontroller.reset();
+                    pluscontroller.forward();
                     setState(() {
                       menuItems[widget.index].count =
                           menuItems[widget.index].count + 1;
+                      changeControllertominus = false;
                     });
                   },
                   child: const Icon(Icons.add))
