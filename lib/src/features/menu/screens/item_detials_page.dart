@@ -18,6 +18,9 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
+    var h = MediaQuery.of(context).size.height;
+    print(width);
+    print(h);
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,129 +66,145 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                   .copyWith(fontSize: 12, fontWeight: FontWeight.w500),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            child: SizedBox(
-              height: 1,
-              child: ListView.builder(
-                  padding: const EdgeInsets.all(0),
-                  scrollDirection: Axis.horizontal,
-                  itemCount: width > 450 ? 150 : 50,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: const EdgeInsets.only(left: 3),
-                      height: 1,
-                      width: 5,
-                      color: AppColors.black,
-                    );
-                  }),
-            ),
+          Column(
+            children: [
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                child: SizedBox(
+                  height: 1,
+                  child: ListView.builder(
+                      padding: const EdgeInsets.all(0),
+                      scrollDirection: Axis.horizontal,
+                      itemCount: width > 450 ? 150 : 50,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          margin: const EdgeInsets.only(left: 3),
+                          height: 1,
+                          width: 5,
+                          color: AppColors.black,
+                        );
+                      }),
+                ),
+              ),
+            ],
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Container(
-              // color: AppColors.grey,
-              height: width > 450 ? 170.h : 270.w,
+            child: SizedBox(
+              height: width > 450
+                  ? 165.h
+                  : h < 800
+                      ? 135.h
+                      : 270.w,
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Stack(
                   children: [
-                    Padding(
-                        padding: EdgeInsets.only(left: 10, top: 6.h, right: 10),
-                        child: SizedBox(
-                            width: 10,
-                            child: ListView.separated(
-                                padding: const EdgeInsets.all(0),
-                                physics: const NeverScrollableScrollPhysics(),
-                                shrinkWrap: true,
-                                itemCount: 60,
-                                separatorBuilder: (context, index) {
-                                  return const SizedBox(height: 3);
-                                },
-                                itemBuilder: (context, index) {
-                                  return index == 0 ||
-                                          index == 12 ||
-                                          index == 30
-                                      ? Row(children: [
-                                          Container(
-                                              height: 10,
-                                              width: 10,
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          100),
-                                                  color: AppColors
-                                                      .primaryGradientDeep))
-                                        ])
-                                      : Center(
-                                          child: Container(
-                                              height: 5,
-                                              width: 1,
-                                              color: AppColors
-                                                  .primaryGradientDeep),
-                                        );
-                                }))),
+                    SizedBox(
+                        width: 10,
+                        child: ListView.separated(
+                            padding: const EdgeInsets.all(0),
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: 60,
+                            separatorBuilder: (context, index) {
+                              return const SizedBox(height: 3);
+                            },
+                            itemBuilder: (context, index) {
+                              return Center(
+                                child: Container(
+                                    height: 5,
+                                    width: 1,
+                                    color: AppColors.primaryGradientDeep),
+                              );
+                            })),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: EdgeInsets.only(),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(descItems[0]),
-                              SizedBox(
-                                width: MediaQuery.of(context).size.width * .87,
-                                child: Text(
-                                  'Food history is an interdisciplinary field that examines the history and the cultural, economic, environmental, and sociological impacts of food',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodySmall!
-                                      .copyWith(fontSize: 12),
-                                ),
-                              )
-                            ],
-                          ),
+                        Row(
+                          children: [
+                            Container(
+                                height: 10,
+                                width: 10,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(100),
+                                    color: AppColors.primaryGradientDeep)),
+                            const SizedBox(width: 10),
+                            Text(descItems[0]),
+                          ],
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(top: width > 450 ? 40 : 23),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(descItems[1]),
-                              SizedBox(
-                                width: MediaQuery.of(context).size.width * .87,
-                                child: Text(
-                                  'A food ingredient is any substance that is added to a food to achieve a desired effect. The term “food ingredient” includes food additives, which are substances added to foods for specific technical and/or functional  purposes during processing, storage or packaging.',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodySmall!
-                                      .copyWith(fontSize: 12),
-                                ),
-                              )
-                            ],
-                          ),
+                        Row(
+                          children: [
+                            const SizedBox(width: 20),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * .87,
+                              child: Text(
+                                'Food history is an interdisciplinary field that examines the history and the cultural, economic, environmental, and sociological impacts of food',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall!
+                                    .copyWith(fontSize: 12),
+                              ),
+                            ),
+                          ],
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(top: width > 450 ? 73 : 35),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(descItems[2]),
-                              SizedBox(
-                                width: MediaQuery.of(context).size.width * .87,
-                                child: Text(
-                                  'A food ingredient is any substance that is added to a food to achieve a desired effect. The term “food ingredient” includes food additives, which are substances added to foods for specific technical and/or functional  purposes during processing, storage or packaging.',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodySmall!
-                                      .copyWith(fontSize: 12),
-                                ),
-                              )
-                            ],
-                          ),
+                        const SizedBox(height: 30),
+                        Row(
+                          children: [
+                            Container(
+                                height: 10,
+                                width: 10,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(100),
+                                    color: AppColors.primaryGradientDeep)),
+                            const SizedBox(width: 10),
+                            Text(descItems[1]),
+                          ],
                         ),
+                        Row(
+                          children: [
+                            const SizedBox(width: 20),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * .87,
+                              child: Text(
+                                'A food ingredient is any substance that is added to a food to achieve a desired effect. The term “food ingredient” includes food additives, which are substances added to foods for specific technical and/or functional  purposes during processing, storage or packaging.',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall!
+                                    .copyWith(fontSize: 12),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 30),
+                        Row(
+                          children: [
+                            Container(
+                                height: 10,
+                                width: 10,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(100),
+                                    color: AppColors.primaryGradientDeep)),
+                            const SizedBox(width: 10),
+                            Text(descItems[2]),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            const SizedBox(width: 20),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * .87,
+                              child: Text(
+                                'A food ingredient is any substance that is added to a food to achieve a desired effect. The term “food ingredient” includes food additives, which are substances added to foods for specific technical and/or functional  purposes during processing, storage or packaging.',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall!
+                                    .copyWith(fontSize: 12),
+                              ),
+                            ),
+                          ],
+                        )
                       ],
                     ),
                   ],
@@ -193,7 +212,7 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
               ),
             ),
           ),
-          Spacer(),
+          const Spacer(),
           const ItemDetailsButtonWidget(),
         ],
       ),
