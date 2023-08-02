@@ -1,3 +1,4 @@
+import 'package:dinereel/src/common_widgets/category_filter.dart';
 import 'package:dinereel/src/features/menu/models/menu_model.dart';
 import 'package:dinereel/src/features/menu/screens/search_page.dart';
 import 'package:dinereel/src/features/menu/widgets/category_filter_bottomsheet.dart';
@@ -186,6 +187,10 @@ class MenuPage extends StatelessWidget {
                     ),
                   )
                 : const PrimaryAppBar(),
+            const SizedBox(height: 20),
+            context.watch<OrderControllerCubit>().state
+                ? const CategoryFilterWidget()
+                : Container(),
             const SizedBox(height: 20),
             const HighlightListWidget(),
             const SizedBox(height: 18),
