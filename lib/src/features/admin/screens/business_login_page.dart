@@ -67,7 +67,7 @@ class _BusinessLoginPageState extends State<BusinessLoginPage>
                               .titleLarge!
                               .copyWith(
                                   fontWeight: FontWeight.w800,
-                                  color: AppColors.primaryGradientLight)),
+                                  color: AppColors.primaryGradientDeep)),
                     ],
                   ),
                 ),
