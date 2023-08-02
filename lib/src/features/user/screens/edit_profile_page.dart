@@ -315,7 +315,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     ],
                   ),
                 ),
-                SizedBox(height: 90)
+                const SizedBox(height: 90)
               ],
             ),
           ),

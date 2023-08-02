@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../common_widgets/category_filter.dart';
 import '../../../routing/routing_function.dart';
 import '../../../themes/colors.dart';
 import '../../menu/screens/menu_page.dart';
@@ -79,56 +80,7 @@ class _BusinessMenuPageState extends State<BusinessMenuPage> {
               child:
                   Text('Menu', style: Theme.of(context).textTheme.titleLarge),
             ),
-            Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: SizedBox(
-                  height: 28,
-                  child: ListView.builder(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: menutypes.length,
-                      itemBuilder: (context, index) {
-                        return GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              selected = index;
-                            });
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.only(right: 10),
-                            child: Row(
-                              children: [
-                                Container(
-                                  height: 28,
-                                  padding:
-                                      const EdgeInsets.symmetric(horizontal: 9),
-                                  decoration: BoxDecoration(
-                                      color: selected == index
-                                          ? const Color(0xFF303136)
-                                          : const Color(0xFFD9D9D9),
-                                      borderRadius: BorderRadius.circular(20),
-                                      border:
-                                          Border.all(color: AppColors.black)),
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    menutypes[index],
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: selected == index
-                                          ? Colors.white
-                                          : const Color(0xFF303136),
-                                      fontSize: 12,
-                                      fontFamily: 'Inter',
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
-                      }),
-                )),
+            const CategoryFilterWidget(),
             const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
