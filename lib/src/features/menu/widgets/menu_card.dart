@@ -56,41 +56,36 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
       margin: const EdgeInsets.only(bottom: 25),
       child: Stack(
         children: [
-          PageView.builder(
-              controller: pagecontroller,
-              itemCount: widget.data[widget.index].images.length,
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () {
-                    widget.index == 0
-                        ? showModalBottomSheet(
-                            isScrollControlled: true,
-                            backgroundColor: Colors.transparent,
-                            shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.vertical(
-                                top: Radius.circular(25.0),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: PageView.builder(
+                controller: pagecontroller,
+                itemCount: widget.data[widget.index].images.length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      widget.index == 0
+                          ? showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.vertical(
+                                  top: Radius.circular(25.0),
+                                ),
                               ),
-                            ),
-                            context: context,
-                            builder: (context) {
-                              return const ItemDetailsBottomSheet();
-                            })
-                        : Navigator.of(context).push(
-                            Routes().createRoute(const ItemDetailsPage()));
-                  },
-                  child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child:
-                          // index == 0
-                          //     ? const VideoPlayerWidget(
-                          //         videoUrl:
-                          //             'https://player.vimeo.com/external/376204686.hd.mp4?s=4014d6c498512ff5908a1a17dd05fd346954944f&profile_id=174&oauth2_token_id=57447761',
-                          //       )
-                          //     :
-                          Image.network(widget.data[widget.index].images[index],
-                              fit: BoxFit.cover)),
-                );
-              }),
+                              context: context,
+                              builder: (context) {
+                                return const ItemDetailsBottomSheet();
+                              })
+                          : Navigator.of(context).push(
+                              Routes().createRoute(const ItemDetailsPage()));
+                    },
+                    child: Image.network(
+                        widget.data[widget.index].images[index],
+                        fit: BoxFit.cover),
+                  );
+                }),
+          ),
           Align(
             alignment: Alignment.topRight,
             child: GestureDetector(
