@@ -17,7 +17,7 @@ class _ViewOrderWidgetState extends State<ViewOrderWidget> {
   double height = 0;
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Column(
       children: [
         AnimatedContainer(
           height: height,

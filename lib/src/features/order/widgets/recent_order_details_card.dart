@@ -30,6 +30,7 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
+    var h = MediaQuery.of(context).size.height;
     return Container(
       margin: const EdgeInsets.all(20),
       padding: const EdgeInsets.all(10),
@@ -39,7 +40,7 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
       child: Column(
         children: [
           SizedBox(
-            height: 260.h,
+            height: h > 800 ? 260.h : 200.h,
             child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: 4,
@@ -176,13 +177,14 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
             },
             child: Container(
               width: 356.w,
-              height: 70.w,
+              height: 35,
               padding: const EdgeInsets.all(5),
               alignment: Alignment.centerLeft,
               decoration: BoxDecoration(
                   color: AppColors.lightgrey,
                   borderRadius: BorderRadius.circular(5)),
               child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
                 child: Text(context.watch<InstructionCubit>().state,
                     style: Theme.of(context)
                         .textTheme

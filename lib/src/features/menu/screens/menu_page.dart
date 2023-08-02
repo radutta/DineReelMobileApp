@@ -189,7 +189,7 @@ class MenuPage extends StatelessWidget {
                 : const PrimaryAppBar(),
             const SizedBox(height: 20),
             context.watch<OrderControllerCubit>().state
-                ? const CategoryFilterWidget()
+                ? const Center(child: CategoryFilterWidget())
                 : Container(),
             const SizedBox(height: 20),
             const HighlightListWidget(),
