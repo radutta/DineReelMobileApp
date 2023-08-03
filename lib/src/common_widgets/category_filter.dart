@@ -19,6 +19,7 @@ class _CategoryFilterWidgetState extends State<CategoryFilterWidget> {
       height: 30,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
+          padding: const EdgeInsets.only(left: 15),
           shrinkWrap: true,
           itemCount: menucategories.length,
           itemBuilder: (context, index) {
@@ -33,7 +34,7 @@ class _CategoryFilterWidgetState extends State<CategoryFilterWidget> {
                 margin: const EdgeInsets.symmetric(horizontal: 5),
                 decoration: BoxDecoration(
                     color: clickedindex == index
-                        ? const Color(0xFFFFEEC3)
+                        ? AppColors.lightyellow
                         : AppColors.white,
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
