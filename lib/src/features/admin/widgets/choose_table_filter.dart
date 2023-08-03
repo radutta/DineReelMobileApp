@@ -24,7 +24,7 @@ class _ChooseTableWidgetState extends State<ChooseTableWidget> {
           onTap: () {
             if (height == 0) {
               setState(() {
-                height = 40 * 4;
+                height = 39 * 4;
               });
             } else {
               setState(() {
@@ -54,6 +54,7 @@ class _ChooseTableWidgetState extends State<ChooseTableWidget> {
           duration: const Duration(milliseconds: 300),
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: ListView.builder(
+              padding: const EdgeInsets.all(0),
               shrinkWrap: true,
               itemCount: 4,
               itemBuilder: (context, index) {

@@ -43,42 +43,42 @@ class _QrScanPageState extends State<QrScanPage> {
     }
   }
 
-  Future<PermissionStatus> getCameraPermission() async {
-    var status = await Permission.camera.status;
-    if (!status.isGranted) {
-      final result = await Permission.camera.request();
-      return result;
-    } else {
-      return status;
-    }
-  }
+  // Future<PermissionStatus> getCameraPermission() async {
+  //   var status = await Permission.camera.status;
+  //   if (!status.isGranted) {
+  //     final result = await Permission.camera.request();
+  //     return result;
+  //   } else {
+  //     return status;
+  //   }
+  // }
 
-  Future<bool> checkPermissionStatus() async {
-    const permission = Permission.camera;
-    print(permission);
-    return await permission.status.isGranted;
-  }
+  // Future<bool> checkPermissionStatus() async {
+  //   const permission = Permission.camera;
+  //   print(permission);
+  //   return await permission.status.isGranted;
+  // }
 
-  getStatus() async {
-    status = await getCameraPermission();
-    print('status-->$status');
-  }
+  // getStatus() async {
+  //   status = await getCameraPermission();
+  //   print('status-->$status');
+  // }
 
-  Future<void> requestPermission() async {
-    const permission = Permission.camera;
+  // Future<void> requestPermission() async {
+  //   const permission = Permission.camera;
 
-    if (await permission.isDenied) {
-      final result = await permission.request();
+  //   if (await permission.isDenied) {
+  //     final result = await permission.request();
 
-      if (result.isGranted) {
-        // Permission is granted
-      } else if (result.isDenied) {
-        // Permission is denied
-      } else if (result.isPermanentlyDenied) {
-        // Permission is permanently denied
-      }
-    }
-  }
+  //     if (result.isGranted) {
+  //       // Permission is granted
+  //     } else if (result.isDenied) {
+  //       // Permission is denied
+  //     } else if (result.isPermanentlyDenied) {
+  //       // Permission is permanently denied
+  //     }
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -99,41 +99,30 @@ class _QrScanPageState extends State<QrScanPage> {
                 child: const Icon(Icons.arrow_back, color: AppColors.white),
               ),
               const SizedBox(height: 50),
-              GestureDetector(
-                onTap: () {
-                  getCameraPermission();
-                  getStatus();
-                },
-                child: Center(
-                    child: Text('scan_qr'.tr(),
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleLarge!
-                            .copyWith(color: AppColors.white))),
-              ),
-              const SizedBox(height: 52),
               Center(
-                child: Text(
-                  result.toString(),
-                  style: TextStyle(color: AppColors.white),
-                ),
-              ),
-              const SizedBox(height: 20),
+                  child: Text('scan_qr'.tr(),
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleLarge!
+                          .copyWith(color: AppColors.white))),
+              const SizedBox(height: 52),
               Center(
                   child: SizedBox(
                       height: 300,
                       width: 300,
-                      child: QRView(
-                          key: qrKey,
-                          overlay: QrScannerOverlayShape(
-                              borderColor: AppColors.primaryGradientDeep,
-                              borderRadius: 10,
-                              borderLength: 30,
-                              borderWidth: 10,
-                              overlayColor: AppColors.scanbgColor,
-                              cutOutBottomOffset: 0),
-                          onQRViewCreated: _onQRViewCreated,
-                          overlayMargin: const EdgeInsets.all(0))))
+                      child: Center(
+                        child: QRView(
+                            key: qrKey,
+                            overlay: QrScannerOverlayShape(
+                                borderColor: AppColors.primaryGradientDeep,
+                                borderRadius: 10,
+                                borderLength: 30,
+                                borderWidth: 10,
+                                overlayColor: AppColors.scanbgColor,
+                                cutOutBottomOffset: 0),
+                            onQRViewCreated: _onQRViewCreated,
+                            overlayMargin: const EdgeInsets.all(0)),
+                      )))
             ],
           ),
         ),
