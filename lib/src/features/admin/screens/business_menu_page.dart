@@ -1,3 +1,4 @@
+import 'package:dinereel/src/features/admin/widgets/choose_table_filter.dart';
 import 'package:flutter/material.dart';
 import '../../../common_widgets/category_filter.dart';
 import '../../../routing/routing_function.dart';
@@ -69,7 +70,20 @@ class _BusinessMenuPageState extends State<BusinessMenuPage> {
                     ],
                   ),
                   const Spacer(),
-                  Image.asset('assets/admin/filter.png'),
+                  GestureDetector(
+                      onTap: () {
+                        showModalBottomSheet(
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(25.0),
+                              ),
+                            ),
+                            context: context,
+                            builder: (context) {
+                              return const ChooseTableWidget();
+                            });
+                      },
+                      child: Image.asset('assets/admin/filter.png')),
                   const SizedBox(width: 10),
                   Image.asset('assets/admin/profile.png')
                 ],
