@@ -1,4 +1,5 @@
 import 'package:dinereel/src/features/admin/widgets/choose_table_filter.dart';
+import 'package:dinereel/src/features/user/screens/user_profile_page.dart';
 import 'package:flutter/material.dart';
 import '../../../common_widgets/category_filter.dart';
 import '../../../routing/routing_function.dart';
@@ -28,16 +29,13 @@ class _BusinessMenuPageState extends State<BusinessMenuPage> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 children: [
-                  Container(
-                    width: 54,
-                    height: 54,
-                    decoration: const ShapeDecoration(
-                      image: DecorationImage(
-                        image:
-                            NetworkImage("https://via.placeholder.com/54x54"),
-                        fit: BoxFit.fill,
-                      ),
-                      shape: OvalBorder(),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(100),
+                    child: Image.network(
+                      width: 54,
+                      height: 54,
+                      "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?cs=srgb&dl=pexels-mohamed-abdelghaffar-771742.jpg&fm=jpg",
+                      fit: BoxFit.cover,
                     ),
                   ),
                   const SizedBox(width: 10),
@@ -47,7 +45,7 @@ class _BusinessMenuPageState extends State<BusinessMenuPage> {
                       Row(
                         children: [
                           Text(
-                            'Oudh 1590',
+                            'My Hotel',
                             style: TextStyle(
                               color: Color(0xFF3D405B),
                               fontSize: 20,
@@ -85,7 +83,14 @@ class _BusinessMenuPageState extends State<BusinessMenuPage> {
                       },
                       child: Image.asset('assets/admin/filter.png')),
                   const SizedBox(width: 10),
-                  Image.asset('assets/admin/profile.png')
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.of(context)
+                            .push(Routes().createRoute(const UserProfilePage(
+                          type: 'admin',
+                        )));
+                      },
+                      child: Image.asset('assets/admin/profile.png'))
                 ],
               ),
             ),
