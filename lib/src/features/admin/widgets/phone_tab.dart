@@ -25,7 +25,7 @@ class _PhoneTabState extends State<PhoneTab> {
         children: [
           SizedBox(height: 20.h),
           Text('Phone Number', style: Theme.of(context).textTheme.displaySmall),
-          const SizedBox(height: 3),
+          SizedBox(height: 3.h),
           IntlPhoneField(
             initialCountryCode: 'IN',
             style: Theme.of(context).textTheme.bodyMedium,
@@ -46,9 +46,9 @@ class _PhoneTabState extends State<PhoneTab> {
             onChanged: (phone) {},
             onCountryChanged: (country) {},
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: 10.h),
           Text('Password', style: Theme.of(context).textTheme.displaySmall),
-          const SizedBox(height: 3),
+          SizedBox(height: 3.h),
           TextFormField(
             style: Theme.of(context).textTheme.bodyMedium,
             obscureText: isvisible,
@@ -78,7 +78,7 @@ class _PhoneTabState extends State<PhoneTab> {
                         },
                         child: const Icon(Icons.visibility))),
           ),
-          const SizedBox(height: 75),
+          SizedBox(height: 40.h),
           PrimaryRegularActionButton(
               text: "SUBMIT",
               action: () {

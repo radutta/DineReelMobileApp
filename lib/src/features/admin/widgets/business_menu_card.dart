@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../data/models/business_menu_card_model.dart';
 import '../../../themes/colors.dart';
@@ -21,8 +22,8 @@ class _BusinessMenuCardState extends State<BusinessMenuCard> {
           itemBuilder: (context, index) {
             return Center(
               child: Container(
-                width: 500,
-                height: 130,
+                width: 500.w,
+                height: 120,
                 padding: const EdgeInsets.all(15),
                 margin: const EdgeInsets.only(bottom: 15),
                 decoration: ShapeDecoration(
@@ -73,6 +74,7 @@ class _BusinessMenuCardState extends State<BusinessMenuCard> {
                                 Container(
                                   width: 20,
                                   height: 20,
+                                  margin: const EdgeInsets.only(left: 5),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(5),
                                       border:
@@ -86,7 +88,7 @@ class _BusinessMenuCardState extends State<BusinessMenuCard> {
                                     ),
                                   ),
                                 ),
-                                const SizedBox(width: 150),
+                                const SizedBox(width: 130),
                                 Text(
                                   businessMenuData[index].price,
                                   style: const TextStyle(
@@ -106,7 +108,7 @@ class _BusinessMenuCardState extends State<BusinessMenuCard> {
                                     text: businessMenuData[index].desc,
                                     style: const TextStyle(
                                       color: Color(0xFF303136),
-                                      fontSize: 11.5,
+                                      fontSize: 11,
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w400,
                                     ),

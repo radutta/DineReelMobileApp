@@ -8,6 +8,15 @@ List<String> highlights = [
   'puja'.tr(),
   'kitchen'.tr(),
   'events'.tr(),
+  'offers'.tr(),
+  'puja'.tr(),
+  'kitchen'.tr(),
+  'events'.tr(),
+  'happy'.tr(),
+  'offers'.tr(),
+  'puja'.tr(),
+  'kitchen'.tr(),
+  'events'.tr(),
   'happy'.tr(),
 ];
 

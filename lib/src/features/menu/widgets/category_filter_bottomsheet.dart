@@ -160,7 +160,8 @@ class _CategoryBottomSheetState extends State<CategoryBottomSheet> {
                                                       .bodySmall!
                                                       .copyWith(
                                                           color:
-                                                              AppColors.black),
+                                                              AppColors.black,
+                                                          fontSize: 12),
                                                 ),
                                               )
                                             ],

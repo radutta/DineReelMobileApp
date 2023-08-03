@@ -25,7 +25,7 @@ class _EmailTabState extends State<EmailTab> {
           SizedBox(height: 20.h),
           Text('Email Address',
               style: Theme.of(context).textTheme.displaySmall),
-          const SizedBox(height: 3),
+          SizedBox(height: 3.h),
           TextFormField(
             style: Theme.of(context).textTheme.displaySmall,
             decoration: InputDecoration(
@@ -40,9 +40,9 @@ class _EmailTabState extends State<EmailTab> {
               ),
             ),
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: 10.h),
           Text('Password', style: Theme.of(context).textTheme.displaySmall),
-          const SizedBox(height: 3),
+          SizedBox(height: 3.h),
           TextFormField(
             style: Theme.of(context).textTheme.displaySmall,
             obscureText: isvisible,
@@ -72,7 +72,7 @@ class _EmailTabState extends State<EmailTab> {
                         },
                         child: const Icon(Icons.visibility))),
           ),
-          SizedBox(height: 60.h),
+          SizedBox(height: 40.h),
           PrimaryRegularActionButton(
             text: "SUBMIT",
             action: () {

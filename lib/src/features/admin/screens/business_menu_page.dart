@@ -94,7 +94,7 @@ class _BusinessMenuPageState extends State<BusinessMenuPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child:
                   Text('Menu', style: Theme.of(context).textTheme.titleLarge),
             ),
@@ -111,7 +111,6 @@ class _BusinessMenuPageState extends State<BusinessMenuPage> {
                       .push(Routes().createRoute(const MenuHome(
                     type: 'admin',
                   )));
-                  // await storeValue('user', 'partner');
                 },
                 disable: false,
               ),

@@ -109,13 +109,13 @@ class _BusinessLoginPageState extends State<BusinessLoginPage>
                 ),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * .42,
+                height: MediaQuery.of(context).size.height * .43,
                 child: TabBarView(controller: _controller, children: const [
                   EmailTab(),
                   PhoneTab(),
                 ]),
               ),
-              const SizedBox(height: 49),
+              const SizedBox(height: 40),
               Center(
                 child: Row(
                   mainAxisSize: MainAxisSize.min,

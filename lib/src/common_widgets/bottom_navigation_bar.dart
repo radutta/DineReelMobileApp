@@ -37,6 +37,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
                     'Home',
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
                           fontWeight: FontWeight.w700,
+                          fontSize: 12,
                           color:
                               context.read<NavigationcontrollerCubit>().state ==
                                       0
@@ -61,6 +62,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
                     'Blog',
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
                           fontWeight: FontWeight.w700,
+                          fontSize: 12,
                           color:
                               context.read<NavigationcontrollerCubit>().state ==
                                       1
@@ -78,14 +80,25 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
               child: SizedBox(
                 width: 60,
                 child: Column(mainAxisSize: MainAxisSize.min, children: [
+                  const SizedBox(height: 5),
                   context.watch<NavigationcontrollerCubit>().state == 2
                       ? SvgPicture.asset(
-                          'assets/menu/images/wishlist_active.svg')
-                      : SvgPicture.asset('assets/menu/images/wishlist.svg'),
+                          'assets/menu/images/wishlist_active.svg',
+                          height: 30,
+                          width: 30,
+                          fit: BoxFit.contain,
+                        )
+                      : SvgPicture.asset(
+                          'assets/menu/images/wishlist.svg',
+                          height: 30,
+                          width: 30,
+                          fit: BoxFit.contain,
+                        ),
                   Text(
                     'Wishlist',
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
                           fontWeight: FontWeight.w700,
+                          fontSize: 12,
                           color:
                               context.read<NavigationcontrollerCubit>().state ==
                                       2
@@ -104,7 +117,9 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
                 width: 60,
                 child: Column(mainAxisSize: MainAxisSize.min, children: [
                   context.watch<NavigationcontrollerCubit>().state == 3
-                      ? SvgPicture.asset('assets/menu/images/user_active.svg')
+                      ? SvgPicture.asset(
+                          'assets/menu/images/user_active.svg',
+                        )
                       : SvgPicture.asset('assets/menu/images/user.svg'),
                   Text(
                     widget.type == 'loggedIn'
@@ -114,6 +129,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
                             : "Guest",
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
                           fontWeight: FontWeight.w700,
+                          fontSize: 12,
                           color:
                               context.read<NavigationcontrollerCubit>().state ==
                                       3

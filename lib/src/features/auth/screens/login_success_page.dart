@@ -57,7 +57,7 @@ class _LoginSuccessPageState extends State<LoginSuccessPage> {
               duration: const Duration(milliseconds: 1200),
               curve: Curves.linear,
               tween: Tween<Offset>(
-                  begin: const Offset(-20, 548), end: Offset(0, h - 548)),
+                  begin: const Offset(-20, 548), end: Offset(0, h - 500)),
               child: Image.asset('assets/auth/images/fries.png'),
               builder: (context, offset, child) {
                 return Transform.translate(offset: offset, child: child);
