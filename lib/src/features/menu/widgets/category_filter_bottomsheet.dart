@@ -7,7 +7,7 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../common_widgets/primary_regular_action_button.dart';
 
-import '../models/category_model.dart';
+import '../../../../data/models/menu_category_model.dart';
 
 class CategoryBottomSheet extends StatefulWidget {
   const CategoryBottomSheet({super.key});
@@ -19,10 +19,10 @@ class CategoryBottomSheet extends StatefulWidget {
 class _CategoryBottomSheetState extends State<CategoryBottomSheet> {
   List<int> selected = [];
 
-  Future<List<CategoryModel>> convertListToFutureList(
-      List<CategoryModel> categoryModelList) async {
+  Future<List<MenuCategoryModel>> convertListToFutureList(
+      List<MenuCategoryModel> categoryModelList) async {
     await Future.delayed(const Duration(seconds: 1));
-    List<CategoryModel> futureList =
+    List<MenuCategoryModel> futureList =
         categoryModelList.map((item) => item).toList();
     return futureList;
   }
@@ -92,11 +92,11 @@ class _CategoryBottomSheetState extends State<CategoryBottomSheet> {
                         )
                       ],
                     ),
-                    FutureBuilder<List<CategoryModel>>(
+                    FutureBuilder<List<MenuCategoryModel>>(
                         future: convertListToFutureList(categories),
                         builder: (context, snapshot) {
                           if (snapshot.hasData) {
-                            List<CategoryModel> category = snapshot.data!;
+                            List<MenuCategoryModel> category = snapshot.data!;
                             return GridView.builder(
                                 physics: const NeverScrollableScrollPhysics(),
                                 shrinkWrap: true,

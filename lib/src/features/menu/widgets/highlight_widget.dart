@@ -11,8 +11,8 @@ class HighlightWidget extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: 64,
-          width: 64,
+          height: 40,
+          width: 40,
           margin: const EdgeInsets.symmetric(horizontal: 10),
           padding: const EdgeInsets.all(5),
           decoration: BoxDecoration(
@@ -33,7 +33,7 @@ class HighlightWidget extends StatelessWidget {
           style: Theme.of(context)
               .textTheme
               .bodySmall!
-              .copyWith(color: AppColors.black),
+              .copyWith(color: AppColors.black, fontSize: 10),
         )
       ],
     );

@@ -1,5 +1,5 @@
 import 'package:dinereel/src/common_widgets/category_filter.dart';
-import 'package:dinereel/src/features/menu/models/menu_model.dart';
+import 'package:dinereel/data/models/menu_model.dart';
 import 'package:dinereel/src/features/menu/screens/search_page.dart';
 import 'package:dinereel/src/features/menu/widgets/category_filter_bottomsheet.dart';
 import 'package:dinereel/src/features/order/cubit/order_cubit.dart';
@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:sliver_tools/sliver_tools.dart';
 import '../../../common_widgets/bottom_navigation_bar.dart';
 import '../../../cubit/cubit/navigationcontroller_cubit.dart';
 import '../../../routing/routing_function.dart';
@@ -51,7 +50,7 @@ class _MenuHomeState extends State<MenuHome>
   @override
   Widget build(BuildContext context) {
     List<Widget> screens = [
-      const MenuPage(),
+      const NewMenuPage(),
       const BlogPage(),
       const WishlistPage(),
       UserProfilePage(type: widget.type)
@@ -301,67 +300,95 @@ class NewMenuPage extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          const FlexibleSpaceBarHeader(),
-          SliverPersistentHeader(pinned: true, delegate: HeaderSliver()),
-
-          buildCard(context),
-          // const PrimaryAppBar(),
-          // const SizedBox(height: 20),
-          // const HighlightListWidget(),
-          // const SizedBox(height: 18),
-          // const BannerWidget(),
-          // Padding(
-          //   padding:
-          //       const EdgeInsets.only(left: 14, right: 14, top: 20, bottom: 20),
-          //   child: Text(
-          //     'recommended'.tr(),
-          //     style: Theme.of(context).textTheme.titleMedium,
-          //   ),
-          // ),
-          // Padding(
-          //   padding: const EdgeInsets.symmetric(horizontal: 14),
-          //   child: ListView.builder(
-          //       padding: const EdgeInsets.only(bottom: 100),
-          //       physics: const NeverScrollableScrollPhysics(),
-          //       shrinkWrap: true,
-          //       itemCount: 10,
-          //       itemBuilder: (context, index) {
-          //         return MenuCardWidget(index: index);
-          //       }),
-          // ),
-        ],
-      ),
-    );
-  }
-
-  Widget buildCard(BuildContext context) => MultiSliver(children: [
-        SliverFixedExtentList(
-          itemExtent: 400,
-          delegate: SliverChildBuilderDelegate(
-            (BuildContext context, int index) {
-              return Container();
-              // return Padding(
-              //   padding: const EdgeInsets.symmetric(horizontal: 14),
-              //   child: MenuCardWidget(index: index),
-              // );
-            },
+          SliverAppBar(
+            automaticallyImplyLeading: false,
+            expandedHeight:
+                context.watch<OrderControllerCubit>().state ? 60 : 105.h,
+            backgroundColor: AppColors.white,
+            flexibleSpace: FlexibleSpaceBar(
+              collapseMode: CollapseMode.parallax,
+              stretchModes: const [
+                StretchMode.fadeTitle,
+                StretchMode.blurBackground
+              ],
+              background: Stack(fit: StackFit.expand, children: [
+                context.watch<OrderControllerCubit>().state
+                    ? Padding(
+                        padding: const EdgeInsets.only(top: 40),
+                        child: Row(
+                          children: [
+                            GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Icon(Icons.arrow_back)),
+                            const SizedBox(width: 10),
+                            Text(
+                              'dinereel_foodhub'.tr(),
+                              style: Theme.of(context).textTheme.titleMedium,
+                            ),
+                            const Spacer(),
+                            GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                      Routes().createRoute(const SearchPage()));
+                                },
+                                child: SvgPicture.asset(
+                                    'assets/auth/images/search.svg')),
+                            GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(Routes()
+                                      .createRoute(const WishlistPage()));
+                                },
+                                child: SvgPicture.asset(
+                                    'assets/menu/images/Heart.svg')),
+                            GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(Routes()
+                                      .createRoute(const UserProfilePage()));
+                                },
+                                child: SvgPicture.asset(
+                                    'assets/menu/images/user.svg'))
+                          ],
+                        ),
+                      )
+                    : const PrimaryAppBar()
+              ]),
+            ),
           ),
-        ),
-      ]);
-}
-
-class FlexibleSpaceBarHeader extends StatelessWidget {
-  const FlexibleSpaceBarHeader({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return SliverAppBar(
-      automaticallyImplyLeading: false,
-      expandedHeight: 123.h,
-      backgroundColor: AppColors.white,
-      flexibleSpace: const FlexibleSpaceBar(
-        collapseMode: CollapseMode.parallax,
-        stretchModes: [StretchMode.zoomBackground],
-        background: Stack(fit: StackFit.expand, children: [PrimaryAppBar()]),
+          SliverPersistentHeader(pinned: true, delegate: HeaderSliver()),
+          context.watch<OrderControllerCubit>().state
+              ? const SliverToBoxAdapter(
+                  child: Center(
+                      child: Padding(
+                  padding: EdgeInsets.only(bottom: 10),
+                  child: CategoryFilterWidget(),
+                )))
+              : const SliverToBoxAdapter(),
+          const SliverToBoxAdapter(child: BannerWidget()),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.only(
+                  left: 14, right: 14, top: 20, bottom: 20),
+              child: Text(
+                'recommended'.tr(),
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+            ),
+          ),
+          SliverList.builder(
+              itemCount: menuItems.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 14),
+                  child: MenuCardWidget(
+                    index: index,
+                    data: menuItems,
+                  ),
+                );
+              }),
+          const SliverToBoxAdapter(child: SizedBox(height: 100))
+        ],
       ),
     );
   }
@@ -374,9 +401,10 @@ class HeaderSliver extends SliverPersistentHeaderDelegate {
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     var percent = shrinkOffset / _maxHeaderExtend;
+    var width = MediaQuery.of(context).size.width;
     return AnimatedOpacity(
       duration: const Duration(milliseconds: 300),
-      opacity: percent > 0.1 ? 1 : 0,
+      opacity: 1,
       child: Stack(
         children: [
           Positioned(
@@ -384,41 +412,50 @@ class HeaderSliver extends SliverPersistentHeaderDelegate {
               left: 0,
               right: 0,
               child: Container(
-                height: _maxHeaderExtend,
+                height: percent > .1 ? 80 : 100,
                 color: AppColors.white,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsets.only(left: 10.w, right: 10.w, top: 30.h),
-                      child: Row(
+                child: percent > 0.1
+                    ? Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.pop(context);
-                            },
-                            child: const Icon(
-                              Icons.arrow_back,
-                              color: AppColors.black,
+                          Padding(
+                            padding: EdgeInsets.only(
+                                left: 10.w,
+                                right: 10.w,
+                                top: width > 450 ? 20.h : 30.h),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: const Icon(
+                                    Icons.arrow_back,
+                                    color: AppColors.black,
+                                  ),
+                                ),
+                                SizedBox(width: 10.w),
+                                Text(
+                                  'Dinereel Food hub',
+                                  style:
+                                      Theme.of(context).textTheme.titleMedium,
+                                ),
+                                const Spacer(),
+                                SvgPicture.asset(
+                                    'assets/auth/images/search.svg')
+                              ],
                             ),
                           ),
-                          SizedBox(width: 10.w),
-                          Text(
-                            'Dinereel Food hub',
-                            style: Theme.of(context).textTheme.titleMedium,
-                          ),
                           const Spacer(),
-                          SvgPicture.asset('assets/auth/images/search.svg')
+                          const Divider(
+                              thickness: 1, height: 0, color: AppColors.grey)
                         ],
+                      )
+                    : const Padding(
+                        padding: EdgeInsets.only(top: 33),
+                        child: HighlightListWidget(),
                       ),
-                    ),
-                    const Spacer(),
-                    const Divider(
-                        thickness: 1, height: 0, color: AppColors.grey)
-                  ],
-                ),
               ))
         ],
       ),

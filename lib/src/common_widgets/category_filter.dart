@@ -19,7 +19,7 @@ class _CategoryFilterWidgetState extends State<CategoryFilterWidget> {
       height: 30,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          padding: const EdgeInsets.only(left: 15),
+          padding: const EdgeInsets.only(left: 10),
           shrinkWrap: true,
           itemCount: menucategories.length,
           itemBuilder: (context, index) {

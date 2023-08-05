@@ -1,4 +1,4 @@
-import 'package:dinereel/src/features/menu/models/menu_model.dart';
+import 'package:dinereel/data/models/menu_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
