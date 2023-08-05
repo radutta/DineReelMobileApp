@@ -3,8 +3,10 @@ import 'dart:async';
 import 'package:dinereel/src/features/menu/screens/menu_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../themes/colors.dart';
+import '../widgets/semicircle_painter.dart';
 
 class LoginSuccessPage extends StatefulWidget {
   const LoginSuccessPage({super.key});
@@ -53,6 +55,9 @@ class _LoginSuccessPageState extends State<LoginSuccessPage> {
                 return Transform.translate(offset: offset, child: child);
               },
             ),
+            const Align(
+                alignment: Alignment.bottomCenter,
+                child: SizedBox(height: 300, child: LoginBottomWidget())),
             TweenAnimationBuilder<Offset>(
               duration: const Duration(milliseconds: 1200),
               curve: Curves.linear,
@@ -73,18 +78,52 @@ class _LoginSuccessPageState extends State<LoginSuccessPage> {
                 return Transform.translate(offset: offset, child: child);
               },
             ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 70),
-                child: Text('get_ready_to_explore'.tr(),
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.titleLarge),
-              ),
-            ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class LoginBottomWidget extends StatelessWidget {
+  const LoginBottomWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Container(
+          width: MediaQuery.of(context).size.width,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(colors: [
+              AppColors.primaryGradientLight,
+              AppColors.primaryGradientDeep
+            ]),
+          ),
+          child: Column(
+            children: [
+              SizedBox(height: 100.h),
+              Text('get_ready_to_explore'.tr(),
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.titleLarge),
+              SizedBox(height: 30.h),
+            ],
+          ),
+        ),
+        CustomPaint(
+          painter: SemicirclePainter(),
+          child: Container(
+            height: 0,
+            width: MediaQuery.of(context).size.width,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(colors: [
+                AppColors.primaryGradientLight,
+                AppColors.primaryGradientDeep
+              ]),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

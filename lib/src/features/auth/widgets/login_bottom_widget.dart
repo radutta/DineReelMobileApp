@@ -15,7 +15,6 @@ class LoginBottomWidget extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          // height: 200,
           width: MediaQuery.of(context).size.width,
           decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
