@@ -19,7 +19,7 @@ class _LoginSuccessPageState extends State<LoginSuccessPage> {
   @override
   void initState() {
     Timer(const Duration(seconds: 3), () {
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
         return const MenuHome(type: 'loggedIn');
       }));
     });

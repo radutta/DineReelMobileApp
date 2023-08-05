@@ -297,13 +297,17 @@ class NewMenuPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
             automaticallyImplyLeading: false,
-            expandedHeight:
-                context.watch<OrderControllerCubit>().state ? 60 : 105.h,
+            expandedHeight: context.watch<OrderControllerCubit>().state
+                ? 60
+                : width > 450
+                    ? 90.w
+                    : 124.w,
             backgroundColor: AppColors.white,
             flexibleSpace: FlexibleSpaceBar(
               collapseMode: CollapseMode.parallax,
