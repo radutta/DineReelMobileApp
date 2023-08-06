@@ -32,22 +32,6 @@ class _MenuHomeState extends State<MenuHome>
   var w = 450;
 
   @override
-  void initState() {
-    super.initState();
-    controller = AnimationController(
-        vsync: this,
-        reverseDuration: const Duration(milliseconds: 800),
-        duration: const Duration(milliseconds: 800),
-        animationBehavior: AnimationBehavior.preserve);
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     List<Widget> screens = [
       const NewMenuPage(),
@@ -111,7 +95,6 @@ class _MenuHomeState extends State<MenuHome>
                       top: Radius.circular(25.0),
                     ),
                   ),
-                  transitionAnimationController: controller,
                   context: context,
                   builder: (context) {
                     return const CategoryBottomSheet();
@@ -210,10 +193,7 @@ class MenuPage extends StatelessWidget {
                   shrinkWrap: true,
                   itemCount: menuItems.length,
                   itemBuilder: (context, index) {
-                    return MenuCardWidget(
-                      index: index,
-                      data: menuItems,
-                    );
+                    return MenuCardWidget(index: index, data: menuItems);
                   }),
             ),
           ],

@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:dinereel/src/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,14 +16,6 @@ class CategoryBottomSheet extends StatefulWidget {
 
 class _CategoryBottomSheetState extends State<CategoryBottomSheet> {
   List<int> selected = [];
-
-  Future<List<MenuCategoryModel>> convertListToFutureList(
-      List<MenuCategoryModel> categoryModelList) async {
-    await Future.delayed(const Duration(seconds: 1));
-    List<MenuCategoryModel> futureList =
-        categoryModelList.map((item) => item).toList();
-    return futureList;
-  }
 
   @override
   void initState() {
@@ -92,107 +82,89 @@ class _CategoryBottomSheetState extends State<CategoryBottomSheet> {
                         )
                       ],
                     ),
-                    FutureBuilder<List<MenuCategoryModel>>(
-                        future: convertListToFutureList(categories),
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData) {
-                            List<MenuCategoryModel> category = snapshot.data!;
-                            return GridView.builder(
-                                physics: const NeverScrollableScrollPhysics(),
-                                shrinkWrap: true,
-                                itemCount: categories.length,
-                                gridDelegate:
-                                    SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 3,
-                                        mainAxisSpacing: 20.0.w,
-                                        crossAxisSpacing: 10.w,
-                                        childAspectRatio: 97.w / 94.h),
-                                itemBuilder: (context, index) {
-                                  return GestureDetector(
-                                    onTap: () {
-                                      if (selected.contains(index)) {
-                                        setState(() {
-                                          selected.remove(index);
-                                        });
-                                      } else {
-                                        setState(() {
-                                          selected.add(index);
-                                        });
-                                      }
-                                    },
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          color: AppColors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          border: selected.contains(index)
-                                              ? Border.all(
-                                                  color: AppColors
-                                                      .primaryGradientLight)
-                                              : null,
-                                          boxShadow: selected.contains(index)
-                                              ? null
-                                              : const [
-                                                  BoxShadow(
-                                                      offset: Offset(5, 5),
-                                                      spreadRadius: 1,
-                                                      blurRadius: 5,
-                                                      color: Color.fromARGB(
-                                                          255, 186, 186, 186))
-                                                ]),
-                                      child: Stack(
+                    GridView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: categories.length,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3,
+                            mainAxisSpacing: 20.0.w,
+                            crossAxisSpacing: 10.w,
+                            childAspectRatio: 97.w / 94.h),
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            onTap: () {
+                              if (selected.contains(index)) {
+                                setState(() {
+                                  selected.remove(index);
+                                });
+                              } else {
+                                setState(() {
+                                  selected.add(index);
+                                });
+                              }
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: AppColors.white,
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: selected.contains(index)
+                                      ? Border.all(
+                                          color: AppColors.primaryGradientLight)
+                                      : null,
+                                  boxShadow: selected.contains(index)
+                                      ? null
+                                      : const [
+                                          BoxShadow(
+                                              offset: Offset(5, 5),
+                                              spreadRadius: 1,
+                                              blurRadius: 5,
+                                              color: Color.fromARGB(
+                                                  255, 186, 186, 186))
+                                        ]),
+                              child: Stack(
+                                children: [
+                                  Column(
+                                    children: [
+                                      Column(
                                         children: [
-                                          Column(
-                                            children: [
-                                              Column(
-                                                children: [
-                                                  SvgPicture.asset(
-                                                    category[index].icon,
-                                                    height: 70.h,
-                                                    fit: BoxFit.cover,
-                                                  ),
-                                                ],
-                                              ),
-                                              Center(
-                                                child: Text(
-                                                  category[index].title,
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .bodySmall!
-                                                      .copyWith(
-                                                          color:
-                                                              AppColors.black,
-                                                          fontSize: 12),
-                                                ),
-                                              )
-                                            ],
+                                          SvgPicture.asset(
+                                            categories[index].icon,
+                                            height: 70.h,
+                                            fit: BoxFit.cover,
                                           ),
-                                          selected.contains(index)
-                                              ? const Align(
-                                                  alignment: Alignment.topRight,
-                                                  child: Padding(
-                                                    padding: EdgeInsets.only(
-                                                        right: 4),
-                                                    child: Icon(
-                                                      Icons.check_circle,
-                                                      color: AppColors
-                                                          .primaryGradientLight,
-                                                    ),
-                                                  ),
-                                                )
-                                              : Container()
                                         ],
                                       ),
-                                    ),
-                                  );
-                                });
-                          } else if (snapshot.hasError) {
-                            return Center(
-                                child: Text('Error: ${snapshot.error}'));
-                          } else {
-                            return const Center(
-                                child: CircularProgressIndicator());
-                          }
+                                      Center(
+                                        child: Text(
+                                          categories[index].title,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodySmall!
+                                              .copyWith(
+                                                  color: AppColors.black,
+                                                  fontSize: 12),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  selected.contains(index)
+                                      ? const Align(
+                                          alignment: Alignment.topRight,
+                                          child: Padding(
+                                            padding: EdgeInsets.only(right: 4),
+                                            child: Icon(
+                                              Icons.check_circle,
+                                              color: AppColors
+                                                  .primaryGradientLight,
+                                            ),
+                                          ),
+                                        )
+                                      : Container()
+                                ],
+                              ),
+                            ),
+                          );
                         }),
                     SizedBox(height: 25.h),
                     PrimaryRegularActionButton(
