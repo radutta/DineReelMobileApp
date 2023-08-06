@@ -76,8 +76,9 @@ class _AniamatedAddButtonState extends State<AniamatedAddButton>
             ]),
             color: AppColors.primaryGradientLight),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               GestureDetector(
                   onTap: () {
@@ -93,9 +94,9 @@ class _AniamatedAddButtonState extends State<AniamatedAddButton>
                       context.read<OrderControllerCubit>().removeOrder();
                     }
                   },
-                  child: const Icon(Icons.remove)),
+                  child: Icon(Icons.remove, size: 15.sp)),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: changeControllertominus
                     ? AnimatedBuilder(
                         animation: minuscontroller,
@@ -104,12 +105,20 @@ class _AniamatedAddButtonState extends State<AniamatedAddButton>
                             opacity: fabminusAnimation.value,
                             child: Transform.translate(
                               offset: moveMinusAnimation.value,
-                              child: Text(
-                                  menuItems[widget.index].count.toString(),
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .displaySmall!
-                                      .copyWith(fontSize: 12.sp)),
+                              child: SizedBox(
+                                width: 20.w,
+                                height: 23.w,
+                                child: Center(
+                                  child: Text(
+                                      menuItems[widget.index].count.toString(),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .displaySmall!
+                                          .copyWith(
+                                              fontSize: 15.sp,
+                                              fontWeight: FontWeight.w700)),
+                                ),
+                              ),
                             ),
                           );
                         },
@@ -121,12 +130,20 @@ class _AniamatedAddButtonState extends State<AniamatedAddButton>
                             opacity: fabplusAnimation.value,
                             child: Transform.translate(
                               offset: moveplusAnimation.value,
-                              child: Text(
-                                  menuItems[widget.index].count.toString(),
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .displaySmall!
-                                      .copyWith(fontSize: 12.sp)),
+                              child: SizedBox(
+                                width: 20.w,
+                                height: 23.w,
+                                child: Center(
+                                  child: Text(
+                                      menuItems[widget.index].count.toString(),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .displaySmall!
+                                          .copyWith(
+                                              fontSize: 15.sp,
+                                              fontWeight: FontWeight.w700)),
+                                ),
+                              ),
                             ),
                           );
                         },
@@ -142,7 +159,7 @@ class _AniamatedAddButtonState extends State<AniamatedAddButton>
                       changeControllertominus = false;
                     });
                   },
-                  child: const Icon(Icons.add))
+                  child: Icon(Icons.add, size: 15.sp))
             ],
           ),
         ),
