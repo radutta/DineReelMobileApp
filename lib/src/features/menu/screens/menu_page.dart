@@ -406,7 +406,7 @@ class HeaderSliver extends SliverPersistentHeaderDelegate {
                             padding: EdgeInsets.only(
                                 left: 10.w,
                                 right: 10.w,
-                                top: width > 450 ? 20.h : 30.h),
+                                top: width > 450 ? 20.h : 33.h),
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -426,8 +426,11 @@ class HeaderSliver extends SliverPersistentHeaderDelegate {
                                       Theme.of(context).textTheme.titleMedium,
                                 ),
                                 const Spacer(),
+                                const Icon(Icons.fullscreen, size: 30),
                                 SvgPicture.asset(
-                                    'assets/auth/images/search.svg')
+                                  'assets/auth/images/search.svg',
+                                  height: 35,
+                                )
                               ],
                             ),
                           ),

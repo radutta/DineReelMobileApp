@@ -47,11 +47,21 @@ class PrimaryAppBar extends StatelessWidget {
                 children: [
                   Text(
                     'dinereel_foodhub'.tr(),
-                    style: Theme.of(context).textTheme.titleMedium,
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleMedium!
+                        .copyWith(fontSize: 18, fontWeight: FontWeight.w700),
                   ),
-                  Text(
-                    'address'.tr(),
-                    style: Theme.of(context).textTheme.displaySmall,
+                  SizedBox(
+                    width: 176,
+                    child: Text(
+                      'address'.tr(),
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context)
+                          .textTheme
+                          .displaySmall!
+                          .copyWith(fontSize: 12),
+                    ),
                   ),
                   Container(
                     margin: const EdgeInsets.only(top: 10),
@@ -77,11 +87,42 @@ class PrimaryAppBar extends StatelessWidget {
                       .push(Routes().createRoute(const SearchPage()));
                 },
                 child: Container(
-                    height: 50,
-                    width: 50,
+                    height: 45,
+                    width: 45,
                     padding: const EdgeInsets.all(1),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Color(0x3F000000),
+                            blurRadius: 10,
+                            offset: Offset(0, 5),
+                            spreadRadius: 0,
+                          )
+                        ],
+                        borderRadius: BorderRadius.circular(15),
+                        color: AppColors.white),
+                    child: const Icon(Icons.fullscreen, size: 35)),
+              ),
+              const SizedBox(width: 20),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context)
+                      .push(Routes().createRoute(const SearchPage()));
+                },
+                child: Container(
+                    height: 45,
+                    width: 45,
+                    padding: const EdgeInsets.all(1),
+                    decoration: BoxDecoration(
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Color(0x3F000000),
+                            blurRadius: 10,
+                            offset: Offset(0, 5),
+                            spreadRadius: 0,
+                          )
+                        ],
+                        borderRadius: BorderRadius.circular(15),
                         color: AppColors.white),
                     child: SvgPicture.asset('assets/auth/images/search.svg')),
               ),
