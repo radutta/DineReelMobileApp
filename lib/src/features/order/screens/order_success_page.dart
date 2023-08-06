@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../routing/routing_function.dart';
-import '../../../themes/colors.dart';
+
 import '../cubit/order_cubit.dart';
 
 class OrderSuccessPage extends StatefulWidget {

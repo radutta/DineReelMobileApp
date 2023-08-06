@@ -142,13 +142,19 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                           bottomLeft: Radius.circular(10),
                           bottomRight: Radius.circular(10)),
                       color: AppColors.black.withOpacity(.4)),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
+                            Text(widget.data[widget.index].productname,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .displaySmall!
+                                    .copyWith(
+                                        color: AppColors.white,
+                                        fontSize: 14.sp)),
                             Container(
                                 height: 20,
                                 width: 20,
@@ -159,53 +165,54 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                                 child: const Center(
                                     child: Icon(Icons.fiber_manual_record,
                                         color: AppColors.activeRed, size: 18))),
-                            Text(widget.data[widget.index].productname,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .displaySmall!
-                                    .copyWith(
-                                        color: AppColors.white,
-                                        fontSize: 14.sp)),
-                            Text('₹ ${widget.data[widget.index].price}',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleMedium!
-                                    .copyWith(
-                                        color: AppColors.white,
-                                        fontSize: 20.sp))
-                          ],
-                        ),
-                        context.watch<OrderControllerCubit>().state &&
-                                menuItems[widget.index].count != 0
-                            ? AniamatedAddButton(index: widget.index)
-                            : GestureDetector(
-                                onTap: () {
-                                  context
-                                      .read<OrderControllerCubit>()
-                                      .showOrder();
-                                  setState(() {
-                                    widget.data[widget.index].count = 1;
-                                  });
-                                },
-                                child: Container(
-                                    padding: const EdgeInsets.symmetric(
-                                        vertical: 6.5),
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        gradient: const LinearGradient(colors: [
-                                          AppColors.primaryGradientDeep,
-                                          AppColors.primaryGradientLight
-                                        ]),
-                                        color: AppColors.primaryGradientLight),
-                                    child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 48),
-                                        child: Text('add'.tr(),
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyMedium!
-                                                .copyWith(fontSize: 15.sp)))))
-                      ])))
+                          ]),
+                      const SizedBox(height: 10),
+                      Row(
+                        children: [
+                          Text('₹ ${widget.data[widget.index].price}',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleMedium!
+                                  .copyWith(
+                                      color: AppColors.white, fontSize: 20.sp)),
+                          const Spacer(),
+                          context.watch<OrderControllerCubit>().state &&
+                                  menuItems[widget.index].count != 0
+                              ? AniamatedAddButton(index: widget.index)
+                              : GestureDetector(
+                                  onTap: () {
+                                    context
+                                        .read<OrderControllerCubit>()
+                                        .showOrder();
+                                    setState(() {
+                                      widget.data[widget.index].count = 1;
+                                    });
+                                  },
+                                  child: Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 6.5),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          gradient: const LinearGradient(
+                                              colors: [
+                                                AppColors.primaryGradientDeep,
+                                                AppColors.primaryGradientLight
+                                              ]),
+                                          color:
+                                              AppColors.primaryGradientLight),
+                                      child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 48),
+                                          child: Text('add'.tr(),
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyMedium!
+                                                  .copyWith(fontSize: 15.sp)))))
+                        ],
+                      )
+                    ],
+                  )))
         ],
       ),
     );
