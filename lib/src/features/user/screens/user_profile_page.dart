@@ -24,14 +24,6 @@ class UserProfilePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: ProfilePageOptionsBtn(
-                  title: 'Settings',
-                  icon: Icons.settings_outlined,
-                  clickAction: () {}),
-            ),
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: ProfilePageOptionsBtn(
                   title: 'Logout',
                   icon: Icons.person_outlined,
                   clickAction: () {}),
