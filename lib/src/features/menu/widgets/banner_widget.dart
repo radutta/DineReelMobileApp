@@ -1,5 +1,3 @@
-import 'package:carousel_slider/carousel_controller.dart';
-import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -45,6 +43,7 @@ class _BannerWidgetState extends State<BannerWidget> {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -74,7 +73,6 @@ class _BannerWidgetState extends State<BannerWidget> {
                       borderRadius: BorderRadius.circular(10),
                       child: Image.network(
                         e,
-                        width: MediaQuery.of(context).size.width,
                         fit: BoxFit.cover,
                       )),
                 ),
@@ -82,13 +80,13 @@ class _BannerWidgetState extends State<BannerWidget> {
               .toList(),
           options: CarouselOptions(
             height: 172,
-            enlargeCenterPage: true,
             autoPlay: true,
             aspectRatio: 16 / 9,
+            enlargeStrategy: CenterPageEnlargeStrategy.height,
             autoPlayCurve: Curves.fastOutSlowIn,
             enableInfiniteScroll: true,
             autoPlayAnimationDuration: const Duration(milliseconds: 800),
-            viewportFraction: 0.9,
+            viewportFraction: width > 450 ? 0.5 : 0.85,
             onPageChanged: (index, reason) =>
                 setState(() => activeIndex = index),
           ),
