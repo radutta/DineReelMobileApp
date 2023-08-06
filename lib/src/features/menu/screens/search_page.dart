@@ -1,4 +1,6 @@
+import 'package:dinereel/data/models/menu_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../themes/colors.dart';
 import '../widgets/menu_card.dart';
@@ -58,8 +60,15 @@ class SearchPage extends StatelessWidget {
                                   horizontal: 15, vertical: 0),
                               hintText: 'Search',
                               hintStyle: Theme.of(context).textTheme.bodySmall,
-                              suffixIcon: Image.asset(
-                                  'assets/menu/images/cross_circle.png')),
+                              suffixIcon: SizedBox(
+                                height: 24,
+                                width: 24,
+                                child: Center(
+                                  child: SvgPicture.asset(
+                                    'assets/menu/images/Cross-Circle.svg',
+                                  ),
+                                ),
+                              )),
                         ),
                       ),
                     )
@@ -104,11 +113,14 @@ class SearchPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 14),
               child: ListView.builder(
                   padding: const EdgeInsets.all(0),
-                  itemCount: 10,
+                  itemCount: menuItems.length,
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 33),
-                      child: MenuCardWidget(index: index),
+                      child: MenuCardWidget(
+                        index: index,
+                        data: menuItems,
+                      ),
                     );
                   }),
             ),

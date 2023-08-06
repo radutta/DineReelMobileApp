@@ -26,4 +26,5 @@ class AppColors {
   static const greytextcolor = Color(0xFF8784AC);
   static const blacktextcolot = Color(0xFF15104D);
   static const lightgrey = Color(0xFFE5E5E6);
+  static const lightyellow = Color(0xFFFFEEC3);
 }

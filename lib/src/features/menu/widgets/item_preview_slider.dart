@@ -1,5 +1,6 @@
 import 'package:dinereel/src/features/menu/widgets/menu_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../themes/colors.dart';
@@ -32,7 +33,7 @@ class _ItemPreviewSliderState extends State<ItemPreviewSlider> {
     return Stack(
       children: [
         Container(
-          height: 400,
+          height: 300.w,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(30),

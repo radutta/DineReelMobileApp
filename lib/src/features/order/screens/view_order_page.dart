@@ -1,8 +1,10 @@
+import 'package:dinereel/src/features/order/screens/order_success_page.dart';
 import 'package:dinereel/src/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../user/widgets/recent_order_details_card.dart';
+import '../../../routing/routing_function.dart';
+import '../widgets/recent_order_details_card.dart';
 
 class ViewOrderPage extends StatelessWidget {
   const ViewOrderPage({super.key});
@@ -45,18 +47,24 @@ class ViewOrderPage extends StatelessWidget {
               ),
               Text('₹ 900', style: Theme.of(context).textTheme.titleMedium),
               const Spacer(),
-              Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: AppColors.activeGreen),
-                child: const Text(
-                  'Request Server',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w700,
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context)
+                      .push(Routes().createRoute(const OrderSuccessPage()));
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: AppColors.activeGreen),
+                  child: const Text(
+                    'Request Server',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
               )

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../common_widgets/primary_regular_action_button.dart';
 import '../../../routing/routing_function.dart';
 import '../../../themes/colors.dart';
-import '../screens/business_signup_page.dart';
+import '../screens/business_menu_page.dart';
 
 class EmailTab extends StatefulWidget {
   const EmailTab({super.key});
@@ -21,10 +22,10 @@ class _EmailTabState extends State<EmailTab> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 33),
+          SizedBox(height: 20.h),
           Text('Email Address',
               style: Theme.of(context).textTheme.displaySmall),
-          const SizedBox(height: 3),
+          SizedBox(height: 3.h),
           TextFormField(
             style: Theme.of(context).textTheme.displaySmall,
             decoration: InputDecoration(
@@ -39,9 +40,9 @@ class _EmailTabState extends State<EmailTab> {
               ),
             ),
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: 10.h),
           Text('Password', style: Theme.of(context).textTheme.displaySmall),
-          const SizedBox(height: 3),
+          SizedBox(height: 3.h),
           TextFormField(
             style: Theme.of(context).textTheme.displaySmall,
             obscureText: isvisible,
@@ -71,67 +72,16 @@ class _EmailTabState extends State<EmailTab> {
                         },
                         child: const Icon(Icons.visibility))),
           ),
-          const SizedBox(height: 75),
+          SizedBox(height: 40.h),
           PrimaryRegularActionButton(
             text: "SUBMIT",
             action: () {
+              Navigator.of(context)
+                  .push(Routes().createRoute(const BusinessMenuPage()));
+
               //   Navigator.of(context).push(Routes().createRoute(const LoginPage()));
             },
             disable: false,
-          ),
-          const SizedBox(height: 49),
-          Center(
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('New to Dinereel?',
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.displaySmall),
-                const SizedBox(width: 4),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.of(context)
-                        .push(Routes().createRoute(const BusinessSignUpPage()));
-                  },
-                  child: Text(
-                    'Join as a partner',
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context)
-                        .textTheme
-                        .displaySmall!
-                        .copyWith(decoration: TextDecoration.underline),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 14),
-          Text.rich(
-            TextSpan(
-              children: [
-                TextSpan(
-                    text: 'By creating an account, you accept our\n',
-                    style: Theme.of(context).textTheme.displaySmall),
-                TextSpan(
-                    text: 'Terms and conditions',
-                    style: Theme.of(context).textTheme.displaySmall),
-                TextSpan(
-                    text: ' you read our ',
-                    style: Theme.of(context)
-                        .textTheme
-                        .displaySmall!
-                        .copyWith(color: AppColors.greytextcolor)),
-                TextSpan(
-                    text: 'Privacy Policy.',
-                    style: Theme.of(context)
-                        .textTheme
-                        .displaySmall!
-                        .copyWith(color: AppColors.blacktextcolot)),
-              ],
-            ),
-            textAlign: TextAlign.center,
           ),
         ],
       ),

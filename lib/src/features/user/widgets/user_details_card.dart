@@ -9,8 +9,8 @@ import '../../../routing/routing_function.dart';
 import '../screens/edit_profile_page.dart';
 
 class UserDetailsCard extends StatefulWidget {
-  const UserDetailsCard({super.key});
-
+  const UserDetailsCard({super.key, this.type});
+  final String? type;
   @override
   State<UserDetailsCard> createState() => _UserDetailsCardState();
 }
@@ -93,51 +93,56 @@ class _UserDetailsCardState extends State<UserDetailsCard> {
                   .copyWith(fontWeight: FontWeight.w600),
             ),
             const SizedBox(height: 5),
-            GestureDetector(
-              onTap: () {
-                showDialog(
-                    barrierDismissible: false,
-                    context: context,
-                    builder: (context) {
-                      return const OutletPopupWidget();
-                    });
-              },
-              child: Container(
-                width: 150.w,
-                height: 30,
-                alignment: Alignment.center,
-                decoration: ShapeDecoration(
-                  color: AppColors.black,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-                child: Text.rich(
-                  TextSpan(
-                    children: [
-                      TextSpan(
-                        text: 'Outlet',
-                        style: Theme.of(context)
-                            .textTheme
-                            .displaySmall!
-                            .copyWith(
-                                fontWeight: FontWeight.w400,
-                                color: AppColors.white),
+            widget.type == "admin"
+                ? GestureDetector(
+                    onTap: () {
+                      showDialog(
+                          barrierDismissible: false,
+                          context: context,
+                          builder: (context) {
+                            return const OutletPopupWidget();
+                          });
+                    },
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: 200),
+                      child: Container(
+                        width: 150.w,
+                        height: 30,
+                        alignment: Alignment.center,
+                        decoration: ShapeDecoration(
+                          color: AppColors.black,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        child: Text.rich(
+                          TextSpan(
+                            children: [
+                              TextSpan(
+                                text: 'Outlet',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .displaySmall!
+                                    .copyWith(
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColors.white),
+                              ),
+                              TextSpan(
+                                text: ' - Park street',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .displaySmall!
+                                    .copyWith(
+                                        fontWeight: FontWeight.w600,
+                                        color: AppColors.white),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
-                      TextSpan(
-                        text: ' - Park street',
-                        style: Theme.of(context)
-                            .textTheme
-                            .displaySmall!
-                            .copyWith(
-                                fontWeight: FontWeight.w600,
-                                color: AppColors.white),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            )
+                    ),
+                  )
+                : Container()
           ],
         ),
       ),

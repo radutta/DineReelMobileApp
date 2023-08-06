@@ -1,17 +1,37 @@
 import 'package:dinereel/src/features/auth/screens/otp_vedification_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
 import '../../../common_widgets/primary_regular_action_button.dart';
 import '../../../themes/colors.dart';
 import '../../../routing/routing_function.dart';
-import '../../menu/screens/menu_page.dart';
+import '../../menu/screens/qr_scan_page.dart';
 import '../widgets/login_bottom_widget.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  late TextEditingController controller;
+  @override
+  void initState() {
+    super.initState();
+    controller = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +44,7 @@ class LoginPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            const SizedBox(height: 22),
+            SizedBox(height: 5.h),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Row(
@@ -38,8 +58,10 @@ class LoginPage extends StatelessWidget {
                           color: AppColors.primaryDarkFont)),
                   GestureDetector(
                       onTap: () {
-                        Navigator.of(context)
-                            .push(Routes().createRoute(const MenuHome()));
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return const QrScanPage();
+                        }));
                       },
                       child: Text('skip'.tr(),
                           style: Theme.of(context)
@@ -49,24 +71,24 @@ class LoginPage extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 49),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20.h),
               child: Text('enter_mobile_number'.tr(),
                   style: Theme.of(context).textTheme.titleLarge),
             ),
-            const SizedBox(height: 33),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text('phone_no'.tr(),
                   style: Theme.of(context).textTheme.displaySmall),
             ),
-            const SizedBox(height: 3),
+            SizedBox(height: 3.h),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: IntlPhoneField(
+                controller: controller,
                 initialCountryCode: 'IN',
                 style: Theme.of(context).textTheme.bodyMedium,
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 decoration: InputDecoration(
                   counterText: "",
                   contentPadding: const EdgeInsets.symmetric(vertical: 0),
@@ -85,21 +107,26 @@ class LoginPage extends StatelessWidget {
                 onCountryChanged: (country) {},
               ),
             ),
-            const SizedBox(height: 33),
+            SizedBox(height: 30.h),
             Center(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: PrimaryRegularActionButton(
                   text: 'get_otp'.tr(),
                   action: () {
-                    Navigator.of(context).push(
-                        Routes().createRouteUp(const OtpVerificationPage()));
+                    if (controller.text.isNotEmpty &&
+                        controller.text.length == 10) {
+                      Navigator.of(context)
+                          .push(Routes().createRouteUp(OtpVerificationPage(
+                        number: controller.text,
+                      )));
+                    }
                   },
                   disable: false,
                 ),
               ),
             ),
-            const SizedBox(height: 33),
+            SizedBox(height: 30.h),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
@@ -129,7 +156,7 @@ class LoginPage extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 33),
+            SizedBox(height: 30.h),
             Center(
               child: Row(
                 mainAxisSize: MainAxisSize.min,

@@ -74,6 +74,7 @@ class _BannerWidgetState extends State<BannerWidget> {
                       borderRadius: BorderRadius.circular(10),
                       child: Image.network(
                         e,
+                        width: MediaQuery.of(context).size.width,
                         fit: BoxFit.cover,
                       )),
                 ),

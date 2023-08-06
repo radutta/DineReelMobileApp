@@ -15,7 +15,6 @@ class LoginBottomWidget extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          // height: 200,
           width: MediaQuery.of(context).size.width,
           decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
@@ -38,7 +37,7 @@ class LoginBottomWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               Center(
                 child: Text(
                   'accept'.tr(),
@@ -65,7 +64,7 @@ class LoginBottomWidget extends StatelessWidget {
                       style: Theme.of(context).textTheme.displaySmall)
                 ])),
               ),
-              const SizedBox(height: 30),
+              SizedBox(height: 30.h),
             ],
           ),
         ),

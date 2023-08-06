@@ -8,6 +8,15 @@ List<String> highlights = [
   'puja'.tr(),
   'kitchen'.tr(),
   'events'.tr(),
+  'offers'.tr(),
+  'puja'.tr(),
+  'kitchen'.tr(),
+  'events'.tr(),
+  'happy'.tr(),
+  'offers'.tr(),
+  'puja'.tr(),
+  'kitchen'.tr(),
+  'events'.tr(),
   'happy'.tr(),
 ];
 
@@ -18,7 +27,7 @@ class HighlightListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
-        height: 95,
+        height: 100,
         child: ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,

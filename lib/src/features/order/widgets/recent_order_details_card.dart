@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../order/cubit/instruction_cubit.dart';
-import 'add_instruction_dialog.dart';
+import '../cubit/instruction_cubit.dart';
+import '../../user/widgets/add_instruction_dialog.dart';
 
 class RecentOrderDetailsCard extends StatefulWidget {
   const RecentOrderDetailsCard({super.key});
@@ -29,6 +29,8 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    var h = MediaQuery.of(context).size.height;
     return Container(
       margin: const EdgeInsets.all(20),
       padding: const EdgeInsets.all(10),
@@ -38,7 +40,7 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
       child: Column(
         children: [
           SizedBox(
-            height: 260.h,
+            height: h > 800 ? 260.h : 200.h,
             child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: 4,
@@ -98,40 +100,36 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Container(
-                                width: 90.w,
-                                height: 30,
-                                padding: EdgeInsets.symmetric(horizontal: 10.w),
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 30),
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  gradient: const LinearGradient(
-                                    begin: Alignment(1.00, 0.00),
-                                    end: Alignment(-1, 0),
-                                    colors: [
-                                      AppColors.primaryGradientDeep,
-                                      AppColors.primaryGradientLight
-                                    ],
-                                  ),
-                                ),
+                                    borderRadius: BorderRadius.circular(10),
+                                    gradient: const LinearGradient(
+                                        begin: Alignment(1.00, 0.00),
+                                        end: Alignment(-1, 0),
+                                        colors: [
+                                          AppColors.primaryGradientDeep,
+                                          AppColors.primaryGradientLight
+                                        ])),
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
-                                    Icon(
-                                      Icons.remove,
-                                      color: AppColors.black,
-                                      size: 12.r,
-                                    ),
-                                    Text('1',
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyMedium),
-                                    Icon(
-                                      Icons.add,
-                                      color: AppColors.black,
-                                      size: 12.r,
-                                      weight: 100,
-                                    ),
+                                    Icon(Icons.remove,
+                                        color: AppColors.black, size: 12.r),
+                                    Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 10),
+                                        child: Text('1',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyMedium!
+                                                .copyWith(fontSize: 16.r))),
+                                    Icon(Icons.add,
+                                        color: AppColors.black,
+                                        size: 12.r,
+                                        weight: 100)
                                   ],
                                 ),
                               ),
@@ -153,7 +151,7 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
                                 height: 1,
                                 child: ListView.builder(
                                     scrollDirection: Axis.horizontal,
-                                    itemCount: 50,
+                                    itemCount: width > 450 ? 150 : 50,
                                     itemBuilder: (context, index) {
                                       return Container(
                                         margin: const EdgeInsets.only(left: 3),
@@ -179,17 +177,20 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
             },
             child: Container(
               width: 356.w,
-              // height: 32.w,
+              height: 35,
               padding: const EdgeInsets.all(5),
               alignment: Alignment.centerLeft,
               decoration: BoxDecoration(
                   color: AppColors.lightgrey,
                   borderRadius: BorderRadius.circular(5)),
-              child: Text(context.watch<InstructionCubit>().state,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium!
-                      .copyWith(fontSize: 12)),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Text(context.watch<InstructionCubit>().state,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium!
+                        .copyWith(fontSize: 12)),
+              ),
             ),
           ),
           Padding(
@@ -199,7 +200,7 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
               height: 1,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 50,
+                  itemCount: width > 450 ? 150 : 50,
                   itemBuilder: (context, index) {
                     return Container(
                       margin: const EdgeInsets.only(left: 3),
@@ -211,87 +212,76 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Bitiyani',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium!
-                        .copyWith(fontWeight: FontWeight.w500)),
-                Text('₹600',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium!
-                        .copyWith(fontWeight: FontWeight.w500)),
-              ],
-            ),
-          ),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Bitiyani',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(fontWeight: FontWeight.w500)),
+                    Text('₹600',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(fontWeight: FontWeight.w500))
+                  ])),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('GST',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium!
-                        .copyWith(fontWeight: FontWeight.w500)),
-                Text('₹150',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium!
-                        .copyWith(fontWeight: FontWeight.w500)),
-              ],
-            ),
-          ),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('GST',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(fontWeight: FontWeight.w500)),
+                    Text('₹150',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(fontWeight: FontWeight.w500)),
+                  ])),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Restaurant charges',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium!
-                        .copyWith(fontWeight: FontWeight.w500)),
-                Text('₹150',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium!
-                        .copyWith(fontWeight: FontWeight.w500)),
-              ],
-            ),
-          ),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Restaurant charges',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(fontWeight: FontWeight.w500)),
+                    Text('₹150',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(fontWeight: FontWeight.w500))
+                  ])),
           Padding(
-            padding: const EdgeInsets.only(top: 5, left: 30, right: 30),
-            child: SizedBox(
-              height: 1,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 50,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: const EdgeInsets.only(left: 3),
-                      height: 1,
-                      width: 5,
-                      color: AppColors.grey,
-                    );
-                  }),
-            ),
-          ),
+              padding: const EdgeInsets.only(top: 5, left: 30, right: 30),
+              child: SizedBox(
+                  height: 1,
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: width > 450 ? 150 : 50,
+                      itemBuilder: (context, index) {
+                        return Container(
+                            margin: const EdgeInsets.only(left: 3),
+                            height: 1,
+                            width: 5,
+                            color: AppColors.grey);
+                      }))),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Restaurant charges',
-                    style: Theme.of(context).textTheme.bodyMedium),
-                Text('₹900', style: Theme.of(context).textTheme.bodyMedium),
-              ],
-            ),
-          ),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Restaurant charges',
+                        style: Theme.of(context).textTheme.bodyMedium),
+                    Text('₹900', style: Theme.of(context).textTheme.bodyMedium)
+                  ])),
           const SizedBox(height: 30)
         ],
       ),

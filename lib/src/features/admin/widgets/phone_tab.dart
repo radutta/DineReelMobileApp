@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
 import '../../../common_widgets/primary_regular_action_button.dart';
 import '../../../routing/routing_function.dart';
 import '../../../themes/colors.dart';
-import '../../menu/screens/menu_page.dart';
+import '../screens/business_menu_page.dart';
 
 class PhoneTab extends StatefulWidget {
   const PhoneTab({super.key});
@@ -22,9 +23,9 @@ class _PhoneTabState extends State<PhoneTab> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 33),
+          SizedBox(height: 20.h),
           Text('Phone Number', style: Theme.of(context).textTheme.displaySmall),
-          const SizedBox(height: 3),
+          SizedBox(height: 3.h),
           IntlPhoneField(
             initialCountryCode: 'IN',
             style: Theme.of(context).textTheme.bodyMedium,
@@ -45,9 +46,9 @@ class _PhoneTabState extends State<PhoneTab> {
             onChanged: (phone) {},
             onCountryChanged: (country) {},
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: 10.h),
           Text('Password', style: Theme.of(context).textTheme.displaySmall),
-          const SizedBox(height: 3),
+          SizedBox(height: 3.h),
           TextFormField(
             style: Theme.of(context).textTheme.bodyMedium,
             obscureText: isvisible,
@@ -77,63 +78,14 @@ class _PhoneTabState extends State<PhoneTab> {
                         },
                         child: const Icon(Icons.visibility))),
           ),
-          const SizedBox(height: 75),
+          SizedBox(height: 40.h),
           PrimaryRegularActionButton(
-            text: "SUBMIT",
-            action: () {
-              Navigator.of(context)
-                  .push(Routes().createRoute(const MenuHome()));
-            },
-            disable: false,
-          ),
-          const SizedBox(height: 49),
-          Center(
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('New to Dinereel?',
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.displaySmall),
-                const SizedBox(width: 4),
-                Text(
-                  'Join as a partner',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context)
-                      .textTheme
-                      .displaySmall!
-                      .copyWith(decoration: TextDecoration.underline),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 14),
-          Text.rich(
-            TextSpan(
-              children: [
-                TextSpan(
-                    text: 'By creating an account, you accept our\n',
-                    style: Theme.of(context).textTheme.displaySmall),
-                TextSpan(
-                    text: 'Terms and conditions',
-                    style: Theme.of(context).textTheme.displaySmall),
-                TextSpan(
-                    text: ' you read our ',
-                    style: Theme.of(context)
-                        .textTheme
-                        .displaySmall!
-                        .copyWith(color: AppColors.greytextcolor)),
-                TextSpan(
-                    text: 'Privacy Policy.',
-                    style: Theme.of(context)
-                        .textTheme
-                        .displaySmall!
-                        .copyWith(color: AppColors.blacktextcolot)),
-              ],
-            ),
-            textAlign: TextAlign.center,
-          ),
+              text: "SUBMIT",
+              action: () {
+                Navigator.of(context)
+                    .push(Routes().createRoute(const BusinessMenuPage()));
+              },
+              disable: false),
         ],
       ),
     );

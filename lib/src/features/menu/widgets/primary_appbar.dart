@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../routing/routing_function.dart';
@@ -12,7 +13,7 @@ class PrimaryAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 20),
+      padding: EdgeInsets.symmetric(horizontal: 14, vertical: 16.h),
       decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(40),
@@ -26,7 +27,7 @@ class PrimaryAppBar extends StatelessWidget {
               ])),
       child: Column(
         children: [
-          const SizedBox(height: 40),
+          SizedBox(height: 30.h),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
