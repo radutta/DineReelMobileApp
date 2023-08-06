@@ -1,5 +1,6 @@
 import 'package:dinereel/src/common_widgets/category_filter.dart';
 import 'package:dinereel/data/models/menu_model.dart';
+import 'package:dinereel/src/features/menu/screens/qr_scan_page.dart';
 import 'package:dinereel/src/features/menu/screens/search_page.dart';
 import 'package:dinereel/src/features/menu/widgets/category_filter_bottomsheet.dart';
 import 'package:dinereel/src/features/order/cubit/order_cubit.dart';
@@ -426,10 +427,22 @@ class HeaderSliver extends SliverPersistentHeaderDelegate {
                                       Theme.of(context).textTheme.titleMedium,
                                 ),
                                 const Spacer(),
-                                const Icon(Icons.fullscreen, size: 30),
-                                SvgPicture.asset(
-                                  'assets/auth/images/search.svg',
-                                  height: 35,
+                                GestureDetector(
+                                    onTap: () {
+                                      Navigator.of(context).push(Routes()
+                                          .createRoute(const QrScanPage()));
+                                    },
+                                    child:
+                                        const Icon(Icons.fullscreen, size: 30)),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context).push(Routes()
+                                        .createRoute(const SearchPage()));
+                                  },
+                                  child: SvgPicture.asset(
+                                    'assets/auth/images/search.svg',
+                                    height: 35,
+                                  ),
                                 )
                               ],
                             ),
