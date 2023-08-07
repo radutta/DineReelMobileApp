@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../common_widgets/category_filter.dart';
 import '../../../routing/routing_function.dart';
 
+import '../../menu/widgets/category_filter_bottomsheet.dart';
 import '../widgets/business_menu_card.dart';
 import '../widgets/primary_regular_action_button.dart';
 
@@ -69,7 +70,20 @@ class _BusinessMenuPageState extends State<BusinessMenuPage> {
                   ),
                   const Spacer(),
                   GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        showModalBottomSheet(
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(25.0),
+                              ),
+                            ),
+                            context: context,
+                            builder: (context) {
+                              return const CategoryBottomSheet();
+                            });
+                      },
                       child: Image.asset('assets/admin/filter.png')),
                   const SizedBox(width: 10),
                   GestureDetector(
