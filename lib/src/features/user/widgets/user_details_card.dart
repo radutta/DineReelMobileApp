@@ -52,18 +52,16 @@ class _UserDetailsCardState extends State<UserDetailsCard> {
                       Navigator.pop(context);
                     },
                     child: const Icon(Icons.arrow_back)),
-                Container(
-                  width: 80,
-                  height: 80,
-                  decoration: const ShapeDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(
-                          "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?cs=srgb&dl=pexels-mohamed-abdelghaffar-771742.jpg&fm=jpg"),
-                      fit: BoxFit.fill,
-                    ),
-                    shape: OvalBorder(),
-                  ),
-                ),
+                SizedBox(
+                    width: 80,
+                    height: 80,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(100),
+                      child: Image.network(
+                        "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?cs=srgb&dl=pexels-mohamed-abdelghaffar-771742.jpg&fm=jpg",
+                        fit: BoxFit.contain,
+                      ),
+                    )),
                 GestureDetector(
                     onTap: () {
                       Navigator.of(context)

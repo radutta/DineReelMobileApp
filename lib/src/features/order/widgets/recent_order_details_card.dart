@@ -169,7 +169,12 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
           SizedBox(height: 10.h),
           GestureDetector(
             onTap: () {
-              showDialog(
+              showModalBottomSheet(
+                  isScrollControlled: true,
+                  backgroundColor: Colors.transparent,
+                  shape: const RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.vertical(top: Radius.circular(25.0))),
                   context: context,
                   builder: (context) {
                     return AddCookingInstructionDialog(controller: controller);
@@ -177,19 +182,59 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
             },
             child: Container(
               width: 356.w,
-              height: 35,
+              height: context.watch<InstructionCubit>().state == '' ? 30 : 50,
               padding: const EdgeInsets.all(5),
               alignment: Alignment.centerLeft,
               decoration: BoxDecoration(
                   color: AppColors.lightgrey,
                   borderRadius: BorderRadius.circular(5)),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Text(context.watch<InstructionCubit>().state,
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium!
-                        .copyWith(fontSize: 12)),
+              child: Row(
+                children: [
+                  const Icon(Icons.edit_note_outlined,
+                      color: Color.fromARGB(255, 59, 59, 59)),
+                  const SizedBox(width: 5),
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Cooking Instruction',
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(fontSize: 12)),
+                      context.watch<InstructionCubit>().state == ''
+                          ? Container()
+                          : SizedBox(
+                              width: 290,
+                              child: Text(
+                                  context.watch<InstructionCubit>().state,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .copyWith(fontSize: 12)),
+                            ),
+                    ],
+                  ),
+                  const Spacer(),
+                  context.watch<InstructionCubit>().state == ''
+                      ? const Icon(
+                          Icons.arrow_forward_ios,
+                          color: AppColors.greytextcolor,
+                          size: 18,
+                        )
+                      : GestureDetector(
+                          onTap: () {
+                            context.read<InstructionCubit>().clearInstruction();
+                            controller.clear();
+                          },
+                          child: const Icon(
+                            Icons.delete_outline,
+                            color: AppColors.greytextcolor,
+                            size: 18,
+                          ),
+                        )
+                ],
               ),
             ),
           ),
