@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import '../../../common_widgets/category_filter.dart';
 import '../../../routing/routing_function.dart';
 
-import '../../menu/screens/menu_page.dart';
 import '../widgets/business_menu_card.dart';
 import '../widgets/primary_regular_action_button.dart';
 
@@ -70,18 +69,7 @@ class _BusinessMenuPageState extends State<BusinessMenuPage> {
                   ),
                   const Spacer(),
                   GestureDetector(
-                      onTap: () {
-                        showModalBottomSheet(
-                            shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.vertical(
-                                top: Radius.circular(25.0),
-                              ),
-                            ),
-                            context: context,
-                            builder: (context) {
-                              return const ChooseTableWidget();
-                            });
-                      },
+                      onTap: () {},
                       child: Image.asset('assets/admin/filter.png')),
                   const SizedBox(width: 10),
                   GestureDetector(
@@ -107,10 +95,16 @@ class _BusinessMenuPageState extends State<BusinessMenuPage> {
               child: PrimaryRegularActionButton(
                 text: "Select table",
                 action: () {
-                  Navigator.of(context)
-                      .push(Routes().createRoute(const MenuHome(
-                    type: 'admin',
-                  )));
+                  showModalBottomSheet(
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(25.0),
+                        ),
+                      ),
+                      context: context,
+                      builder: (context) {
+                        return const ChooseTableWidget();
+                      });
                 },
                 disable: false,
               ),

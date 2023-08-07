@@ -12,7 +12,7 @@ class CategoryFilterWidget extends StatefulWidget {
 }
 
 class _CategoryFilterWidgetState extends State<CategoryFilterWidget> {
-  int clickedindex = 0;
+  List<int> clickedindex = [];
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -25,20 +25,26 @@ class _CategoryFilterWidgetState extends State<CategoryFilterWidget> {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                setState(() {
-                  clickedindex = index;
-                });
+                if (clickedindex.contains(index)) {
+                  setState(() {
+                    clickedindex.remove(index);
+                  });
+                } else {
+                  setState(() {
+                    clickedindex.add(index);
+                  });
+                }
               },
               child: Container(
                 padding: const EdgeInsets.all(5),
                 margin: const EdgeInsets.symmetric(horizontal: 5),
                 decoration: BoxDecoration(
-                    color: clickedindex == index
+                    color: clickedindex.contains(index)
                         ? AppColors.lightyellow
                         : AppColors.white,
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                        color: clickedindex == index
+                        color: clickedindex.contains(index)
                             ? const Color(0xFFFFA000)
                             : AppColors.grey)),
                 child: Row(
