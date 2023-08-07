@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 
 import '../../../routing/routing_function.dart';
 import '../../../themes/colors.dart';
@@ -101,10 +103,32 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
                   hinttext: 'Sample name',
                   controller: nameController),
               const SizedBox(height: 10),
-              TextFieldWidget(
-                  title: 'Phone Nubmer*',
-                  hinttext: '+7000045000',
-                  controller: phoneController),
+
+              Text('Phone Nubmer*',
+                  style: Theme.of(context).textTheme.displaySmall),
+              const SizedBox(height: 3),
+              IntlPhoneField(
+                controller: phoneController,
+                initialCountryCode: 'IN',
+                style: Theme.of(context).textTheme.bodyMedium,
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                decoration: InputDecoration(
+                  counterText: "",
+                  contentPadding: const EdgeInsets.symmetric(vertical: 0),
+                  hintText: '+7000045000',
+                  hintStyle: Theme.of(context).textTheme.displaySmall,
+                  errorStyle: const TextStyle(fontSize: 12),
+                  border: const OutlineInputBorder(
+                    borderSide: BorderSide(),
+                  ),
+                  focusedBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(
+                        color: AppColors.primaryGradientLight, width: 2),
+                  ),
+                ),
+                onChanged: (phone) {},
+                onCountryChanged: (country) {},
+              ),
               const SizedBox(height: 10),
               TextFieldWidget(
                   title: 'Address*',
@@ -121,12 +145,12 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
                   hinttext: '12000ktrlkrt',
                   controller: fssaiController),
               const SizedBox(height: 10),
-              TextFieldWidget(
+              PasswordTextFieldWidget(
                   title: 'Password*',
                   hinttext: 'Password',
                   controller: passwordController),
               const SizedBox(height: 10),
-              TextFieldWidget(
+              PasswordTextFieldWidget(
                   title: 'Confirm Password*',
                   hinttext: 'Password',
                   controller: confirmpasswordController),
@@ -147,7 +171,6 @@ class _BusinessSignUpPageState extends State<BusinessSignUpPage> {
                     child: Container(
                       width: 73,
                       height: 28,
-                      padding: const EdgeInsets.symmetric(horizontal: 9),
                       decoration: ShapeDecoration(
                         color: showmore
                             ? const Color(0xFFD9D9D9)

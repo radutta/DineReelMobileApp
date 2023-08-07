@@ -47,30 +47,31 @@ class _EmailTabState extends State<EmailTab> {
             style: Theme.of(context).textTheme.displaySmall,
             obscureText: isvisible,
             decoration: InputDecoration(
-                contentPadding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
-                hintText: 'Password',
-                hintStyle: Theme.of(context).textTheme.displaySmall,
-                border: const OutlineInputBorder(borderSide: BorderSide()),
-                focusedBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(
-                      color: AppColors.primaryGradientLight, width: 2),
-                ),
-                suffixIcon: isvisible
-                    ? GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            isvisible = false;
-                          });
-                        },
-                        child: const Icon(Icons.visibility_off))
-                    : GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            isvisible = true;
-                          });
-                        },
-                        child: const Icon(Icons.visibility))),
+              contentPadding:
+                  const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+              hintText: 'Password',
+              hintStyle: Theme.of(context).textTheme.displaySmall,
+              border: const OutlineInputBorder(borderSide: BorderSide()),
+              focusedBorder: const OutlineInputBorder(
+                borderSide:
+                    BorderSide(color: AppColors.primaryGradientLight, width: 2),
+              ),
+              suffixIcon: isvisible
+                  ? GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isvisible = false;
+                        });
+                      },
+                      child: const Icon(Icons.visibility_off))
+                  : GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isvisible = true;
+                        });
+                      },
+                      child: const Icon(Icons.visibility)),
+            ),
           ),
           SizedBox(height: 40.h),
           PrimaryRegularActionButton(
