@@ -42,7 +42,7 @@ class _OrderSuccessPageState extends State<OrderSuccessPage> {
             Lottie.asset('assets/order/lottie_asset/order_success.json',
                 repeat: false, height: 300, fit: BoxFit.cover),
             Text(
-              'Thanks for placeing the order',
+              'Thanks! We have recieved your order.',
               style: Theme.of(context).textTheme.titleMedium,
             )
           ],
