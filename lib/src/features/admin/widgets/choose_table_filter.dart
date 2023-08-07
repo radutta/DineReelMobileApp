@@ -13,8 +13,30 @@ class ChooseTableWidget extends StatefulWidget {
 }
 
 class _ChooseTableWidgetState extends State<ChooseTableWidget> {
-  double height = 0;
-  int selectedindex = 0;
+  String? selectedValue = "Table No 1";
+  final _dropdownFormKey = GlobalKey<FormState>();
+  List<DropdownMenuItem<String>> get dropdownItems {
+    List<DropdownMenuItem<String>> menuItems = [
+      DropdownMenuItem(
+          value: "Table No 1",
+          child: Text("Table No 1",
+              style: Theme.of(context).textTheme.bodyMedium)),
+      DropdownMenuItem(
+          value: 'Table No 2',
+          child: Text('Table No 2',
+              style: Theme.of(context).textTheme.bodyMedium)),
+      DropdownMenuItem(
+          value: 'Table No 3',
+          child: Text('Table No 3',
+              style: Theme.of(context).textTheme.bodyMedium)),
+      DropdownMenuItem(
+          value: 'Table No 4',
+          child: Text('Table No 4',
+              style: Theme.of(context).textTheme.bodyMedium)),
+    ];
+    return menuItems;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,15 +44,7 @@ class _ChooseTableWidgetState extends State<ChooseTableWidget> {
       children: [
         GestureDetector(
           onTap: () {
-            if (height == 0) {
-              setState(() {
-                height = 39 * 4;
-              });
-            } else {
-              setState(() {
-                height = 0;
-              });
-            }
+            Navigator.pop(context);
           },
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -41,63 +55,46 @@ class _ChooseTableWidgetState extends State<ChooseTableWidget> {
                   'Choose Table',
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
-                const Icon(
-                  Icons.keyboard_arrow_down,
-                  size: 30,
-                )
+                const Icon(Icons.keyboard_arrow_down, size: 30)
               ],
             ),
           ),
         ),
-        AnimatedContainer(
-          height: height,
-          duration: const Duration(milliseconds: 300),
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: ListView.builder(
-              padding: const EdgeInsets.all(0),
-              shrinkWrap: true,
-              itemCount: 4,
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      setState(() {
-                        selectedindex = index;
-                      });
-                    });
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 5),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Table Number ${index + 1} ",
-                          style: Theme.of(context).textTheme.titleMedium,
-                        ),
-                        Container(
-                          width: 25,
-                          height: 25,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            border: Border.all(color: AppColors.black),
-                          ),
-                          alignment: Alignment.center,
-                          child: selectedindex == index
-                              ? Container(
-                                  width: 15,
-                                  height: 15,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(100),
-                                      color: AppColors.primaryGradientLight),
-                                )
-                              : Container(),
-                        )
-                      ],
-                    ),
+        Form(
+          key: _dropdownFormKey,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: DropdownButtonFormField(
+                decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide:
+                        const BorderSide(color: AppColors.black, width: 2),
+                    borderRadius: BorderRadius.circular(5),
                   ),
-                );
-              }),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(
+                        color: AppColors.primaryGradientDeep, width: 2),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  border: OutlineInputBorder(
+                    borderSide:
+                        const BorderSide(color: AppColors.black, width: 2),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  filled: true,
+                  fillColor: AppColors.white,
+                ),
+                validator: (value) => value == null ? "Table No 1" : null,
+                dropdownColor: AppColors.white,
+                value: selectedValue,
+                onChanged: (String? newValue) {
+                  setState(() {
+                    selectedValue = newValue!;
+                  });
+                },
+                items: dropdownItems),
+          ),
         ),
         const SizedBox(height: 10),
         Padding(
