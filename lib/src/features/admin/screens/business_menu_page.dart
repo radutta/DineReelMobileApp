@@ -5,6 +5,7 @@ import '../../../common_widgets/category_filter.dart';
 import '../../../routing/routing_function.dart';
 
 import '../../menu/widgets/category_filter_bottomsheet.dart';
+import '../../user/widgets/outlet_popup.dart';
 import '../widgets/business_menu_card.dart';
 import '../widgets/primary_regular_action_button.dart';
 
@@ -40,24 +41,34 @@ class _BusinessMenuPageState extends State<BusinessMenuPage> {
                     ),
                   ),
                   const SizedBox(width: 10),
-                  const Column(
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        children: [
-                          Text(
-                            'RannaBati',
-                            style: TextStyle(
-                              color: Color(0xFF3D405B),
-                              fontSize: 20,
-                              fontFamily: 'Inter',
-                              fontWeight: FontWeight.w700,
+                      GestureDetector(
+                        onTap: () {
+                          showDialog(
+                              barrierDismissible: false,
+                              context: context,
+                              builder: (context) {
+                                return const OutletPopupWidget();
+                              });
+                        },
+                        child: const Row(
+                          children: [
+                            Text(
+                              'RannaBati',
+                              style: TextStyle(
+                                color: Color(0xFF3D405B),
+                                fontSize: 20,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w700,
+                              ),
                             ),
-                          ),
-                          Icon(Icons.keyboard_arrow_down)
-                        ],
+                            Icon(Icons.keyboard_arrow_down)
+                          ],
+                        ),
                       ),
-                      Text(
+                      const Text(
                         'Traditional Indian Food',
                         style: TextStyle(
                           color: Color(0xFF3D405B),
