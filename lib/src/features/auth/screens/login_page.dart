@@ -103,7 +103,13 @@ class _LoginPageState extends State<LoginPage> {
                         color: AppColors.primaryGradientLight, width: 2),
                   ),
                 ),
-                onChanged: (phone) {},
+                onChanged: (phone) {
+                  if (controller.text.isNotEmpty &&
+                      controller.text.length == 10) {
+                    Navigator.of(context).push(Routes().createRouteUp(
+                        OtpVerificationPage(number: controller.text)));
+                  }
+                },
                 onCountryChanged: (country) {},
               ),
             ),
