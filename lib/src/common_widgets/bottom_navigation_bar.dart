@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../cubit/cubit/navigationcontroller_cubit.dart';
+import '../features/menu/screens/search_page.dart';
+import '../routing/routing_function.dart';
 import '../themes/colors.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
@@ -111,33 +113,59 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
           const Spacer(),
           GestureDetector(
               onTap: () {
-                context.read<NavigationcontrollerCubit>().changescreen(3);
+                widget.type == 'admin'
+                    ? Navigator.of(context)
+                        .push(Routes().createRoute(const SearchPage()))
+                    : context.read<NavigationcontrollerCubit>().changescreen(3);
               },
               child: SizedBox(
                 width: 60,
-                child: Column(mainAxisSize: MainAxisSize.min, children: [
-                  context.watch<NavigationcontrollerCubit>().state == 3
-                      ? SvgPicture.asset(
-                          'assets/menu/images/user_active.svg',
+                child: widget.type == 'admin'
+                    ? Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          SvgPicture.asset('assets/auth/images/search.svg'),
+                          Text(
+                            'Search',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodySmall!
+                                .copyWith(
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 12,
+                                  color: context
+                                              .read<NavigationcontrollerCubit>()
+                                              .state ==
+                                          3
+                                      ? AppColors.primaryGradientDeep
+                                      : AppColors.black,
+                                ),
+                          )
+                        ],
+                      )
+                    : Column(mainAxisSize: MainAxisSize.min, children: [
+                        context.watch<NavigationcontrollerCubit>().state == 3
+                            ? SvgPicture.asset(
+                                'assets/menu/images/user_active.svg',
+                              )
+                            : SvgPicture.asset('assets/menu/images/user.svg'),
+                        Text(
+                          widget.type == 'loggedIn' ? "Profile" : "Guest",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodySmall!
+                              .copyWith(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 12,
+                                color: context
+                                            .read<NavigationcontrollerCubit>()
+                                            .state ==
+                                        3
+                                    ? AppColors.primaryGradientDeep
+                                    : AppColors.black,
+                              ),
                         )
-                      : SvgPicture.asset('assets/menu/images/user.svg'),
-                  Text(
-                    widget.type == 'loggedIn'
-                        ? "Profile"
-                        : widget.type == 'admin'
-                            ? 'Admin'
-                            : "Guest",
-                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 12,
-                          color:
-                              context.read<NavigationcontrollerCubit>().state ==
-                                      3
-                                  ? AppColors.primaryGradientDeep
-                                  : AppColors.black,
-                        ),
-                  )
-                ]),
+                      ]),
               )),
           const SizedBox(width: 10),
         ],

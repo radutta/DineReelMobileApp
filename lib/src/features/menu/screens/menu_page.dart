@@ -35,7 +35,7 @@ class _MenuHomeState extends State<MenuHome>
   @override
   Widget build(BuildContext context) {
     List<Widget> screens = [
-      const NewMenuPage(),
+      NewMenuPage(type: widget.type),
       const BlogPage(),
       const WishlistPage(),
       UserProfilePage(type: widget.type)
@@ -274,8 +274,8 @@ class AdminPage extends StatelessWidget {
 }
 
 class NewMenuPage extends StatelessWidget {
-  const NewMenuPage({super.key});
-
+  const NewMenuPage({super.key, this.type});
+  final String? type;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -337,7 +337,7 @@ class NewMenuPage extends StatelessWidget {
                           ],
                         ),
                       )
-                    : const PrimaryAppBar()
+                    : PrimaryAppBar(type: type)
               ]),
             ),
           ),
