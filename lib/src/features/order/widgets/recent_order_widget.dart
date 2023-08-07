@@ -74,7 +74,7 @@ class RecentOrderWidget extends StatelessWidget {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Container(
-                                              width: 79.w,
+                                              width: 79,
                                               height: 65,
                                               padding: const EdgeInsets.only(
                                                   right: 15, top: 5),
@@ -86,7 +86,7 @@ class RecentOrderWidget extends StatelessWidget {
                                                     CrossAxisAlignment.start,
                                                 children: [
                                                   SizedBox(
-                                                    width: 300.w,
+                                                    width: 300,
                                                     height: 44,
                                                     child: Center(
                                                       child: Stack(
@@ -164,7 +164,7 @@ class RecentOrderWidget extends StatelessWidget {
                                                         fontWeight:
                                                             FontWeight.w600,
                                                         fontSize: 12)),
-                                            SizedBox(width: 60.h),
+                                            const SizedBox(width: 60),
                                             Column(
                                               mainAxisSize: MainAxisSize.min,
                                               mainAxisAlignment:
@@ -224,8 +224,8 @@ class RecentOrderWidget extends StatelessWidget {
                           Align(
                             alignment: Alignment.topCenter,
                             child: Container(
-                              width: 110.w,
-                              height: 20.h,
+                              width: 115,
+                              height: 30,
                               alignment: Alignment.center,
                               decoration: ShapeDecoration(
                                   color: AppColors.black,

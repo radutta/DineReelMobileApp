@@ -93,7 +93,7 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: SizedBox(
               height: width > 450
-                  ? 165.h
+                  ? 155.h
                   : h < 800
                       ? 135.h
                       : 270.w,
