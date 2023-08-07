@@ -6,8 +6,8 @@ import '../../../routing/routing_function.dart';
 import '../../../themes/colors.dart';
 
 class RecentOrderWidget extends StatelessWidget {
-  const RecentOrderWidget({super.key});
-
+  const RecentOrderWidget({super.key, this.type});
+  final String? type;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -224,7 +224,7 @@ class RecentOrderWidget extends StatelessWidget {
                           Align(
                             alignment: Alignment.topCenter,
                             child: Container(
-                              width: 80.w,
+                              width: 110.w,
                               height: 20.h,
                               alignment: Alignment.center,
                               decoration: ShapeDecoration(
@@ -232,7 +232,9 @@ class RecentOrderWidget extends StatelessWidget {
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10))),
                               child: Text(
-                                'Table No. 1',
+                                type == 'admin'
+                                    ? 'Table No. 1'
+                                    : "Park Street Hotel",
                                 style: Theme.of(context)
                                     .textTheme
                                     .displaySmall!
