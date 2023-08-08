@@ -310,30 +310,42 @@ class NewMenuPage extends StatelessWidget {
                             const SizedBox(width: 10),
                             Text(
                               'dinereel_foodhub'.tr(),
-                              style: Theme.of(context).textTheme.titleMedium,
+                              style: Theme.of(context).textTheme.bodyMedium,
                             ),
                             const Spacer(),
+                            GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                      Routes().createRoute(const QrScanPage()));
+                                },
+                                child: const Icon(Icons.fullscreen, size: 30)),
                             GestureDetector(
                                 onTap: () {
                                   Navigator.of(context).push(
                                       Routes().createRoute(const SearchPage()));
                                 },
                                 child: SvgPicture.asset(
-                                    'assets/auth/images/search.svg')),
+                                  'assets/auth/images/search.svg',
+                                  height: 30,
+                                )),
                             GestureDetector(
                                 onTap: () {
                                   Navigator.of(context).push(Routes()
                                       .createRoute(const WishlistPage()));
                                 },
                                 child: SvgPicture.asset(
-                                    'assets/menu/images/Heart.svg')),
+                                  'assets/menu/images/Heart.svg',
+                                  height: 30,
+                                )),
                             GestureDetector(
                                 onTap: () {
                                   Navigator.of(context).push(Routes()
                                       .createRoute(const UserProfilePage()));
                                 },
                                 child: SvgPicture.asset(
-                                    'assets/menu/images/user.svg'))
+                                  'assets/menu/images/user.svg',
+                                  height: 30,
+                                ))
                           ],
                         ),
                       )
@@ -352,15 +364,11 @@ class NewMenuPage extends StatelessWidget {
               : const SliverToBoxAdapter(),
           const SliverToBoxAdapter(child: BannerWidget()),
           SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.only(
-                  left: 14, right: 14, top: 20, bottom: 20),
-              child: Text(
-                'recommended'.tr(),
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-            ),
-          ),
+              child: Padding(
+                  padding: const EdgeInsets.only(
+                      left: 14, right: 14, top: 20, bottom: 20),
+                  child: Text('recommended'.tr(),
+                      style: Theme.of(context).textTheme.titleMedium))),
           SliverList.builder(
               itemCount: menuItems.length,
               itemBuilder: (context, index) {
@@ -415,10 +423,8 @@ class HeaderSliver extends SliverPersistentHeaderDelegate {
                                   onTap: () {
                                     Navigator.pop(context);
                                   },
-                                  child: const Icon(
-                                    Icons.arrow_back,
-                                    color: AppColors.black,
-                                  ),
+                                  child: const Icon(Icons.arrow_back,
+                                      color: AppColors.black),
                                 ),
                                 SizedBox(width: 10.w),
                                 Text(

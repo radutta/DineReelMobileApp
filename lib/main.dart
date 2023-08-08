@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
             providers: [
               BlocProvider(create: (context) => NavigationcontrollerCubit()),
               BlocProvider(create: (context) => OrderControllerCubit()),
-              BlocProvider(create: (context) => InstructionCubit())
+              BlocProvider(create: (context) => InstructionCubit()),
             ],
             child: MaterialApp(
               title: 'Dinereel App',
