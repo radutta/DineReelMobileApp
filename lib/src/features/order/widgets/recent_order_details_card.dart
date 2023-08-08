@@ -154,11 +154,11 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
                                     itemCount: width > 450 ? 150 : 50,
                                     itemBuilder: (context, index) {
                                       return Container(
-                                        margin: const EdgeInsets.only(left: 3),
-                                        height: 1,
-                                        width: 5,
-                                        color: AppColors.grey,
-                                      );
+                                          margin:
+                                              const EdgeInsets.only(left: 3),
+                                          height: 1,
+                                          width: 5,
+                                          color: AppColors.grey);
                                     }),
                               ),
                             ),
@@ -205,7 +205,7 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
                       context.watch<InstructionCubit>().state == ''
                           ? Container()
                           : SizedBox(
-                              width: 290,
+                              width: 200.w,
                               child: Text(
                                   context.watch<InstructionCubit>().state,
                                   overflow: TextOverflow.ellipsis,
@@ -218,11 +218,8 @@ class _RecentOrderDetailsCardState extends State<RecentOrderDetailsCard> {
                   ),
                   const Spacer(),
                   context.watch<InstructionCubit>().state == ''
-                      ? const Icon(
-                          Icons.arrow_forward_ios,
-                          color: AppColors.greytextcolor,
-                          size: 18,
-                        )
+                      ? const Icon(Icons.arrow_forward_ios,
+                          color: AppColors.greytextcolor, size: 18)
                       : GestureDetector(
                           onTap: () {
                             context.read<InstructionCubit>().clearInstruction();
