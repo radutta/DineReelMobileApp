@@ -26,9 +26,9 @@ class _CategoryFilterWidgetState extends State<CategoryFilterWidget> {
             return GestureDetector(
               onTap: () {
                 if (clickedindex.contains(index)) {
-                  setState(() {
-                    clickedindex.remove(index);
-                  });
+                  // setState(() {
+                  //   clickedindex.remove(index);
+                  // });
                 } else {
                   setState(() {
                     clickedindex.add(index);
@@ -60,7 +60,21 @@ class _CategoryFilterWidgetState extends State<CategoryFilterWidget> {
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w500,
                       ),
-                    )
+                    ),
+                    clickedindex.contains(index)
+                        ? GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                clickedindex.remove(index);
+                              });
+                            },
+                            child: const Icon(
+                              Icons.close,
+                              color: AppColors.black,
+                              size: 15,
+                            ),
+                          )
+                        : Container()
                   ],
                 ),
               ),
