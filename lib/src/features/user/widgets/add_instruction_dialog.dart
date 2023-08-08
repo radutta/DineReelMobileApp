@@ -39,7 +39,7 @@ class AddCookingInstructionDialog extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyMedium,
                 autofocus: true,
                 minLines: 1,
-                maxLines: 5,
+                maxLines: 3,
                 maxLength: 100,
                 decoration: InputDecoration(
                     hintText: 'Write instructions',
