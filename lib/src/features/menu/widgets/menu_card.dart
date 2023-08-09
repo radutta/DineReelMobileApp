@@ -1,6 +1,7 @@
 import 'package:dinereel/src/features/menu/cubit/add_wishlist/add_wishlist_cubit.dart';
 import 'package:dinereel/src/features/menu/screens/item_detials_page.dart';
 import 'package:dinereel/src/features/menu/widgets/aniamted_add_button.dart';
+import 'package:dinereel/src/features/order/cubit/add_order/add_order_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -78,8 +79,11 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                                   builder: (context) {
                                     return const ItemDetailsBottomSheet();
                                   })
-                              : Navigator.of(context).push(Routes()
-                                  .createRoute(const ItemDetailsPage()));
+                              : Navigator.of(context)
+                                  .push(Routes().createRoute(ItemDetailsPage(
+                                  index: widget.index,
+                                  data: widget.data,
+                                )));
                         },
                         child: Image.network(
                             widget.data[widget.index].images[i],
@@ -102,9 +106,6 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                           .read<AddWishlistCubit>()
                           .addtoWishlist(widget.data[widget.index]);
                     }
-                    // setState(() {
-                    //   iconColor = !iconColor;
-                    // });
                   },
                   child: Padding(
                       padding: const EdgeInsets.only(right: 18, top: 22),
@@ -113,7 +114,6 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                               .state
                               .wishlist
                               .contains(widget.data[widget.index])
-                          // iconColor
                           ? const Icon(Icons.favorite,
                               color: AppColors.activeRed)
                           : const Icon(Icons.favorite_border_outlined,
@@ -206,6 +206,9 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                                     setState(() {
                                       widget.data[widget.index].count = 1;
                                     });
+                                    context
+                                        .read<AddOrderCubit>()
+                                        .placeOrder(widget.data[widget.index]);
                                   },
                                   child: Container(
                                       padding: const EdgeInsets.symmetric(

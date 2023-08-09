@@ -1,5 +1,7 @@
+import 'package:dinereel/src/features/order/cubit/add_order/add_order_cubit.dart';
 import 'package:dinereel/src/features/order/screens/view_order_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../routing/routing_function.dart';
@@ -21,7 +23,6 @@ class _ViewOrderWidgetState extends State<ViewOrderWidget> {
       children: [
         AnimatedContainer(
           height: height,
-          // width: MediaQuery.of(context).size.width,
           padding: const EdgeInsets.symmetric(horizontal: 20),
           duration: const Duration(milliseconds: 300),
           decoration: const BoxDecoration(
@@ -184,7 +185,7 @@ class _ViewOrderWidgetState extends State<ViewOrderWidget> {
                   Row(
                     children: [
                       Text(
-                        "${widget.orderNo} Item",
+                        "${context.watch<AddOrderCubit>().state.orderlist.length} Item",
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                       const SizedBox(
@@ -192,7 +193,7 @@ class _ViewOrderWidgetState extends State<ViewOrderWidget> {
                           child: VerticalDivider(
                               color: AppColors.black, thickness: 2)),
                       Text(
-                        '₹ 820',
+                        '₹ ${context.watch<AddOrderCubit>().state.orderlist.length * 290}',
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       const SizedBox(width: 10),

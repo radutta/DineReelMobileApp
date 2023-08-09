@@ -43,6 +43,7 @@ class _OrderSuccessPageState extends State<OrderSuccessPage> {
                 repeat: false, height: 300, fit: BoxFit.cover),
             Text(
               'Thanks! We have recieved your order.',
+              textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.titleMedium,
             )
           ],

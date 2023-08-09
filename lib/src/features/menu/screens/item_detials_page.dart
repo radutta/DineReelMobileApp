@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../data/models/menu_model.dart';
 import '../../../themes/colors.dart';
 import '../widgets/item_details_button_widget.dart';
 import '../widgets/item_preview_slider.dart';
 
 class ItemDetailsPage extends StatefulWidget {
-  const ItemDetailsPage({super.key});
-
+  const ItemDetailsPage({super.key, required this.index, required this.data});
+  final int index;
+  final List<MenuModel> data;
   @override
   State<ItemDetailsPage> createState() => _ItemDetailsPageState();
 }
@@ -19,13 +21,15 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var h = MediaQuery.of(context).size.height;
-    print(h);
-    print(width);
+
     return Scaffold(
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const ItemPreviewSlider(),
+            ItemPreviewSlider(
+              index: widget.index,
+              data: widget.data,
+            ),
             const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -215,6 +219,6 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
             const Spacer(),
           ],
         ),
-        bottomSheet: ItemDetailsButtonWidget());
+        bottomSheet: const ItemDetailsButtonWidget());
   }
 }

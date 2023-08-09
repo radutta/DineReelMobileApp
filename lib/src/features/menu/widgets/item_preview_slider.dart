@@ -1,13 +1,17 @@
 import 'package:dinereel/src/features/menu/widgets/menu_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../../../data/models/menu_model.dart';
 import '../../../themes/colors.dart';
+import '../cubit/add_wishlist/add_wishlist_cubit.dart';
 
 class ItemPreviewSlider extends StatefulWidget {
-  const ItemPreviewSlider({super.key});
-
+  const ItemPreviewSlider({super.key, required this.index, required this.data});
+  final int index;
+  final List<MenuModel> data;
   @override
   State<ItemPreviewSlider> createState() => _ItemPreviewSliderState();
 }
@@ -81,13 +85,27 @@ class _ItemPreviewSliderState extends State<ItemPreviewSlider> {
           alignment: Alignment.topRight,
           child: GestureDetector(
             onTap: () {
-              setState(() {
-                iconColor = !iconColor;
-              });
+              if (context
+                  .read<AddWishlistCubit>()
+                  .state
+                  .wishlist
+                  .contains(widget.data[widget.index])) {
+                context
+                    .read<AddWishlistCubit>()
+                    .removefromWishlist(widget.data[widget.index]);
+              } else {
+                context
+                    .read<AddWishlistCubit>()
+                    .addtoWishlist(widget.data[widget.index]);
+              }
             },
             child: Padding(
               padding: const EdgeInsets.only(right: 18, top: 50),
-              child: iconColor
+              child: context
+                      .watch<AddWishlistCubit>()
+                      .state
+                      .wishlist
+                      .contains(widget.data[widget.index])
                   ? const Icon(
                       Icons.favorite,
                       color: AppColors.activeRed,
