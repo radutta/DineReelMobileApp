@@ -1,4 +1,5 @@
 import 'package:dinereel/data/models/menu_model.dart';
+import 'package:dinereel/src/features/order/cubit/add_order/add_order_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -64,6 +65,7 @@ class _AniamatedAddButtonState extends State<AniamatedAddButton>
           });
         } else if (menuItems[widget.index].count == 0) {
           context.read<OrderControllerCubit>().removeOrder();
+          context.read<AddOrderCubit>().removeOrder(menuItems[widget.index]);
         }
       },
       child: Container(

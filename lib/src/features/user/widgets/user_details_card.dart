@@ -20,7 +20,7 @@ class _UserDetailsCardState extends State<UserDetailsCard> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        if (context.read<NavigationcontrollerCubit>().state != 0) {
+        if (context.watch<NavigationcontrollerCubit>().state != 0) {
           setState(() {
             context.read<NavigationcontrollerCubit>().changescreen(0);
           });
@@ -49,7 +49,7 @@ class _UserDetailsCardState extends State<UserDetailsCard> {
               children: [
                 GestureDetector(
                     onTap: () {
-                      Navigator.pop(context);
+                      context.read<NavigationcontrollerCubit>().changescreen(0);
                     },
                     child: const Icon(Icons.arrow_back)),
                 SizedBox(

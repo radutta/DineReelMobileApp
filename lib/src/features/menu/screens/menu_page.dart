@@ -2,6 +2,7 @@ import 'package:dinereel/src/common_widgets/category_filter.dart';
 import 'package:dinereel/data/models/menu_model.dart';
 import 'package:dinereel/src/features/menu/screens/qr_scan_page.dart';
 import 'package:dinereel/src/features/menu/screens/search_page.dart';
+import 'package:dinereel/src/features/menu/screens/wishlist_page.dart';
 import 'package:dinereel/src/features/menu/widgets/category_filter_bottomsheet.dart';
 import 'package:dinereel/src/features/order/cubit/order_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -15,7 +16,6 @@ import '../../../routing/routing_function.dart';
 import '../../../themes/colors.dart';
 import '../../order/widgets/view_order_widget.dart';
 import '../../user/screens/user_profile_page.dart';
-import '../cubit/add_wishlist/add_wishlist_cubit.dart';
 import '../widgets/banner_widget.dart';
 import '../widgets/highlightlist_widget.dart';
 import '../widgets/menu_card.dart';
@@ -36,7 +36,7 @@ class _MenuHomeState extends State<MenuHome>
   @override
   Widget build(BuildContext context) {
     List<Widget> screens = [
-      NewMenuPage(type: widget.type),
+      MenuPage(type: widget.type),
       const BlogPage(),
       const WishlistPage(),
       UserProfilePage(type: widget.type)
@@ -119,133 +119,6 @@ class _MenuHomeState extends State<MenuHome>
   }
 }
 
-class MenuPage extends StatelessWidget {
-  const MenuPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      extendBody: true,
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            context.watch<OrderControllerCubit>().state
-                ? Padding(
-                    padding: const EdgeInsets.only(top: 40),
-                    child: Row(
-                      children: [
-                        GestureDetector(
-                            onTap: () {
-                              Navigator.pop(context);
-                            },
-                            child: const Icon(Icons.arrow_back)),
-                        const SizedBox(width: 10),
-                        Text(
-                          'dinereel_foodhub'.tr(),
-                          style: Theme.of(context).textTheme.titleMedium,
-                        ),
-                        const Spacer(),
-                        GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(
-                                  Routes().createRoute(const SearchPage()));
-                            },
-                            child: SvgPicture.asset(
-                                'assets/auth/images/search.svg')),
-                        GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(
-                                  Routes().createRoute(const WishlistPage()));
-                            },
-                            child: SvgPicture.asset(
-                                'assets/menu/images/Heart.svg')),
-                        GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(Routes()
-                                  .createRoute(const UserProfilePage()));
-                            },
-                            child:
-                                SvgPicture.asset('assets/menu/images/user.svg'))
-                      ],
-                    ),
-                  )
-                : const PrimaryAppBar(),
-            const SizedBox(height: 20),
-            context.watch<OrderControllerCubit>().state
-                ? const Center(child: CategoryFilterWidget())
-                : Container(),
-            const SizedBox(height: 20),
-            const HighlightListWidget(),
-            const SizedBox(height: 18),
-            const BannerWidget(),
-            Padding(
-              padding: const EdgeInsets.only(
-                  left: 14, right: 14, top: 20, bottom: 20),
-              child: Text(
-                'recommended'.tr(),
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 14),
-              child: ListView.builder(
-                  padding: const EdgeInsets.only(bottom: 100),
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: menuItems.length,
-                  itemBuilder: (context, index) {
-                    return MenuCardWidget(index: index, data: menuItems);
-                  }),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class WishlistPage extends StatelessWidget {
-  const WishlistPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    var wishlist = context.watch<AddWishlistCubit>().state.wishlist;
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: AppColors.white,
-        elevation: 0,
-        title: Text(
-          'WishList',
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const SizedBox(height: 10),
-            ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: wishlist.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 14),
-                    child: MenuCardWidget(
-                      index: index,
-                      data: wishlist,
-                    ),
-                  );
-                }),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 class BlogPage extends StatelessWidget {
   const BlogPage({super.key});
 
@@ -283,8 +156,8 @@ class AdminPage extends StatelessWidget {
   }
 }
 
-class NewMenuPage extends StatelessWidget {
-  const NewMenuPage({super.key, this.type});
+class MenuPage extends StatelessWidget {
+  const MenuPage({super.key, this.type});
   final String? type;
   @override
   Widget build(BuildContext context) {
