@@ -1,3 +1,4 @@
+import 'package:dinereel/src/features/menu/cubit/add_wishlist/add_wishlist_cubit.dart';
 import 'package:dinereel/src/features/menu/screens/item_detials_page.dart';
 import 'package:dinereel/src/features/menu/widgets/aniamted_add_button.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -61,7 +62,7 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
               child: PageView.builder(
                   controller: pagecontroller,
                   itemCount: widget.data[widget.index].images.length,
-                  itemBuilder: (context, index) {
+                  itemBuilder: (context, i) {
                     return GestureDetector(
                         onTap: () {
                           widget.index == 0
@@ -81,20 +82,38 @@ class _MenuCardWidgetState extends State<MenuCardWidget> {
                                   .createRoute(const ItemDetailsPage()));
                         },
                         child: Image.network(
-                            widget.data[widget.index].images[index],
+                            widget.data[widget.index].images[i],
                             fit: BoxFit.cover));
                   })),
           Align(
               alignment: Alignment.topRight,
               child: GestureDetector(
                   onTap: () {
-                    setState(() {
-                      iconColor = !iconColor;
-                    });
+                    if (context
+                        .read<AddWishlistCubit>()
+                        .state
+                        .wishlist
+                        .contains(widget.data[widget.index])) {
+                      context
+                          .read<AddWishlistCubit>()
+                          .removefromWishlist(widget.data[widget.index]);
+                    } else {
+                      context
+                          .read<AddWishlistCubit>()
+                          .addtoWishlist(widget.data[widget.index]);
+                    }
+                    // setState(() {
+                    //   iconColor = !iconColor;
+                    // });
                   },
                   child: Padding(
                       padding: const EdgeInsets.only(right: 18, top: 22),
-                      child: iconColor
+                      child: context
+                              .watch<AddWishlistCubit>()
+                              .state
+                              .wishlist
+                              .contains(widget.data[widget.index])
+                          // iconColor
                           ? const Icon(Icons.favorite,
                               color: AppColors.activeRed)
                           : const Icon(Icons.favorite_border_outlined,

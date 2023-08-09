@@ -15,6 +15,7 @@ import '../../../routing/routing_function.dart';
 import '../../../themes/colors.dart';
 import '../../order/widgets/view_order_widget.dart';
 import '../../user/screens/user_profile_page.dart';
+import '../cubit/add_wishlist/add_wishlist_cubit.dart';
 import '../widgets/banner_widget.dart';
 import '../widgets/highlightlist_widget.dart';
 import '../widgets/menu_card.dart';
@@ -209,26 +210,35 @@ class WishlistPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
-      decoration: const BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-            AppColors.primaryGradientDeep,
-            AppColors.secondaryLightColor
-          ])),
-      child: const Center(
+    var wishlist = context.watch<AddWishlistCubit>().state.wishlist;
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: AppColors.white,
+        elevation: 0,
+        title: Text(
+          'WishList',
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
+      ),
+      body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Column(
-              children: [
-                Material(child: Text('Wishlist Screen')),
-              ],
-            )
+            const SizedBox(height: 10),
+            ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: wishlist.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 14),
+                    child: MenuCardWidget(
+                      index: index,
+                      data: wishlist,
+                    ),
+                  );
+                }),
           ],
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:dinereel/src/cubit/cubit/navigationcontroller_cubit.dart';
 import 'package:dinereel/src/features/auth/screens/welcome_page.dart';
+import 'package:dinereel/src/features/menu/cubit/add_wishlist/add_wishlist_cubit.dart';
 import 'package:dinereel/src/features/order/cubit/instruction_cubit.dart';
 import 'package:dinereel/src/features/order/cubit/order_cubit.dart';
 import 'package:dinereel/src/themes/app_themes.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
               BlocProvider(create: (context) => NavigationcontrollerCubit()),
               BlocProvider(create: (context) => OrderControllerCubit()),
               BlocProvider(create: (context) => InstructionCubit()),
+              BlocProvider(create: (context) => AddWishlistCubit())
             ],
             child: MaterialApp(
               title: 'Dinereel App',
