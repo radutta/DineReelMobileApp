@@ -87,34 +87,14 @@ class RecentOrderdetails extends StatelessWidget {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Row(
-                                    children: [
-                                      Text('Bitiyani',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyMedium!
-                                              .copyWith(
-                                                  fontWeight: FontWeight.w500)),
-                                      const SizedBox(width: 10),
-                                      Container(
-                                        height: 15.w,
-                                        width: 15.w,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(5),
-                                            border: Border.all(
-                                                color: AppColors.activeRed)),
-                                        child: Center(
-                                          child: Icon(
-                                            Icons.fiber_manual_record,
-                                            color: AppColors.activeRed,
-                                            size: 13.r,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Text('₹ 200',
+                                  Text('Bitiyani',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium!
+                                          .copyWith(
+                                              fontWeight: FontWeight.w500)),
+                                  const SizedBox(width: 10),
+                                  Text('1 x ₹ 200',
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyMedium!
@@ -122,42 +102,13 @@ class RecentOrderdetails extends StatelessWidget {
                                 ],
                               ),
                               const Spacer(),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Container(
-                                    alignment: Alignment.center,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      gradient: const LinearGradient(
-                                        begin: Alignment(1.00, 0.00),
-                                        end: Alignment(-1, 0),
-                                        colors: [
-                                          AppColors.primaryGradientDeep,
-                                          AppColors.primaryGradientLight
-                                        ],
-                                      ),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 10),
-                                      child: Text('1',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyMedium!
-                                              .copyWith(
-                                                fontSize: 16.r,
-                                              )),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 10),
-                                  Text('₹ 200',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium!
-                                          .copyWith(fontSize: 12))
-                                ],
-                              ),
+                              Text('₹ 200',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .copyWith(
+                                          fontSize: 15,
+                                          color: AppColors.black)),
                             ],
                           ),
                           index == 3

@@ -17,13 +17,6 @@ class CategoryBottomSheet extends StatefulWidget {
 }
 
 class _CategoryBottomSheetState extends State<CategoryBottomSheet> {
-  // List<int> selected = [];
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -74,19 +67,15 @@ class _CategoryBottomSheetState extends State<CategoryBottomSheet> {
                                 ),
                               ),
                               GestureDetector(
-                                onTap: () {
-                                  // setState(() {
-                                  //   selected.clear();
-                                  // });
-                                  context
-                                      .read<CategoryFilterCubit>()
-                                      .clearAll();
-                                },
-                                child: Text(
-                                  'Clear All',
-                                  style: Theme.of(context).textTheme.bodySmall,
-                                ),
-                              )
+                                  onTap: () {
+                                    context
+                                        .read<CategoryFilterCubit>()
+                                        .clearAll();
+                                  },
+                                  child: Text('Clear All',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodySmall))
                             ],
                           ),
                           GridView.builder(
@@ -112,16 +101,6 @@ class _CategoryBottomSheetState extends State<CategoryBottomSheet> {
                                           .read<CategoryFilterCubit>()
                                           .selectCategory(index);
                                     }
-
-                                    // if (selected.contains(index)) {
-                                    //   setState(() {
-                                    //     selected.remove(index);
-                                    //   });
-                                    // } else {
-                                    //   setState(() {
-                                    //     selected.add(index);
-                                    //   });
-                                    // }
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
