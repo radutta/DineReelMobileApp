@@ -1,5 +1,4 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:dinereel/src/features/menu/screens/menu_page.dart';
 import 'package:dinereel/src/features/menu/screens/qr_scan_page.dart';
 import 'package:dinereel/src/features/user/screens/user_profile_page.dart';
 import 'package:dinereel/src/themes/colors.dart';
@@ -11,6 +10,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../common_widgets/bottom_navigation_bar.dart';
 import '../../../cubit/cubit/navigationcontroller_cubit.dart';
 import '../../../routing/routing_function.dart';
+import '../../menu/screens/blog_page.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
