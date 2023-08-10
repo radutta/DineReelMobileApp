@@ -1,3 +1,7 @@
-abstract class Repository{
+abstract class AuthRepository{
+  
+}
+
+abstract class MenuRepository{
   
 }
