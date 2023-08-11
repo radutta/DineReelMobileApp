@@ -20,7 +20,12 @@ class MenuHome extends StatefulWidget {
 class _MenuHomeState extends State<MenuHome>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
+
   var w = 450;
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

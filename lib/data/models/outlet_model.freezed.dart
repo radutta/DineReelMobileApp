@@ -29,10 +29,10 @@ mixin _$Outlet {
   @JsonKey(name: 'tables_list')
   List<String> get tableslist => throw _privateConstructorUsedError;
   List<Highlight> get highlights => throw _privateConstructorUsedError;
-  List<Offer> get offer => throw _privateConstructorUsedError;
+  List<Offer> get offers => throw _privateConstructorUsedError;
   @JsonKey(name: 'default_food_menu')
   String get defaultFoodMenu => throw _privateConstructorUsedError;
-  String get isActive => throw _privateConstructorUsedError;
+  bool get isActive => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,9 +51,9 @@ abstract class $OutletCopyWith<$Res> {
       String address,
       @JsonKey(name: 'tables_list') List<String> tableslist,
       List<Highlight> highlights,
-      List<Offer> offer,
+      List<Offer> offers,
       @JsonKey(name: 'default_food_menu') String defaultFoodMenu,
-      String isActive});
+      bool isActive});
 }
 
 /// @nodoc
@@ -75,7 +75,7 @@ class _$OutletCopyWithImpl<$Res, $Val extends Outlet>
     Object? address = null,
     Object? tableslist = null,
     Object? highlights = null,
-    Object? offer = null,
+    Object? offers = null,
     Object? defaultFoodMenu = null,
     Object? isActive = null,
   }) {
@@ -104,9 +104,9 @@ class _$OutletCopyWithImpl<$Res, $Val extends Outlet>
           ? _value.highlights
           : highlights // ignore: cast_nullable_to_non_nullable
               as List<Highlight>,
-      offer: null == offer
-          ? _value.offer
-          : offer // ignore: cast_nullable_to_non_nullable
+      offers: null == offers
+          ? _value.offers
+          : offers // ignore: cast_nullable_to_non_nullable
               as List<Offer>,
       defaultFoodMenu: null == defaultFoodMenu
           ? _value.defaultFoodMenu
@@ -115,7 +115,7 @@ class _$OutletCopyWithImpl<$Res, $Val extends Outlet>
       isActive: null == isActive
           ? _value.isActive
           : isActive // ignore: cast_nullable_to_non_nullable
-              as String,
+              as bool,
     ) as $Val);
   }
 }
@@ -133,9 +133,9 @@ abstract class _$$_OutletCopyWith<$Res> implements $OutletCopyWith<$Res> {
       String address,
       @JsonKey(name: 'tables_list') List<String> tableslist,
       List<Highlight> highlights,
-      List<Offer> offer,
+      List<Offer> offers,
       @JsonKey(name: 'default_food_menu') String defaultFoodMenu,
-      String isActive});
+      bool isActive});
 }
 
 /// @nodoc
@@ -154,7 +154,7 @@ class __$$_OutletCopyWithImpl<$Res>
     Object? address = null,
     Object? tableslist = null,
     Object? highlights = null,
-    Object? offer = null,
+    Object? offers = null,
     Object? defaultFoodMenu = null,
     Object? isActive = null,
   }) {
@@ -183,9 +183,9 @@ class __$$_OutletCopyWithImpl<$Res>
           ? _value._highlights
           : highlights // ignore: cast_nullable_to_non_nullable
               as List<Highlight>,
-      offer: null == offer
-          ? _value._offer
-          : offer // ignore: cast_nullable_to_non_nullable
+      offers: null == offers
+          ? _value._offers
+          : offers // ignore: cast_nullable_to_non_nullable
               as List<Offer>,
       defaultFoodMenu: null == defaultFoodMenu
           ? _value.defaultFoodMenu
@@ -194,7 +194,7 @@ class __$$_OutletCopyWithImpl<$Res>
       isActive: null == isActive
           ? _value.isActive
           : isActive // ignore: cast_nullable_to_non_nullable
-              as String,
+              as bool,
     ));
   }
 }
@@ -209,12 +209,12 @@ class _$_Outlet implements _Outlet {
       required this.address,
       @JsonKey(name: 'tables_list') required final List<String> tableslist,
       required final List<Highlight> highlights,
-      required final List<Offer> offer,
+      required final List<Offer> offers,
       @JsonKey(name: 'default_food_menu') required this.defaultFoodMenu,
       required this.isActive})
       : _tableslist = tableslist,
         _highlights = highlights,
-        _offer = offer;
+        _offers = offers;
 
   factory _$_Outlet.fromJson(Map<String, dynamic> json) =>
       _$$_OutletFromJson(json);
@@ -246,23 +246,23 @@ class _$_Outlet implements _Outlet {
     return EqualUnmodifiableListView(_highlights);
   }
 
-  final List<Offer> _offer;
+  final List<Offer> _offers;
   @override
-  List<Offer> get offer {
-    if (_offer is EqualUnmodifiableListView) return _offer;
+  List<Offer> get offers {
+    if (_offers is EqualUnmodifiableListView) return _offers;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_offer);
+    return EqualUnmodifiableListView(_offers);
   }
 
   @override
   @JsonKey(name: 'default_food_menu')
   final String defaultFoodMenu;
   @override
-  final String isActive;
+  final bool isActive;
 
   @override
   String toString() {
-    return 'Outlet(id: $id, outletId: $outletId, name: $name, address: $address, tableslist: $tableslist, highlights: $highlights, offer: $offer, defaultFoodMenu: $defaultFoodMenu, isActive: $isActive)';
+    return 'Outlet(id: $id, outletId: $outletId, name: $name, address: $address, tableslist: $tableslist, highlights: $highlights, offers: $offers, defaultFoodMenu: $defaultFoodMenu, isActive: $isActive)';
   }
 
   @override
@@ -279,7 +279,7 @@ class _$_Outlet implements _Outlet {
                 .equals(other._tableslist, _tableslist) &&
             const DeepCollectionEquality()
                 .equals(other._highlights, _highlights) &&
-            const DeepCollectionEquality().equals(other._offer, _offer) &&
+            const DeepCollectionEquality().equals(other._offers, _offers) &&
             (identical(other.defaultFoodMenu, defaultFoodMenu) ||
                 other.defaultFoodMenu == defaultFoodMenu) &&
             (identical(other.isActive, isActive) ||
@@ -296,7 +296,7 @@ class _$_Outlet implements _Outlet {
       address,
       const DeepCollectionEquality().hash(_tableslist),
       const DeepCollectionEquality().hash(_highlights),
-      const DeepCollectionEquality().hash(_offer),
+      const DeepCollectionEquality().hash(_offers),
       defaultFoodMenu,
       isActive);
 
@@ -322,9 +322,9 @@ abstract class _Outlet implements Outlet {
       required final String address,
       @JsonKey(name: 'tables_list') required final List<String> tableslist,
       required final List<Highlight> highlights,
-      required final List<Offer> offer,
+      required final List<Offer> offers,
       @JsonKey(name: 'default_food_menu') required final String defaultFoodMenu,
-      required final String isActive}) = _$_Outlet;
+      required final bool isActive}) = _$_Outlet;
 
   factory _Outlet.fromJson(Map<String, dynamic> json) = _$_Outlet.fromJson;
 
@@ -344,12 +344,12 @@ abstract class _Outlet implements Outlet {
   @override
   List<Highlight> get highlights;
   @override
-  List<Offer> get offer;
+  List<Offer> get offers;
   @override
   @JsonKey(name: 'default_food_menu')
   String get defaultFoodMenu;
   @override
-  String get isActive;
+  bool get isActive;
   @override
   @JsonKey(ignore: true)
   _$$_OutletCopyWith<_$_Outlet> get copyWith =>
@@ -372,9 +372,6 @@ mixin _$Highlight {
   String get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'highlight_media_lists')
   List<String> get highlightMediaLists => throw _privateConstructorUsedError;
-  @JsonKey(name: 'highlight_filter_criterion')
-  List<String> get highlightFilterCriterion =>
-      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -392,9 +389,8 @@ abstract class $HighlightCopyWith<$Res> {
       @JsonKey(name: 'highlight_name') String highlightName,
       @JsonKey(name: 'highlight_type') List<String> highlightType,
       @JsonKey(name: '_id') String id,
-      @JsonKey(name: 'highlight_media_lists') List<String> highlightMediaLists,
-      @JsonKey(name: 'highlight_filter_criterion')
-      List<String> highlightFilterCriterion});
+      @JsonKey(name: 'highlight_media_lists')
+      List<String> highlightMediaLists});
 
   $HighlightIconCopyWith<$Res> get highlightIcon;
 }
@@ -417,7 +413,6 @@ class _$HighlightCopyWithImpl<$Res, $Val extends Highlight>
     Object? highlightType = null,
     Object? id = null,
     Object? highlightMediaLists = null,
-    Object? highlightFilterCriterion = null,
   }) {
     return _then(_value.copyWith(
       highlightIcon: null == highlightIcon
@@ -439,10 +434,6 @@ class _$HighlightCopyWithImpl<$Res, $Val extends Highlight>
       highlightMediaLists: null == highlightMediaLists
           ? _value.highlightMediaLists
           : highlightMediaLists // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      highlightFilterCriterion: null == highlightFilterCriterion
-          ? _value.highlightFilterCriterion
-          : highlightFilterCriterion // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ) as $Val);
   }
@@ -468,9 +459,8 @@ abstract class _$$_HighlightCopyWith<$Res> implements $HighlightCopyWith<$Res> {
       @JsonKey(name: 'highlight_name') String highlightName,
       @JsonKey(name: 'highlight_type') List<String> highlightType,
       @JsonKey(name: '_id') String id,
-      @JsonKey(name: 'highlight_media_lists') List<String> highlightMediaLists,
-      @JsonKey(name: 'highlight_filter_criterion')
-      List<String> highlightFilterCriterion});
+      @JsonKey(name: 'highlight_media_lists')
+      List<String> highlightMediaLists});
 
   @override
   $HighlightIconCopyWith<$Res> get highlightIcon;
@@ -492,7 +482,6 @@ class __$$_HighlightCopyWithImpl<$Res>
     Object? highlightType = null,
     Object? id = null,
     Object? highlightMediaLists = null,
-    Object? highlightFilterCriterion = null,
   }) {
     return _then(_$_Highlight(
       highlightIcon: null == highlightIcon
@@ -515,10 +504,6 @@ class __$$_HighlightCopyWithImpl<$Res>
           ? _value._highlightMediaLists
           : highlightMediaLists // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      highlightFilterCriterion: null == highlightFilterCriterion
-          ? _value._highlightFilterCriterion
-          : highlightFilterCriterion // ignore: cast_nullable_to_non_nullable
-              as List<String>,
     ));
   }
 }
@@ -533,12 +518,9 @@ class _$_Highlight implements _Highlight {
       required final List<String> highlightType,
       @JsonKey(name: '_id') required this.id,
       @JsonKey(name: 'highlight_media_lists')
-      final List<String> highlightMediaLists = const [],
-      @JsonKey(name: 'highlight_filter_criterion')
-      final List<String> highlightFilterCriterion = const []})
+      required final List<String> highlightMediaLists})
       : _highlightType = highlightType,
-        _highlightMediaLists = highlightMediaLists,
-        _highlightFilterCriterion = highlightFilterCriterion;
+        _highlightMediaLists = highlightMediaLists;
 
   factory _$_Highlight.fromJson(Map<String, dynamic> json) =>
       _$$_HighlightFromJson(json);
@@ -571,19 +553,9 @@ class _$_Highlight implements _Highlight {
     return EqualUnmodifiableListView(_highlightMediaLists);
   }
 
-  final List<String> _highlightFilterCriterion;
-  @override
-  @JsonKey(name: 'highlight_filter_criterion')
-  List<String> get highlightFilterCriterion {
-    if (_highlightFilterCriterion is EqualUnmodifiableListView)
-      return _highlightFilterCriterion;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_highlightFilterCriterion);
-  }
-
   @override
   String toString() {
-    return 'Highlight(highlightIcon: $highlightIcon, highlightName: $highlightName, highlightType: $highlightType, id: $id, highlightMediaLists: $highlightMediaLists, highlightFilterCriterion: $highlightFilterCriterion)';
+    return 'Highlight(highlightIcon: $highlightIcon, highlightName: $highlightName, highlightType: $highlightType, id: $id, highlightMediaLists: $highlightMediaLists)';
   }
 
   @override
@@ -599,9 +571,7 @@ class _$_Highlight implements _Highlight {
                 .equals(other._highlightType, _highlightType) &&
             (identical(other.id, id) || other.id == id) &&
             const DeepCollectionEquality()
-                .equals(other._highlightMediaLists, _highlightMediaLists) &&
-            const DeepCollectionEquality().equals(
-                other._highlightFilterCriterion, _highlightFilterCriterion));
+                .equals(other._highlightMediaLists, _highlightMediaLists));
   }
 
   @JsonKey(ignore: true)
@@ -612,8 +582,7 @@ class _$_Highlight implements _Highlight {
       highlightName,
       const DeepCollectionEquality().hash(_highlightType),
       id,
-      const DeepCollectionEquality().hash(_highlightMediaLists),
-      const DeepCollectionEquality().hash(_highlightFilterCriterion));
+      const DeepCollectionEquality().hash(_highlightMediaLists));
 
   @JsonKey(ignore: true)
   @override
@@ -638,9 +607,7 @@ abstract class _Highlight implements Highlight {
       required final List<String> highlightType,
       @JsonKey(name: '_id') required final String id,
       @JsonKey(name: 'highlight_media_lists')
-      final List<String> highlightMediaLists,
-      @JsonKey(name: 'highlight_filter_criterion')
-      final List<String> highlightFilterCriterion}) = _$_Highlight;
+      required final List<String> highlightMediaLists}) = _$_Highlight;
 
   factory _Highlight.fromJson(Map<String, dynamic> json) =
       _$_Highlight.fromJson;
@@ -660,9 +627,6 @@ abstract class _Highlight implements Highlight {
   @override
   @JsonKey(name: 'highlight_media_lists')
   List<String> get highlightMediaLists;
-  @override
-  @JsonKey(name: 'highlight_filter_criterion')
-  List<String> get highlightFilterCriterion;
   @override
   @JsonKey(ignore: true)
   _$$_HighlightCopyWith<_$_Highlight> get copyWith =>

@@ -1,7 +1,7 @@
-abstract class AuthRepository{
-  
-}
+import 'models/restaurant_data_model.dart';
 
-abstract class MenuRepository{
-  
+abstract class AuthRepository {}
+
+abstract class AbRestaurant {
+  Future<RestaurantDataModel> getMenu();
 }

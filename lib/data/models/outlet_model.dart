@@ -13,9 +13,9 @@ class Outlet with _$Outlet {
     required String address,
     @JsonKey(name: 'tables_list') required List<String> tableslist,
     required List<Highlight> highlights,
-    required List<Offer> offer,
+    required List<Offer> offers,
     @JsonKey(name: 'default_food_menu') required String defaultFoodMenu,
-    required String isActive,
+    required bool isActive,
   }) = _Outlet;
 
   factory Outlet.fromJson(Map<String, dynamic> json) => _$OutletFromJson(json);
@@ -29,11 +29,9 @@ class Highlight with _$Highlight {
     @JsonKey(name: 'highlight_type') required List<String> highlightType,
     @JsonKey(name: '_id') required String id,
     @JsonKey(name: 'highlight_media_lists')
-    @Default([])
-    List<String> highlightMediaLists,
-    @JsonKey(name: 'highlight_filter_criterion')
-    @Default([])
-    List<String> highlightFilterCriterion,
+    required List<String> highlightMediaLists,
+    // @JsonKey(name: 'highlight_filter_criterion')
+    // String? highlightFilterCriterion,
   }) = _Highlight;
   factory Highlight.fromJson(Map<String, dynamic> json) =>
       _$HighlightFromJson(json);

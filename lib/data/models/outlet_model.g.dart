@@ -17,11 +17,11 @@ _$_Outlet _$$_OutletFromJson(Map<String, dynamic> json) => _$_Outlet(
       highlights: (json['highlights'] as List<dynamic>)
           .map((e) => Highlight.fromJson(e as Map<String, dynamic>))
           .toList(),
-      offer: (json['offer'] as List<dynamic>)
+      offers: (json['offers'] as List<dynamic>)
           .map((e) => Offer.fromJson(e as Map<String, dynamic>))
           .toList(),
       defaultFoodMenu: json['default_food_menu'] as String,
-      isActive: json['isActive'] as String,
+      isActive: json['isActive'] as bool,
     );
 
 Map<String, dynamic> _$$_OutletToJson(_$_Outlet instance) => <String, dynamic>{
@@ -31,7 +31,7 @@ Map<String, dynamic> _$$_OutletToJson(_$_Outlet instance) => <String, dynamic>{
       'address': instance.address,
       'tables_list': instance.tableslist,
       'highlights': instance.highlights,
-      'offer': instance.offer,
+      'offers': instance.offers,
       'default_food_menu': instance.defaultFoodMenu,
       'isActive': instance.isActive,
     };
@@ -44,15 +44,9 @@ _$_Highlight _$$_HighlightFromJson(Map<String, dynamic> json) => _$_Highlight(
           .map((e) => e as String)
           .toList(),
       id: json['_id'] as String,
-      highlightMediaLists: (json['highlight_media_lists'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const [],
-      highlightFilterCriterion:
-          (json['highlight_filter_criterion'] as List<dynamic>?)
-                  ?.map((e) => e as String)
-                  .toList() ??
-              const [],
+      highlightMediaLists: (json['highlight_media_lists'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
     );
 
 Map<String, dynamic> _$$_HighlightToJson(_$_Highlight instance) =>
@@ -62,7 +56,6 @@ Map<String, dynamic> _$$_HighlightToJson(_$_Highlight instance) =>
       'highlight_type': instance.highlightType,
       '_id': instance.id,
       'highlight_media_lists': instance.highlightMediaLists,
-      'highlight_filter_criterion': instance.highlightFilterCriterion,
     };
 
 _$_HighlightIcon _$$_HighlightIconFromJson(Map<String, dynamic> json) =>
