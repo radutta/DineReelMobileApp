@@ -15,7 +15,7 @@ class RestaurantApi implements AbRestaurant {
     if (response.statusCode == 200) {
       var res = response.data;
       var data = RestaurantDataModel.fromJson(jsonDecode(res));
-      print("address --->${data.outlet.address}");
+
       return data;
     } else {
       throw Exception('Failed to load album');
