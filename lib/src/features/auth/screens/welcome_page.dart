@@ -2,6 +2,7 @@ import 'package:dinereel/src/themes/colors.dart';
 import 'package:dinereel/src/features/auth/screens/login_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../../../../data/repositories/restaurant_repository.dart';
 import '../../../routing/routing_function.dart';
 import '../widgets/video_controller_widget.dart';
 
@@ -39,6 +40,8 @@ class _WelcomePageState extends State<WelcomePage> {
             onTap: () {
               Navigator.of(context)
                   .push(Routes().createRoute(const LoginPage()));
+              var resturant = RestaurantApi();
+              resturant.getMenu();
             },
             child: Container(
               padding: const EdgeInsets.symmetric(vertical: 14),

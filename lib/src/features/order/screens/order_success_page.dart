@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../routing/routing_function.dart';
-import '../../../themes/colors.dart';
+
 import '../cubit/order_cubit.dart';
 
 class OrderSuccessPage extends StatefulWidget {
@@ -39,31 +39,13 @@ class _OrderSuccessPageState extends State<OrderSuccessPage> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Lottie.asset('assets/order/lottie_asset/order_success.json'),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context)
-                    .pushReplacement(Routes().createRoute(const MenuHome()));
-                context.read<OrderControllerCubit>().removeOrder();
-              },
-              child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 6.5),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    gradient: const LinearGradient(colors: [
-                      AppColors.primaryGradientDeep,
-                      AppColors.primaryGradientLight
-                    ]),
-                    color: AppColors.primaryGradientLight),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 48),
-                  child: Text(
-                    'Go Back',
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-                ),
-              ),
-            ),
+            Lottie.asset('assets/order/lottie_asset/order_success.json',
+                repeat: false, height: 300, fit: BoxFit.cover),
+            Text(
+              'Thanks! We have recieved your order.',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.titleMedium,
+            )
           ],
         ),
       ),

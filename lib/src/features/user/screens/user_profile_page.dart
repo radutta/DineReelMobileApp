@@ -19,15 +19,7 @@ class UserProfilePage extends StatelessWidget {
               child: UserDetailsCard(type: type),
             ),
             const SizedBox(height: 30),
-            const RecentOrderWidget(),
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: ProfilePageOptionsBtn(
-                  title: 'Settings',
-                  icon: Icons.settings_outlined,
-                  clickAction: () {}),
-            ),
+            RecentOrderWidget(type: type),
             const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),

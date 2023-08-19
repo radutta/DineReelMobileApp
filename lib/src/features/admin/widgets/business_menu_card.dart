@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../data/models/business_menu_card_model.dart';
 import '../../../themes/colors.dart';
@@ -22,7 +21,7 @@ class _BusinessMenuCardState extends State<BusinessMenuCard> {
           itemBuilder: (context, index) {
             return Center(
               child: Container(
-                width: 500.w,
+                width: 500,
                 height: 120,
                 padding: const EdgeInsets.all(15),
                 margin: const EdgeInsets.only(bottom: 15),
